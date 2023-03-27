@@ -1,11 +1,14 @@
 <header [class]="darkMode?'darkMode':''" class="">
-  <mat-toolbar color="primary">
-  Angular Dark Mode
-  <div class="flex-stretch"></div>
-    <mat-icon class="mr-8">brightness_5</mat-icon>
-    <mat-slide-toggle class="mr-8" [(ngModel)]="darkMode">
-    </mat-slide-toggle>
-    <mat-icon>bedtime</mat-icon>
+  <mat-toolbar color="primary" class="flex justify-between items-center">
+    <div class="flex items-center">
+      <button mat-icon-button class="p-2 rounded-md" (click)="drawer.toggle()">
+        <mat-icon class="mat-center">
+          menu
+        </mat-icon>
+      </button>
+      <mat-slide-toggle class="mr-8" [(ngModel)]="darkMode">
+      </mat-slide-toggle>
+    </div>
   </mat-toolbar>
 </header>
 <body [class]="darkMode?'darkMode':''" class="example-container">
