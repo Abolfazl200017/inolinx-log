@@ -9,4 +9,7 @@ export class AppComponent {
   darkMode:boolean=false;
   title = 'log-inolinx';
   showFiller = false;
+  doIt(){
+    console.log('submit search')
+  }
 }

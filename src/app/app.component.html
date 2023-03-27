@@ -6,13 +6,33 @@
           menu
         </mat-icon>
       </button>
-      <mat-slide-toggle class="mr-8" [(ngModel)]="darkMode">
+      <a matRipple routerLink="/">
+        <mat-icon class="mat-center">
+          home
+        </mat-icon>
+      </a>
+      <form action="" (ngSubmit)="doIt()" class="h-full relative mr-3">
+        <input type="text" placeholder="جستجو" class="text-gray-800 text-sm py-1 px-3 rounded-3xl focus:outline-none h-full">
+        <button type="submit" class="absolute left-0 top-1 h-full z-10 text-red-400">
+          <mat-icon class="mat-center text-gray-700 px-1">
+            search
+          </mat-icon>
+        </button>
+        <input type="submit" class="w-0 h-0 overflow-hidden">
+      </form>
+    </div>
+    <div class="flex items-center">
+      <mat-icon class="mat-center ml-2">
+        {{darkMode?'dark_mode':'light_mode'}}
+      </mat-icon>
+      <mat-slide-toggle class="" [(ngModel)]="darkMode">
       </mat-slide-toggle>
+      
     </div>
   </mat-toolbar>
 </header>
 <body [class]="darkMode?'darkMode':''" class="example-container">
-  <mat-drawer-container class="h-screen" autosize>
+  <mat-drawer-container class="min-h-full" autosize>
     <mat-drawer #drawer class="example-sidenav" mode="side"> 
       <p>Auto-resizing sidenav</p>
       <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
