@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './shared/angular-material/angular-material.module'
 import { FormsModule } from '@angular/forms';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SidebarComponent
   ],
   imports: [
     AngularMaterialModule,

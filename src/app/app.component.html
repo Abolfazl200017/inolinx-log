@@ -22,23 +22,23 @@
       </form>
     </div>
     <div class="flex items-center">
-      <mat-icon class="mat-center ml-2">
-        {{darkMode?'dark_mode':'light_mode'}}
-      </mat-icon>
-      <mat-slide-toggle class="" [(ngModel)]="darkMode">
-      </mat-slide-toggle>
-      
+      <div class="flex">
+        <mat-icon class="mat-center ml-2">
+          {{darkMode?'dark_mode':'light_mode'}}
+        </mat-icon>
+        <mat-slide-toggle class="" [(ngModel)]="darkMode">
+        </mat-slide-toggle>
+      </div>
+      <a href="" class="rounded-full w-6 h-6 bg-white overflow-hidden cursor-pointer">
+        <img src="https://inolinx.com/assets/image/site-logo.webp" alt="" class="w-full h-full object-cover">
+      </a>
     </div>
   </mat-toolbar>
 </header>
 <body [class]="darkMode?'darkMode':''" class="example-container">
   <mat-drawer-container class="min-h-full" autosize>
-    <mat-drawer #drawer class="example-sidenav" mode="side"> 
-      <p>Auto-resizing sidenav</p>
-      <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
-      <button (click)="showFiller = !showFiller" mat-raised-button>
-        Toggle extra text
-      </button>
+    <mat-drawer #drawer class="example-sidenav w-full md:w-1/4" mode="side"> 
+      <app-sidebar></app-sidebar>
     </mat-drawer>
   
     <div class="example-sidenav-content">
