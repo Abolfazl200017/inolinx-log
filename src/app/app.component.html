@@ -1,10 +1,28 @@
-<div class="darkMode mat-app-background mat-dark-theme">
+<header [class]="darkMode?'darkMode':''" class="">
   <mat-toolbar color="primary">
-    Angular Dark Mode
-    <div class="flex-stretch"></div>
+  Angular Dark Mode
+  <div class="flex-stretch"></div>
     <mat-icon class="mr-8">brightness_5</mat-icon>
-    <mat-slide-toggle class="mr-8">
+    <mat-slide-toggle class="mr-8" [(ngModel)]="darkMode">
     </mat-slide-toggle>
     <mat-icon>bedtime</mat-icon>
   </mat-toolbar>
-</div>
+</header>
+<body [class]="darkMode?'darkMode':''" class="example-container">
+  <mat-drawer-container class="h-screen" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side"> 
+      <p>Auto-resizing sidenav</p>
+      <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+      <button (click)="showFiller = !showFiller" mat-raised-button>
+        Toggle extra text
+      </button>
+    </mat-drawer>
+  
+    <div class="example-sidenav-content">
+      <button type="button" mat-button (click)="drawer.toggle()">
+        Toggle sidenav
+      </button>
+    </div>
+  
+  </mat-drawer-container>
+</body>
