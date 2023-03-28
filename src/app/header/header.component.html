@@ -1,7 +1,6 @@
-<header #header [class]="darkMode?'darkMode':''" class="">
-  <!-- <mat-toolbar color="primary" class="flex justify-between items-center">
+<mat-toolbar color="primary" class="flex justify-between items-center">
     <div class="flex items-center">
-      <button mat-icon-button class="p-2 rounded-md" (click)="drawer.toggle()">
+      <button mat-icon-button class="p-2 rounded-md" (click)="menu.emit()">
         <mat-icon class="mat-center">
           menu
         </mat-icon>
@@ -33,18 +32,4 @@
         <img src="https://inolinx.com/assets/image/site-logo.webp" alt="" class="w-full h-full object-cover">
       </a>
     </div>
-  </mat-toolbar> -->
-  <app-header (darkModeChange)="setMode($event)" (initHeight)="setMainHeight()" (menu)="drawer.toggle()"></app-header>
-</header>
-<main [class]="darkMode?'darkMode':''" class="example-container h-full" (window:resize)="setMainHeight()" [style]="mainHeight">
-  <mat-drawer-container class="h-full" autosize>
-    <mat-drawer #drawer class="example-sidenav w-full md:w-1/4" mode="side"> 
-      <app-sidebar></app-sidebar>
-    </mat-drawer>
-  
-    <div class="example-sidenav-content h-full overflow-y-scroll scrollbar-style">
-      <router-outlet></router-outlet>
-    </div>
-  
-  </mat-drawer-container>
-</main>
+  </mat-toolbar>

@@ -12,27 +12,14 @@ export class AppComponent implements OnInit{
   mainHeight:string='';
   @ViewChild('header') header:ElementRef|undefined;
   constructor(private local:StorageService){}
-  ngOnInit():void {
-    this.initMode();
-  }
-  ngAfterViewInit():void {
-    this.setMainHeight()
-    console.log(this.mainHeight)
-  }
+  ngOnInit():void {}
   doIt(){
     console.log('submit search')
   }
-  initMode(){
-    if(!this.local.getItem('darkMode')){
-      this.local.setItem('darkMode', this.darkMode)
-    }else {
-      this.darkMode = this.local.getData('darkMode')
-    }
-  }
-  changeMode(){
-    this.darkMode = !this.darkMode;
+  
+  setMode(mode:boolean){
+    this.darkMode = mode;
     this.local.setData('darkMode', this.darkMode)
-    console.log(this.header)
   }
   setMainHeight(){
     this.mainHeight = `height: calc(100% - ${this.header?.nativeElement.offsetHeight}px);`
