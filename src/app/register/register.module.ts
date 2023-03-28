@@ -5,6 +5,7 @@ import { RegisterRoutingModule } from './register-routing.module';
 import { RegisterComponent } from './register.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
+import { AngularMaterialModule } from '../shared/angular-material/angular-material.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { LoginComponent } from './login/login.component';
   ],
   imports: [
     CommonModule,
-    RegisterRoutingModule
+    RegisterRoutingModule,
+    AngularMaterialModule,
   ]
 })
 export class RegisterModule { }
