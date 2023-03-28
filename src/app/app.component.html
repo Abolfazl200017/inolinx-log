@@ -35,13 +35,13 @@
     </div>
   </mat-toolbar>
 </header>
-<main [class]="darkMode?'darkMode':''" class="example-container">
-  <mat-drawer-container class="min-h-full" autosize>
+<main [class]="darkMode?'darkMode':''" class="example-container h-full">
+  <mat-drawer-container class="h-full" autosize>
     <mat-drawer #drawer class="example-sidenav w-full md:w-1/4" mode="side"> 
       <app-sidebar></app-sidebar>
     </mat-drawer>
   
-    <div class="example-sidenav-content">
+    <div class="example-sidenav-content h-full overflow-y-scroll">
       <router-outlet></router-outlet>
     </div>
   

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { StorageService } from './services/storage/storage.service';
 
 @Component({
@@ -8,8 +8,8 @@ import { StorageService } from './services/storage/storage.service';
 })
 export class AppComponent implements OnInit{
   darkMode:boolean=false;
-  title = 'log-inolinx';
   showFiller = false;
+  @ViewChild(Headers) header:ElementRef|undefined;
   constructor(private local:StorageService){}
   ngOnInit():void {
     this.initMode();
@@ -27,5 +27,6 @@ export class AppComponent implements OnInit{
   changeMode(){
     this.darkMode = !this.darkMode;
     this.local.setData('darkMode', this.darkMode)
+    console.log(this.header)
   }
 }
