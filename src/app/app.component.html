@@ -26,7 +26,7 @@
         <mat-icon class="mat-center ml-2">
           {{darkMode?'dark_mode':'light_mode'}}
         </mat-icon>
-        <mat-slide-toggle class="" [(ngModel)]="darkMode">
+        <mat-slide-toggle class="" (toggleChange)="changeMode()" [(ngModel)]="darkMode">
         </mat-slide-toggle>
       </div>
       <a href="" class="rounded-full w-6 h-6 bg-white overflow-hidden cursor-pointer">
