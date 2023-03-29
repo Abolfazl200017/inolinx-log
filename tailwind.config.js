@@ -7,6 +7,7 @@ module.exports = {
         'primary': '#3f51b5',
         'lightPrimary': '#1e88e5',
         'llprimary': '#e8f0fe',
+        'inputBg': '#80808030',
       },
     },
   },
