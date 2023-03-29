@@ -2,11 +2,11 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { StorageService } from '../../services/storage/storage.service';
 
 @Component({
-  selector: 'app-project',
-  templateUrl: './project.component.html',
-  styleUrls: ['./project.component.scss']
+  selector: 'app-main',
+  templateUrl: './main.component.html',
+  styleUrls: ['./main.component.scss']
 })
-export class ProjectComponent implements OnInit {
+export class MainComponent implements OnInit {
   darkMode:boolean=false;
   showFiller = false;
   mainHeight:string='';
