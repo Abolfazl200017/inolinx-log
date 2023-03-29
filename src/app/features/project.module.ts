@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { FeaturesRoutingModule } from './features-routing.module';
-import { FeaturesComponent } from './features.component';
+import { ProjectRoutingModule } from './project-routing.module';
+import { ProjectComponent } from './project.component';
 import { AngularMaterialModule } from '../shared/angular-material/angular-material.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from './header/header.component';
@@ -10,14 +10,14 @@ import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
-    FeaturesComponent,
+    ProjectComponent,
     SidebarComponent,
     HeaderComponent
   ],
   imports: [
     CommonModule,
-    FeaturesRoutingModule,
+    ProjectRoutingModule,
     AngularMaterialModule
   ]
 })
-export class FeaturesModule { }
+export class ProjectModule { }
