@@ -15,10 +15,12 @@ export class FeaturesComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  ngAfterViewInit(): void {
+    this.setMainHeight()
+  }
   doIt(){
     console.log('submit search')
   }
-  
   setMode(mode:boolean){
     this.darkMode = mode;
     this.local.setData('darkMode', this.darkMode)
