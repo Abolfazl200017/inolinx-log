@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { StorageService } from '../services/storage/storage.service';
+import { StorageService } from '../../services/storage/storage.service';
 
 @Component({
   selector: 'app-header',
