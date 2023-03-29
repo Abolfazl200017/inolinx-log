@@ -8,6 +8,8 @@ module.exports = {
         'lightPrimary': '#1e88e5',
         'llprimary': '#e8f0fe',
         'inputBg': '#80808030',
+        'secondary': '#e61a58',
+        
       },
     },
   },
