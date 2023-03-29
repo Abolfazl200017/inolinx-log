@@ -6,6 +6,8 @@ import { NewComponent } from './new.component';
 import { IssueComponent } from './issue/issue.component';
 import { ProjectComponent } from './project/project.component';
 import { AngularMaterialModule } from 'src/app/shared/angular-material/angular-material.module';
+import { FormsModule } from '@angular/forms';
+import { NgxDatePickerModule } from '@ah99/ngx-date-picker';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { AngularMaterialModule } from 'src/app/shared/angular-material/angular-m
   imports: [
     CommonModule,
     NewRoutingModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    FormsModule,
+    NgxDatePickerModule.forRoot(),
   ]
 })
 export class NewModule { }
