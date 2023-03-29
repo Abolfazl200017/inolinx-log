@@ -5,6 +5,11 @@ module.exports = {
     extend: {},
     colors: {
       'primary': '#3f51b5',
+      'lightPrimary': '#1e88e5',
+      'llprimary': '#e8f0fe',
+    },
+    aspectRatio: {
+      'tall': '3 / 4'
     }
   },
   plugins: [],
