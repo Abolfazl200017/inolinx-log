@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { ProjectRoutingModule } from './project-routing.module';
 import { ProjectComponent } from './project.component';
-import { AngularMaterialModule } from '../shared/angular-material/angular-material.module';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { HeaderComponent } from './header/header.component';
+import { AngularMaterialModule } from '../../shared/angular-material/angular-material.module';
+import { SidebarComponent } from '../sidebar/sidebar.component';
+import { HeaderComponent } from '../header/header.component';
 
 
 @NgModule({
