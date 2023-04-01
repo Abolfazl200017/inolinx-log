@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { NgxDatePickerModule } from '@ah99/ngx-date-picker';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { HttpClientModule } from '@angular/common/http';
+import { EditorModule } from '@tinymce/tinymce-angular';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
     NgxDatePickerModule.forRoot(),
     HttpClientModule,
     AngularEditorModule,
+    EditorModule,
   ]
 })
 export class NewModule { }
