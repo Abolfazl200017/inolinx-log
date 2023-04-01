@@ -9,7 +9,6 @@ import { StorageService } from '../../../services/storage/storage.service';
 export class HeaderComponent implements OnInit {
   darkMode:boolean=false;
   @Output() darkModeChange: EventEmitter<boolean> = new EventEmitter();
-  @Output() initHeight: EventEmitter<null> = new EventEmitter();
   @Output() menu:EventEmitter<null> = new EventEmitter();
   constructor(private local:StorageService){}
   ngOnInit():void {

@@ -8,6 +8,8 @@ import { ProjectComponent } from './project/project.component';
 import { AngularMaterialModule } from 'src/app/shared/angular-material/angular-material.module';
 import { FormsModule } from '@angular/forms';
 import { NgxDatePickerModule } from '@ah99/ngx-date-picker';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -22,6 +24,8 @@ import { NgxDatePickerModule } from '@ah99/ngx-date-picker';
     AngularMaterialModule,
     FormsModule,
     NgxDatePickerModule.forRoot(),
+    HttpClientModule,
+    AngularEditorModule,
   ]
 })
 export class NewModule { }
