@@ -44,4 +44,5 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 @tailwind components;
 @tailwind utilities;
 
-@import "@ah99/ngx-date-picker/styles"
+@import "@ah99/ngx-date-picker/styles";
+@import 'assets/scss/main';
