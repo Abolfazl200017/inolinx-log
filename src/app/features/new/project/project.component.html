@@ -1,21 +1,21 @@
 <mat-card class="w-full md:w-4/5 mx-auto mt-10">
-    <form action="" class="w-full py-3">
+    <form [formGroup]="formGroup" action="" class="w-full py-3">
         <div class="w-full rounded-t-md font-semibold text-xl px-3 py-3 text-center">
             ایجاد پروژه جدید
         </div>
         <div class="w-full flex flex-col items-center">
-            <input type="email" placeholder="عنوان پروژه" class="w-4/5 rounded-3xl items-center justify-center focus:outline-none mt-5 py-2 px-3 bg-inputBg">
-            <input type="email" placeholder="عنوان پروژه در url" class="w-4/5 rounded-3xl items-center justify-center focus:outline-none mt-5 py-2 px-3 bg-inputBg">
-            <input type="email" placeholder="عنوان پروژه در url" class="w-4/5 rounded-3xl items-center justify-center focus:outline-none mt-5 py-2 px-3 bg-inputBg">
-            <textarea name="" id="" cols="30" rows="10" class="w-4/5 mt-5 bg-inputBg focus:outline-none rounded-md p-3" placeholder="توضیحات"></textarea>
+            <input formGroupName="title" type="text" placeholder="عنوان پروژه" class="w-4/5 rounded-3xl items-center justify-center focus:outline-none mt-5 py-2 px-3 bg-inputBg">
+            <input formGroupName="urlTitle" type="text" placeholder="عنوان پروژه در url" class="w-4/5 rounded-3xl items-center justify-center focus:outline-none mt-5 py-2 px-3 bg-inputBg">
+            <input formGroupName="owner" type="text" placeholder="مالک اصلی پروژه" class="w-4/5 rounded-3xl items-center justify-center focus:outline-none mt-5 py-2 px-3 bg-inputBg">
+            <textarea formGroupName="info" name="" id="" cols="30" rows="10" class="w-4/5 mt-5 bg-inputBg focus:outline-none rounded-md p-3" placeholder="توضیحات"></textarea>
             <div class="mt-5 w-4/5 flex items-center justify-between flex-wrap">
-                <input ngx-date-picker [datePickerConfig]="config" [(ngModel)]="startDateControl" [ngModelOptions]="{standalone: true}" class="w-full md:w-[45%] rounded-3xl items-center justify-center focus:outline-none mt-5 py-2 px-3 bg-inputBg" placeholder="تاریخ شروع">
-                <input ngx-date-picker [datePickerConfig]="config" [(ngModel)]="endDateControl" [ngModelOptions]="{standalone: true}" class="dark darkMode w-full md:w-[45%] rounded-3xl items-center justify-center focus:outline-none mt-5 py-2 px-3 bg-inputBg" placeholder="تاریخ پایان" (onDateSelect)="log($event)">                
+                <input formGroupName="startDate" ngx-date-picker [datePickerConfig]="config" [(ngModel)]="startDateControl" [ngModelOptions]="{standalone: true}" class="w-full md:w-[45%] rounded-3xl items-center justify-center focus:outline-none mt-5 py-2 px-3 bg-inputBg" placeholder="تاریخ شروع">
+                <input formGroupName="endDate" ngx-date-picker [datePickerConfig]="config" [(ngModel)]="endDateControl" [ngModelOptions]="{standalone: true}" class="dark darkMode w-full md:w-[45%] rounded-3xl items-center justify-center focus:outline-none mt-5 py-2 px-3 bg-inputBg" placeholder="تاریخ پایان" (onDateSelect)="log($event)">                
             </div>
         </div>
         <div class="w-full flex items-center justify-center mt-5">
             <input type="submit" class="w-0 h-0">
-            <button mat-raised-button color="primary" type="submit">
+            <button mat-raised-button color="primary" type="submit" (click)="console()">
                 ایجاد
             </button>
         </div>

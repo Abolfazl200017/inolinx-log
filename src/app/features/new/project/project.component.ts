@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {  UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-project',
@@ -26,11 +27,23 @@ export class ProjectComponent implements OnInit {
       rounded: "medium" // flase | "medium" | "full"
     }
   }
-  constructor() { }
-
+  constructor(
+    private formBuilder: UntypedFormBuilder,
+  ) { }
+  formGroup = this.formBuilder.group({
+    title: new UntypedFormControl('', [Validators.required]),
+    urlTitle: new UntypedFormControl('', [Validators.required]),
+    owner: new UntypedFormControl("", [Validators.required]),
+    info: new UntypedFormControl("", [Validators.required]),
+    startDate: new Date(),
+    endDate: new Date(),
+  });
   ngOnInit(): void {
   }
   log(e:any){
-    console.log(e);
+    // console.log(e);
+  }
+  console(){
+    console.log(this.formGroup)
   }
 }

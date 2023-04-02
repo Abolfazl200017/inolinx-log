@@ -6,7 +6,7 @@ import { NewComponent } from './new.component';
 import { IssueComponent } from './issue/issue.component';
 import { ProjectComponent } from './project/project.component';
 import { AngularMaterialModule } from 'src/app/shared/angular-material/angular-material.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxDatePickerModule } from '@ah99/ngx-date-picker';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { HttpClientModule } from '@angular/common/http';
@@ -24,6 +24,7 @@ import { EditorModule } from '@tinymce/tinymce-angular';
     NewRoutingModule,
     AngularMaterialModule,
     FormsModule,
+    ReactiveFormsModule,
     NgxDatePickerModule.forRoot(),
     HttpClientModule,
     AngularEditorModule,
