@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  formError:boolean=false;
+  constructor(
+    private formBuilder: UntypedFormBuilder
+  ) { }
 
-  constructor() { }
-
+  formGroup = this.formBuilder.group({
+    email: new UntypedFormControl('', [Validators.required, Validators.pattern((/^(\d{10}|\w+([\.-]?\w+)*@\w+([\.-]?\w+)*)$/))]),
+    password: new UntypedFormControl('', [Validators.required, Validators.minLength(8)])
+  })
   ngOnInit(): void {
   }
-
+  console(){
+    console.log(this.formGroup.valid)
+  }
 }

@@ -16,7 +16,9 @@ export class HeaderComponent implements OnInit {
   ngOnInit():void {
   }
   ngAfterViewInit():void {
-    this.initMode();
+    setTimeout(() => {
+      this.initMode();
+    });
   }
   doIt(){
     console.log('submit search')

@@ -6,6 +6,7 @@ import { RegisterComponent } from './register.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { AngularMaterialModule } from '../shared/angular-material/angular-material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,6 +19,8 @@ import { AngularMaterialModule } from '../shared/angular-material/angular-materi
     CommonModule,
     RegisterRoutingModule,
     AngularMaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class RegisterModule { }

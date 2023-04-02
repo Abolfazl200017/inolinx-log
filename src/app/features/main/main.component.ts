@@ -16,7 +16,9 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
   }
   ngAfterViewInit(): void {
-    this.setMainHeight()
+    setTimeout(() => {
+      this.setMainHeight()
+    });
   }
   doIt(){
     console.log('submit search')
