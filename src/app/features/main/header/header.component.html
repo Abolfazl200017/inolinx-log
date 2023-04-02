@@ -28,8 +28,13 @@
         <mat-slide-toggle class="" (toggleChange)="changeMode()">
         </mat-slide-toggle>
       </div>
-      <a href="" class="rounded-full w-6 h-6 bg-white overflow-hidden cursor-pointer">
-        <img src="https://inolinx.com/assets/image/site-logo.webp" alt="" class="w-full h-full object-cover">
-      </a>
+      <div class="relative flex items-center justify-center">
+        <a (click)="changeProfileExpansionState()" class="rounded-full w-6 h-6 bg-white overflow-hidden cursor-pointer">
+          <img src="https://inolinx.com/assets/image/site-logo.webp" alt="" class="w-full h-full object-cover">
+        </a>
+        <div class="mat-app-background absolute top-7 left-0 w-52 h-64 z-10 border border-inputBg rounded-md transition-all ease-in-out duration-300" [class]="profileExpansion.class">
+
+        </div>
+      </div>
     </div>
 </mat-toolbar>
