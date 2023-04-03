@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UntypedFormBuilder, UntypedFormControl } from '@angular/forms';
 
 interface IIssueTypes{
   id:number;
@@ -24,7 +25,7 @@ interface IPersonType{
   styleUrls: ['./issue.component.scss']
 })
 export class IssueComponent implements OnInit {
-  output:any;
+  selectedPersons:any;
   issueTypes:IIssueTypes[]=[
     {
       id: 0,
@@ -101,8 +102,21 @@ export class IssueComponent implements OnInit {
       img: 'https://anbare.inolinx.com/media/post/logo/902198328232_6493_cropped.png',
     },
   ]
-  constructor() { }
-
+  constructor(
+    private formBuilder: UntypedFormBuilder,
+  ) { }
+  issueGroup = this.formBuilder.group({
+    selectedPersons: new UntypedFormControl()
+  })
   ngOnInit(): void {
+  }
+  getSelectedPersons(){
+    let selectedPerson = this.issueGroup.controls['selectedPersons'].value;
+    let selectedPersonObjects:any=[];
+    selectedPerson.forEach((sp:string) => {
+      selectedPersonObjects.push(this.personList.find((person)=>person.id == sp))
+    });
+    this.selectedPersons = selectedPersonObjects;
+    return selectedPersonObjects;
   }
 }
