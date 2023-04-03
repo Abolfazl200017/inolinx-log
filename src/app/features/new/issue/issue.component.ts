@@ -7,6 +7,7 @@ interface IIssueTypes{
 interface IProjectType{
   id:string;
   value:string;
+  img:string|undefined;
 }
 interface ICategoryType{
   id:string;
@@ -15,6 +16,7 @@ interface ICategoryType{
 interface IPersonType{
   id:string;
   value:string;
+  img:string|undefined;
 }
 
 @Component({
@@ -40,15 +42,18 @@ export class IssueComponent implements OnInit {
   parentProjectList:IProjectType[] = [
     {
       id:'1',
-      value: 'پروژه اول'
+      value: 'پروژه اول',
+      img:'https://inolinx.com/katibe/biotechno',
     },
     {
       id:'2',
-      value: 'پروژه دوم'
+      value: 'پروژه دوم',
+      img: 'https://inolinx.com/assets/image/job1.webp',
     },
     {
       id:'3',
-      value: 'پروژه سوم'
+      value: 'پروژه سوم',
+      img: 'https://inolinx.com/assets/image/site-logo.webp',
     }
   ]
   categoryTypes:ICategoryType[] = [
@@ -72,23 +77,28 @@ export class IssueComponent implements OnInit {
   personList:IPersonType[] = [
     {
       id:'user-1',
-      value:'ابوالفضل'
+      value:'ابوالفضل',
+      img: 'https://anbare.inolinx.com/media/user_profile_photo/1ZNRJE9Q25.jpg',
     },
     {
       id:'user-2',
-      value:'عباس'
+      value:'عباس',
+      img: 'https://anbare.inolinx.com/media/user_profile_photo/109748234676_59856_cropped.webp',
     },
     {
       id:'user-3',
-      value:'مجتبی'
+      value:'مجتبی',
+      img: 'https://anbare.inolinx.com/media/post/logo/660071323815_5273_cropped.webp',
     },
     {
       id:'user-4',
-      value:'پسرخاله'
+      value:'پسرخاله',
+      img: 'https://anbare.inolinx.com/media/post/logo/890677703778_9681_cropped.png',
     },
     {
       id:'user-5',
-      value:'محمدامین'
+      value:'محمدامین',
+      img: 'https://anbare.inolinx.com/media/post/logo/902198328232_6493_cropped.png',
     },
   ]
   constructor() { }

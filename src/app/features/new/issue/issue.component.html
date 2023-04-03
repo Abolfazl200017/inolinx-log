@@ -21,7 +21,14 @@
                 </mat-label>
                 <mat-select>
                     <mat-option *ngFor="let project of parentProjectList" [value]="project.id">
-                        {{project.value}}
+                        <div class="flex items-center">
+                            <div class="rounded-full w-6 h-6 flex items-center justify-center overflow-hidden mat-app-background ml-3 border">
+                                <img class="min-w-full min-h-full object-cover" [src]="project.img?project.img:'https://anbare.inolinx.com/media/logo/iot.jpg'" [alt]="project.value">
+                            </div>
+                            <div>
+                                {{project.value}}
+                            </div>
+                        </div>
                     </mat-option>
                 </mat-select>
             </mat-form-field>
@@ -41,7 +48,14 @@
                 </mat-label>
                 <mat-select [multiple]="true">
                     <mat-option *ngFor="let person of personList" [value]="person.id">
-                        {{person.value}}
+                        <div class="flex items-center">
+                            <div class="rounded-full w-6 h-6 flex items-center justify-center overflow-hidden mat-app-background ml-3 border">
+                                <img class="min-w-full min-h-full object-cover" [src]="person.img?person.img:'https://anbare.inolinx.com/media/logo/iot.jpg'" [alt]="person.value">
+                            </div>
+                            <div>
+                                {{person.value}}
+                            </div>
+                        </div>
                     </mat-option>
                 </mat-select>
             </mat-form-field>

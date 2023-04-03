@@ -8,7 +8,6 @@ import { ProjectComponent } from './project/project.component';
 import { AngularMaterialModule } from 'src/app/shared/angular-material/angular-material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxDatePickerModule } from '@ah99/ngx-date-picker';
-import { AngularEditorModule } from '@kolkov/angular-editor';
 import { HttpClientModule } from '@angular/common/http';
 import { EditorModule } from '@tinymce/tinymce-angular';
 
@@ -27,7 +26,6 @@ import { EditorModule } from '@tinymce/tinymce-angular';
     ReactiveFormsModule,
     NgxDatePickerModule.forRoot(),
     HttpClientModule,
-    AngularEditorModule,
     EditorModule,
   ]
 })
