@@ -5,12 +5,12 @@
         </div>
         <div class="w-full grid grid-cols-3">
             <div class="col-span-1 flex flex-col items-center px-3">
-                <input type="email" placeholder="عنوان مسئله" class="w-full rounded-3xl items-center justify-center focus:outline-none mt-5 py-2 px-3 bg-inputBg">
+                <input formControlName="title" type="email" placeholder="عنوان مسئله" class="w-full rounded-3xl items-center justify-center focus:outline-none mt-5 py-2 px-3 bg-inputBg">
                 <mat-form-field appearance="fill" class="w-full mt-5">
                     <mat-label>
                         حالت مسئله
                     </mat-label>
-                    <mat-select>
+                    <mat-select formControlName="type">
                         <mat-option *ngFor="let type of issueTypes" [value]="type.id">
                             {{type.value}}
                         </mat-option>
@@ -20,7 +20,7 @@
                     <mat-label>
                         پروژه مربوطه
                     </mat-label>
-                    <mat-select>
+                    <mat-select formControlName="project">
                         <mat-option *ngFor="let project of parentProjectList" [value]="project.id">
                             <div class="flex items-center">
                                 <div class="rounded-full w-6 h-6 flex items-center justify-center overflow-hidden mat-app-background ml-3 border">
@@ -37,7 +37,7 @@
                     <mat-label>
                         دسته بندی‌ها
                     </mat-label>
-                    <mat-select [multiple]="true">
+                    <mat-select formControlName="categories" [multiple]="true">
                         <mat-option *ngFor="let category of categoryTypes" [value]="category.id">
                             {{category.value}}
                         </mat-option>

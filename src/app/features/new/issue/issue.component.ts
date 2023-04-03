@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormControl } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
 
 interface IIssueTypes{
   id:number;
@@ -106,6 +106,10 @@ export class IssueComponent implements OnInit {
     private formBuilder: UntypedFormBuilder,
   ) { }
   issueGroup = this.formBuilder.group({
+    title: new UntypedFormControl('', [Validators.required]),
+    type: new UntypedFormControl(),
+    project: new UntypedFormControl(),
+    categories: new UntypedFormControl(),
     selectedPersons: new UntypedFormControl()
   })
   ngOnInit(): void {
