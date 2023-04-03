@@ -44,17 +44,17 @@ export class IssueComponent implements OnInit {
     {
       id:'1',
       value: 'پروژه اول',
-      img:'https://inolinx.com/katibe/biotechno',
+      img:'https://cdn.zoomg.ir/assets/team/behzad-bahramijo.jpg',
     },
     {
       id:'2',
       value: 'پروژه دوم',
-      img: 'https://inolinx.com/assets/image/job1.webp',
+      img: 'https://cdn.zoomg.ir/assets/team/ali-goudarzi.jpg',
     },
     {
       id:'3',
       value: 'پروژه سوم',
-      img: 'https://inolinx.com/assets/image/site-logo.webp',
+      img: 'https://cdn.zoomg.ir/assets/team/Sadegh-Tavazoyi.jpg',
     }
   ]
   categoryTypes:ICategoryType[] = [
@@ -79,27 +79,27 @@ export class IssueComponent implements OnInit {
     {
       id:'user-1',
       value:'ابوالفضل',
-      img: 'https://anbare.inolinx.com/media/user_profile_photo/1ZNRJE9Q25.jpg',
+      img: 'https://cdn.zoomg.ir/assets/team/ma-jalali.jpg',
     },
     {
       id:'user-2',
       value:'عباس',
-      img: 'https://anbare.inolinx.com/media/user_profile_photo/109748234676_59856_cropped.webp',
+      img: 'https://cdn.zoomg.ir/assets/team/Meysam-Khalilzade.jpg',
     },
     {
       id:'user-3',
       value:'مجتبی',
-      img: 'https://anbare.inolinx.com/media/post/logo/660071323815_5273_cropped.webp',
+      img: 'https://cdn.zoomg.ir/assets/team/Afshin-Pirozi.jpg',
     },
     {
       id:'user-4',
       value:'پسرخاله',
-      img: 'https://anbare.inolinx.com/media/post/logo/890677703778_9681_cropped.png',
+      img: 'https://cdn.zoomg.ir/assets/team/Nade-Amraie.jpg',
     },
     {
       id:'user-5',
       value:'محمدامین',
-      img: 'https://anbare.inolinx.com/media/post/logo/902198328232_6493_cropped.png',
+      img: 'https://cdn.zoomg.ir/assets/team/Sadegh-Tavazoyi.jpg',
     },
   ]
   constructor(
