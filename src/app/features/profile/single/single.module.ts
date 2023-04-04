@@ -6,7 +6,6 @@ import { SingleComponent } from './single.component';
 import { AngularMaterialModule } from 'src/app/shared/angular-material/angular-material.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProjectsComponent } from './projects/projects.component';
-import { PersonsComponent } from './persons/persons.component';
 import { RequestsComponent } from './requests/requests.component';
 import { IssuesComponent } from './issues/issues.component';
 import { EditComponent } from './edit/edit.component';
@@ -19,7 +18,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DashboardComponent,
     IssuesComponent,
     ProjectsComponent,
-    PersonsComponent,
     RequestsComponent,
     IssuesComponent,
     RequestsComponent,
