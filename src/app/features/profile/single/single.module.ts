@@ -10,6 +10,7 @@ import { PersonsComponent } from './persons/persons.component';
 import { RequestsComponent } from './requests/requests.component';
 import { IssuesComponent } from './issues/issues.component';
 import { EditComponent } from './edit/edit.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -27,7 +28,9 @@ import { EditComponent } from './edit/edit.component';
   imports: [
     CommonModule,
     SingleRoutingModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class SingleModule { }
