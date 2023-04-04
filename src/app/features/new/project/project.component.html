@@ -7,8 +7,9 @@
             <div class="w-4/5 grid grid-cols-4 mt-5">
                 <div class="mb-5 md:mb-0 col-span-4 md:col-span-1 flex flex-wrap items-center justify-center rounded-md">
                     <div class="w-5/6 aspect-square rounded-md">
-                        <label for="project-logo">
-                            <mat-icon matRipple class="w-full h-full text-[14rem] md:text-[8rem] mat-full-center cursor-pointer text-lightPrimary hover:opacity-80">
+                        <label for="project-logo" class="rounded-md w-full h-full overflow-hidden">
+                            <img *ngIf="logoImage" [src]="logoImage" alt="" class="min-w-full min-h-full object-cover cursor-pointer rounded-md">
+                            <mat-icon *ngIf="!logoImage" matRipple class="w-full h-full text-[14rem] md:text-[8rem] mat-full-center cursor-pointer text-lightPrimary hover:opacity-80">
                                 add_photo_alternate
                             </mat-icon>
                             <input id="project-logo" type="file" accept=".webp, .png, Png, PNG, .jpeg, .jpg, .JPG, JPEG, Jpeg|image/*" (change)="uploadLogo($event)" class="py-2 px-4 bg-transparent text-inherit hidden">

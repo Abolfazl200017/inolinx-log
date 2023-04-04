@@ -28,6 +28,7 @@ export class ProjectComponent implements OnInit {
       rounded: "medium" // flase | "medium" | "full"
     }
   }
+  logoImage:any=undefined;
   constructor(
     private formBuilder: UntypedFormBuilder,
     private imageCompress: NgxImageCompressService
@@ -51,10 +52,11 @@ export class ProjectComponent implements OnInit {
     img = img.replace('image/png' , 'image/webp')
     img = img.replace('image/Png' , 'image/webp')
     img = img.replace('image/PNG' , 'image/webp')
-    this.imageCompress.compressFile(img, -1, 80, 80 , 200 , 200).then(
+    this.imageCompress.compressFile(img, -1, 85, 85 , 400 , 400).then(
       result => {
         // do something with the compressed image
         // this.getData.img = result;
+        this.logoImage = result;
       });
   }  
   uploadLogo($event:any) {
