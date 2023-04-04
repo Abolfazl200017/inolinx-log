@@ -1,1 +1,15 @@
-<p>projects works!</p>
+<div class="w-[90%] mx-auto  bg-primary dark:bg-lprimary bg-opacity-60 dark:bg-opacity-50 rounded-md text-center text-lg md:text-xl p-3">
+    پروژه‌ها
+</div>
+<div class="w-[90%] mx-auto grid grid-cols-2 lg:grid-cols-3 gap-3 mt-5">
+    <div *ngFor="let project of projects" class="col-span-2 md:col-span-1 mb-2">
+        <div matRipple class="w-full aspect-square overflow-hidden cursor-pointer">
+            <a [routerLink]="project.url" class="w-full h-full">
+                <img [src]="project.image" [alt]="project.title" class="min-w-full min-h-full object-cover rounded-md">
+            </a>
+        </div>
+        <p class="w-full text-center text-lg md:text-xl py-1 select-none">
+            {{project.title}}
+        </p>
+    </div>
+</div>
