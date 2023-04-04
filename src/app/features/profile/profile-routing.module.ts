@@ -6,7 +6,7 @@ import { SingleComponent } from './single/single.component';
 
 const routes: Routes = [{ path: '', component: ProfileComponent, children: [
   { path: 'list', component: ListComponent},
-  { path: ':id', component: SingleComponent}
+  { path: ':id', loadChildren: () => import('./single/single.module').then(m => m.SingleModule) },
 ] }];
 
 @NgModule({
