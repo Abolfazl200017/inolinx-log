@@ -1,1 +1,40 @@
-<p>requests works!</p>
+<div class="w-[90%] mx-auto  bg-primary dark:bg-lprimary bg-opacity-60 dark:bg-opacity-50 rounded-md text-center text-lg md:text-xl p-3">
+    درخواست‌ها
+</div>
+<div class="w-[90%] mx-auto pt-5">
+    <mat-card *ngFor="let request of requests" class="w-full mb-4">
+        <div class="w-full flex justify-between items-center">
+            <div>
+                <div>
+                    <span class="font-semibold">
+                        نام و نام خانوادگی : 
+                    </span>
+                    <span class="mr-1">
+                        {{request.name}} 
+                    </span>
+                    <span>
+                        {{request.lastName}}
+                    </span>
+                </div>
+                <div class="mt-2">
+                    <span class="font-semibold">
+                        ایمیل : 
+                    </span>
+                    <span>
+                        {{request.email}}
+                    </span>
+                </div>
+            </div>
+            <div class="flex">
+                <div class="ml-1">
+                    <button mat-raised-button color="primary">
+                        تایید
+                    </button>
+                </div>
+                <button mat-raised-button color="accent">
+                    رد کردن
+                </button>
+            </div>
+        </div>
+    </mat-card>
+</div>
