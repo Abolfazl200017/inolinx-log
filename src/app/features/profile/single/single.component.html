@@ -14,7 +14,7 @@
             <div class="my-3 w-full border border-t border-[#f1f2f4] mat-app-background"></div>
             <ul class="px-1 py-2">
                 <li class="w-full p-2 rounded-md bg-black dark:bg-white bg-opacity-0 dark:bg-opacity-0 dark:hover:bg-opacity-10 hover:bg-opacity-10 ease-in-out duration-300">
-                    <a href="" class="flex items-center">
+                    <a routerLink="dashboard" class="flex items-center">
                         <mat-icon class="mat-center md:ml-2">
                             dashboard
                         </mat-icon>
@@ -24,7 +24,7 @@
                     </a>
                 </li>
                 <li class="mt-2 w-full p-2 rounded-md bg-black dark:bg-white bg-opacity-0 dark:bg-opacity-0 dark:hover:bg-opacity-10 hover:bg-opacity-10 ease-in-out duration-300">
-                    <a href="" class="flex items-center">
+                    <a routerLink="issues" class="flex items-center">
                         <mat-icon class="mat-center md:ml-2">
                             task
                         </mat-icon>
@@ -34,7 +34,7 @@
                     </a>
                 </li>
                 <li class="mt-2 w-full p-2 rounded-md bg-black dark:bg-white bg-opacity-0 dark:bg-opacity-0 dark:hover:bg-opacity-10 hover:bg-opacity-10 ease-in-out duration-300">
-                    <a href="" class="flex items-center">
+                    <a routerLink="projects" class="flex items-center">
                         <mat-icon class="mat-center md:ml-2">
                             fact_check
                         </mat-icon>
@@ -44,7 +44,7 @@
                     </a>
                 </li>
                 <li class="mt-2 w-full p-2 rounded-md bg-black dark:bg-white bg-opacity-0 dark:bg-opacity-0 dark:hover:bg-opacity-10 hover:bg-opacity-10 ease-in-out duration-300">
-                    <a href="" class="flex items-center">
+                    <a routerLink="persons" class="flex items-center">
                         <mat-icon class="mat-center md:ml-2">
                             group
                         </mat-icon>
@@ -54,7 +54,7 @@
                     </a>
                 </li>
                 <li class="mt-2 w-full p-2 rounded-md bg-black dark:bg-white bg-opacity-0 dark:bg-opacity-0 dark:hover:bg-opacity-10 hover:bg-opacity-10 ease-in-out duration-300">
-                    <a href="" class="flex items-center">
+                    <a routerLink="requests" class="flex items-center">
                         <mat-icon class="mat-center md:ml-2">
                             person_add
                         </mat-icon>
@@ -64,7 +64,7 @@
                     </a>
                 </li>
                 <li class="mt-2 w-full p-2 rounded-md bg-black dark:bg-white bg-opacity-0 dark:bg-opacity-0 dark:hover:bg-opacity-10 hover:bg-opacity-10 ease-in-out duration-300">
-                    <a href="" class="flex items-center">
+                    <a routerLink="edit" class="flex items-center">
                         <mat-icon class="mat-center md:ml-2">
                             edit
                         </mat-icon>
@@ -78,7 +78,7 @@
     </div>
     <div class="w-3/4 h-full pt-3 px-1">
         <mat-card class="w-full custom-min-h min-h-full">
-
+            <router-outlet></router-outlet>
         </mat-card>
     </div>
 </div>
