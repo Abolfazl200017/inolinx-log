@@ -1,1 +1,35 @@
+<mat-card class="w-[95%] mx-auto">
+    <div class="w-full flex items-center">
+        <div class="w-full md:w-4/5">
+            <p class="">
+                <span class="font-semibold ml-1">
+                    نام و نام‌خانوادگی :
+                </span>
+                <span>
+                    {{person.name}} {{person.lastName}}
+                </span>
+            </p>
+            <p class="">
+                <span class="font-semibold ml-1">
+                    تخصص‌ها :
+                </span>
+                <span *ngFor="let skill of person.skills;let i = index;">
+                    <span *ngIf="i!=0"> ، </span>
+                    {{skill}}
+                </span>
+            </p>
+            <p class="">
+                <span class="font-semibold ml-1">
+                    تاریخ عضویت :
+                </span>
+                <span>
+                    {{person.registeryDate}}
+                </span>
+            </p>
+        </div>
+        <div class="w-full md:w-1/5 flex items-center justify-centerp-3 aspect-square">
+            <img [src]="person.imageUrl" [alt]="person.name+' '+person.lastName" class="min-w-full min-h-full object-cover rounded-md">
+        </div>
+    </div>
+</mat-card>
 <p>dashboard works!</p>
