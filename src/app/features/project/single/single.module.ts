@@ -9,6 +9,7 @@ import { IssuesComponent } from './issues/issues.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { PersonsComponent } from './persons/persons.component';
 import { EditComponent } from './edit/edit.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { EditComponent } from './edit/edit.component';
     CommonModule,
     SingleRoutingModule,
     AngularMaterialModule,
+    SharedModule,
   ]
 })
 export class SingleModule { }
