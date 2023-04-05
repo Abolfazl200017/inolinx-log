@@ -1,2 +1,3 @@
 export {IProjectCard} from './project-card';
-export {IPersonCard} from './person-card'
+export {IPersonCard} from './person-card';
+export {INewProject} from './new-project';

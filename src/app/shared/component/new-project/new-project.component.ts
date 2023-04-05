@@ -9,7 +9,7 @@ import { INewProject } from '../../interface/new-project';
   styleUrls: ['./new-project.component.scss']
 })
 export class NewProjectComponent implements OnInit {
-  @Input() prevDates:INewProject={
+  @Input() prevDatas:INewProject={
     isNew: true,
     title: undefined,
     urlTitle: undefined,
@@ -44,10 +44,10 @@ export class NewProjectComponent implements OnInit {
     private imageCompress: NgxImageCompressService
   ) { }
   formGroup = this.formBuilder.group({
-    title: new UntypedFormControl(this.prevDates.isNew?this.prevDates.title:'', [Validators.required]),
-    urlTitle: new UntypedFormControl(this.prevDates.isNew?this.prevDates.urlTitle:'', [Validators.required]),
-    owner: new UntypedFormControl(this.prevDates.isNew?this.prevDates.owner:'', [Validators.required]),
-    info: new UntypedFormControl(this.prevDates.isNew?this.prevDates.info:'', [Validators.required]),
+    title: new UntypedFormControl(this.prevDatas.isNew?this.prevDatas.title:'', [Validators.required]),
+    urlTitle: new UntypedFormControl(this.prevDatas.isNew?this.prevDatas.urlTitle:'', [Validators.required]),
+    owner: new UntypedFormControl(this.prevDatas.isNew?this.prevDatas.owner:'', [Validators.required]),
+    info: new UntypedFormControl(this.prevDatas.isNew?this.prevDatas.info:'', [Validators.required]),
     startDate: new Date(),
     endDate: new Date(),
   });

@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
-import { NgxImageCompressService } from 'ngx-image-compress';
+import { Component } from '@angular/core';
+import { INewProject } from 'src/app/shared/interface/index';
 
 
 @Component({
@@ -9,5 +8,14 @@ import { NgxImageCompressService } from 'ngx-image-compress';
   styleUrls: ['./edit.component.scss']
 })
 export class EditComponent {
+  formData:INewProject={
+    isNew: false,
+    title: undefined,
+    urlTitle: undefined,
+    owner: undefined,
+    info: undefined,
+    startDate: undefined,
+    endDate: undefined
+  };
   constructor(){}
 }
