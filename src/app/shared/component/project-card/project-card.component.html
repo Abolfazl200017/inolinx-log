@@ -2,7 +2,7 @@
     <mat-card *ngFor="let project of projects" class="hover:bg-llprimary dark:hover:bg-primary dark:hover:bg-opacity-30 hover:transition-colors ease-in-out duration-300" [class]="customClass">
         <div class="w-full h-full flex flex-col items-between justify-between">
             <div class="w-full h-full">
-                <div class="rounded-full my-6 overflow-hidden flex items-center justify-center w-1/2 aspect-square mx-auto">
+                <div class="rounded-lg mb-6 overflow-hidden flex items-center justify-center w-full aspect-square mx-auto">
                     <img [src]="project.imageUrl" [alt]="project.name+project.lastName" class="min-w-full min-h-full object-cover">
                 </div>
                 <p class="text-lg w-full text-center">

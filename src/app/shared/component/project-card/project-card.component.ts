@@ -1,20 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
-
-interface IProject{
-  imageUrl: string;
-  name: string;
-  lastName: string;
-  skills: string[];
-  registeryDate: string;
-}
-
+import { IProjectCard } from '../../interface';
 @Component({
   selector: 'app-project-card',
   templateUrl: './project-card.component.html',
   styleUrls: ['./project-card.component.scss']
 })
 export class ProjectCardComponent implements OnInit {
-  @Input() projects!: IProject[];
+  @Input() projects!: IProjectCard[];
   @Input() customClass:string='';
   constructor() { }
 

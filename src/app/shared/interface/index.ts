@@ -1,0 +1,1 @@
+export {IProjectCard} from './project-card'

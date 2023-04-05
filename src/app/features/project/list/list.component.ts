@@ -1,12 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-interface IProject{
-  imageUrl: string;
-  name: string;
-  lastName: string;
-  skills: string[];
-  registeryDate: string;
-}
+import { IProjectCard } from 'src/app/shared/interface';
 
 @Component({
   selector: 'app-list',
@@ -14,7 +7,7 @@ interface IProject{
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  projects: IProject[]=[
+  projects: IProjectCard[]=[
     {
       imageUrl: 'https://cdn.zoomg.ir/assets/team/behzad-bahramijo.jpg',
       name: 'سیدعباس',
