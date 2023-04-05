@@ -1,0 +1,6 @@
+.mat-card{
+    padding-inline: 0;
+    @media (min-width:768px){
+        padding-inline: 0.5rem; 
+    }
+}
