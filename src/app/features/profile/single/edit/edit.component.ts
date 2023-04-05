@@ -10,6 +10,15 @@ import { NgxImageCompressService } from 'ngx-image-compress';
 export class EditComponent implements OnInit {
   passwordVisibility:boolean=false;
   logoImage:any;
+  skils:string[]=[
+    'Front-End',
+    'Back-End',
+    'DevOps',
+    'CEO',
+    'Writing',
+    'SEO',
+    'ProductOwner'
+  ]
   constructor(
     private formBuilder: UntypedFormBuilder,
     private imageCompress: NgxImageCompressService,
