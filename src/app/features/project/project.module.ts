@@ -5,6 +5,7 @@ import { ProjectRoutingModule } from './project-routing.module';
 import { ProjectComponent } from './project.component';
 import { ListComponent } from './list/list.component';
 import { AngularMaterialModule } from 'src/app/shared/angular-material/angular-material.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { AngularMaterialModule } from 'src/app/shared/angular-material/angular-m
   imports: [
     CommonModule,
     ProjectRoutingModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    SharedModule
   ]
 })
 export class ProjectModule { }

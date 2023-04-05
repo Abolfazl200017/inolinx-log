@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-interface IPerson{
+interface IProject{
   imageUrl: string;
   name: string;
   lastName: string;
@@ -14,7 +14,7 @@ interface IPerson{
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  persons: IPerson[]=[
+  projects: IProject[]=[
     {
       imageUrl: 'https://cdn.zoomg.ir/assets/team/behzad-bahramijo.jpg',
       name: 'سیدعباس',
