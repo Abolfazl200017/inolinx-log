@@ -10,52 +10,53 @@ export class ListComponent implements OnInit {
   projects: IProjectCard[]=[
     {
       imageUrl: 'https://cdn.zoomg.ir/assets/team/behzad-bahramijo.jpg',
-      name: 'سیدعباس',
-      lastName: 'موسوی',
-      skills: [
-        'Front-End'
-      ],
-      registeryDate: '12-1-1399'
+      name: 'ربومک',
+      company: 'نهاد ریاست جمهوری',
+      description: 'ساخت وبسایت در حوزه شبکه‌های رباتیک و مکاترونیک',
+      startDate: '22-9-1399',
+      endDate: '30-4-1401',
+      owner: 'مرکز رشد',
+      creator: 'مسعود آقایی',
     },
     {
       imageUrl: 'https://cdn.zoomg.ir/assets/team/ali-goudarzi.jpg',
-      name: 'مسعود',
-      lastName: 'آقایی',
-      skills: [
-        'CEO',
-        'ProductOwner',
-        'Front-End',
-        'Back-End',
-        'SEO',
-        'Writing',
-      ],
-      registeryDate: '20-2-1398'
+      name: 'ربومک',
+      company: 'نهاد ریاست جمهوری',
+      description: 'ساخت وبسایت در حوزه شبکه‌های رباتیک و مکاترونیک',
+      startDate: '22-9-1399',
+      endDate: '30-4-1401',
+      owner: 'مرکز رشد',
+      creator: 'مسعود آقایی',
     },
     {
       imageUrl: 'https://cdn.zoomg.ir/assets/team/Meysam-Khalilzade.jpg',
-      name: 'ابوالفضل',
-      lastName: 'زراعتکار',
-      skills: [],
-      registeryDate: '12-1-1399'
+      name: 'ربومک',
+      company: 'نهاد ریاست جمهوری',
+      description: 'ساخت وبسایت در حوزه شبکه‌های رباتیک و مکاترونیک',
+      startDate: '22-9-1399',
+      endDate: '30-4-1401',
+      owner: 'مرکز رشد',
+      creator: 'مسعود آقایی',
     },
     {
       imageUrl: 'https://cdn.zoomg.ir/assets/team/Sadegh-Tavazoyi.jpg',
-      name: 'مجتبی',
-      lastName: 'اکبری',
-      skills: [
-        'Back-End',
-        'DevOps'
-      ],
-      registeryDate: '12-1-1399'
+      name: 'ربومک',
+      company: 'نهاد ریاست جمهوری',
+      description: 'ساخت وبسایت در حوزه شبکه‌های رباتیک و مکاترونیک',
+      startDate: '22-9-1399',
+      endDate: '30-4-1401',
+      owner: 'مرکز رشد',
+      creator: 'مسعود آقایی',
     },
     {
       imageUrl: 'https://cdn.zoomg.ir/assets/team/Nade-Amraie.jpg',
-      name: 'احمدحسین',
-      lastName: 'پازوکی',
-      skills: [
-        'Writing'
-      ],
-      registeryDate: '12-1-1399'
+      name: 'ربومک',
+      company: 'نهاد ریاست جمهوری',
+      description: 'ساخت وبسایت در حوزه شبکه‌های رباتیک و مکاترونیک',
+      startDate: '22-9-1399',
+      endDate: '30-4-1401',
+      owner: 'مرکز رشد',
+      creator: 'مسعود آقایی',
     },
   ];
   constructor() { }

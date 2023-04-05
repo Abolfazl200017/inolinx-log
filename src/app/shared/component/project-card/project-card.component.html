@@ -3,32 +3,12 @@
         <div class="w-full h-full flex flex-col items-between justify-between">
             <div class="w-full h-full">
                 <div class="rounded-lg mb-6 overflow-hidden flex items-center justify-center w-full aspect-square mx-auto">
-                    <img [src]="project.imageUrl" [alt]="project.name+project.lastName" class="min-w-full min-h-full object-cover">
+                    <img [src]="project.imageUrl" [alt]="project.name" class="min-w-full min-h-full object-cover">
                 </div>
                 <p class="text-lg w-full text-center">
-                    <span>
-                        {{project.name}}
-                    </span>
-                    <span> </span>
-                    <span>
-                        {{project.lastName}}
-                    </span>
+                    {{project.name}}
                 </p>
-                <div class="mt-4 mb-3 w-full flex justify-center flex-wrap px-3 text-gray-700 dark:text-gray-300">
-                    <div *ngFor="let skill of project.skills;let i = index;">
-                        <span *ngIf="i!=0">
-                             ، 
-                        </span>
-                        <span>
-                            {{skill}}#
-                        </span>
-                    </div>
-                </div>
-                <div class="w-full text-center text-gray-600 dark:text-gray-400">
-                    عضویت از
-                    <br>
-                    {{project.registeryDate}}
-                </div>
+                
             </div>
             <div class="w-full flex justify-end">
                 <button mat-raised-button color="primary">مشاهده</button>
