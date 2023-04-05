@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile.component';
 import { ListComponent } from './list/list.component';
+import { AngularMaterialModule } from 'src/app/shared/angular-material/angular-material.module';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { ListComponent } from './list/list.component';
   imports: [
     CommonModule,
     ProfileRoutingModule,
+    AngularMaterialModule,
   ]
 })
 export class ProfileModule { }
