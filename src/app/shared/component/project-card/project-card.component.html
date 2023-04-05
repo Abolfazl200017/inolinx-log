@@ -5,10 +5,42 @@
                 <div class="rounded-lg mb-6 overflow-hidden flex items-center justify-center w-full aspect-square mx-auto">
                     <img [src]="project.imageUrl" [alt]="project.name" class="min-w-full min-h-full object-cover">
                 </div>
-                <p class="text-lg w-full text-center">
+                <p class="text-lg md:text-xl w-full text-center font-semibold">
                     {{project.name}}
                 </p>
-                
+                <p class="w-full text-center">
+                    <span class="text-gray-700 dark:text-gray-400 text-sm">
+                        شرکت 
+                    </span>
+                    <span class="text-base">
+                        {{project.company}}
+                    </span>
+                </p>
+                <p class="w-full text-center">
+                    <span class="text-gray-700 dark:text-gray-400 text-sm">
+                        مالک  
+                    </span>
+                    <span class="text-base">
+                        {{project.owner}}
+                    </span>
+                </p>
+                <p class="w-full text-center">
+                    <span class="text-gray-700 dark:text-gray-400 text-sm">
+                        سازنده 
+                    </span>
+                    <span class="text-base">
+                        {{project.creator}}
+                    </span>
+                </p>
+                <p class="w-full text-center text-gray-700 dark:text-gray-400">
+                    <span>
+                        {{project.startDate}}
+                    </span>
+                    <span> ــــ </span>
+                    <span>
+                        {{project.endDate}}
+                    </span>
+                </p>
             </div>
             <div class="w-full flex justify-end">
                 <button mat-raised-button color="primary">مشاهده</button>
