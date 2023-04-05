@@ -1,0 +1,65 @@
+<mat-card class="w-[95%] mt-2 mx-auto">
+    <div class="w-full flex items-center">
+        <div class="w-full md:w-4/5">
+            <p class="">
+                <span class="font-semibold ml-1">
+                    نام :
+                </span>
+                <span>
+                    {{project.name}}
+                </span>
+            </p>
+            <p class="">
+                <span class="font-semibold ml-1">
+                    شرکت :
+                </span>
+                <span>
+                    {{project.company}}
+                </span>
+            </p>
+            <p class="">
+                <span class="font-semibold ml-1">
+                    مالک :
+                </span>
+                <span>
+                    {{project.owner}}
+                </span>
+            </p>
+            <p class="">
+                <span class="font-semibold ml-1">
+                    ایجادکننده :
+                </span>
+                <span>
+                    {{project.creator}}
+                </span>
+            </p>
+            <p class="">
+                <span class="font-semibold ml-1">
+                    تاریخ شروع :
+                </span>
+                <span>
+                    {{project.startDate}}
+                </span>
+            </p>
+            <p *ngIf="project.endDate" class="">
+                <span class="font-semibold ml-1">
+                    تاریخ اتمام :
+                </span>
+                <span>
+                    {{project.endDate}}
+                </span>
+            </p>
+            <p class="">
+                <span class="font-semibold ml-1">
+                    توضیحات :
+                </span>
+                <span>
+                    {{project.description}}
+                </span>
+            </p>
+        </div>
+        <div class="w-full md:w-1/5 flex items-center justify-centerp-3 aspect-square">
+            <img [src]="project.imageUrl" [alt]="project.name" class="min-w-full min-h-full object-cover rounded-md">
+        </div>
+    </div>
+</mat-card>

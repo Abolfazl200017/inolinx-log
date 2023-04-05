@@ -3,15 +3,19 @@ import { CommonModule } from '@angular/common';
 
 import { SingleRoutingModule } from './single-routing.module';
 import { SingleComponent } from './single.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AngularMaterialModule } from 'src/app/shared/angular-material/angular-material.module';
 
 
 @NgModule({
   declarations: [
-    SingleComponent
+    SingleComponent,
+    DashboardComponent,
   ],
   imports: [
     CommonModule,
-    SingleRoutingModule
+    SingleRoutingModule,
+    AngularMaterialModule,
   ]
 })
 export class SingleModule { }
