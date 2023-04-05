@@ -6,6 +6,7 @@ import { ProjectComponent } from './project.component';
 import { ListComponent } from './list/list.component';
 import { AngularMaterialModule } from 'src/app/shared/angular-material/angular-material.module';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     ProjectRoutingModule,
     AngularMaterialModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class ProjectModule { }
