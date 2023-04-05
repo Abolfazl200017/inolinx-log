@@ -1,0 +1,38 @@
+<div *ngIf="persons" class="w-[90%] mx-auto grid grid-cols-6 gap-3 py-5">
+    <mat-card *ngFor="let person of persons" class="col-span-6 sm:col-span-3 md:col-span-2 hover:bg-llprimary dark:hover:bg-primary dark:hover:bg-opacity-50 hover:transition-colors ease-in-out duration-300">
+        <div class="w-full h-full flex flex-col items-between justify-between">
+            <div class="w-full h-full">
+                <div class="rounded-full my-6 overflow-hidden flex items-center justify-center w-1/2 aspect-square mx-auto">
+                    <img [src]="person.imageUrl" [alt]="person.name+person.lastName" class="min-w-full min-h-full object-cover">
+                </div>
+                <p class="text-lg w-full text-center">
+                    <span>
+                        {{person.name}}
+                    </span>
+                    <span> </span>
+                    <span>
+                        {{person.lastName}}
+                    </span>
+                </p>
+                <div class="mt-4 mb-3 w-full flex justify-center flex-wrap px-3 text-gray-700 dark:text-gray-300">
+                    <div *ngFor="let skill of person.skills;let i = index;">
+                        <span *ngIf="i!=0">
+                             ، 
+                        </span>
+                        <span>
+                            {{skill}}#
+                        </span>
+                    </div>
+                </div>
+                <div class="w-full text-center text-gray-600 dark:text-gray-400">
+                    عضویت از
+                    <br>
+                    {{person.registeryDate}}
+                </div>
+            </div>
+            <div class="w-full flex justify-end">
+                <button mat-raised-button color="primary">مشاهده</button>
+            </div>
+        </div>
+    </mat-card>
+</div>

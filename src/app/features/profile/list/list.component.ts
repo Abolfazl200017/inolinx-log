@@ -1,19 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-
-interface IPerson{
-  imageUrl: string;
-  name: string;
-  lastName: string;
-  skills: string[];
-  registeryDate: string;
-}
+import { IPersonCard } from 'src/app/shared/interface';
 
 @Component({
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  persons: IPerson[]=[
+  persons: IPersonCard[]=[
     {
       imageUrl: 'https://cdn.zoomg.ir/assets/team/behzad-bahramijo.jpg',
       name: 'سیدعباس',

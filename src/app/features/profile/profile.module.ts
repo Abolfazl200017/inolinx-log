@@ -5,6 +5,7 @@ import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile.component';
 import { ListComponent } from './list/list.component';
 import { AngularMaterialModule } from 'src/app/shared/angular-material/angular-material.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { AngularMaterialModule } from 'src/app/shared/angular-material/angular-m
     CommonModule,
     ProfileRoutingModule,
     AngularMaterialModule,
+    SharedModule,
   ]
 })
 export class ProfileModule { }
