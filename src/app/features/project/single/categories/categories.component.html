@@ -1,4 +1,32 @@
 <div class="w-[90%] mx-auto  bg-primary dark:bg-lprimary bg-opacity-60 dark:bg-opacity-50 rounded-md text-center text-lg md:text-xl p-3">
     داشبورد
 </div>
-<p>categories works!</p>
+<div class="w-[90%] mx-auto mt-5">
+    <mat-accordion *ngIf="categories.length>0" [displayMode]="'flat'" theme="primray">
+        <mat-expansion-panel *ngFor="let item of categories">
+            <mat-expansion-panel-header>
+                {{item.name}}
+            </mat-expansion-panel-header>
+            <div class="pt-4">
+                <mat-accordion *ngIf="item.categories.length" [displayMode]="'flat'" class="pt-3">
+                    <mat-expansion-panel *ngFor="let item2 of item.categories">
+                        <mat-expansion-panel-header>
+                            {{item2.name}}
+                        </mat-expansion-panel-header>
+                        <mat-accordion *ngIf="item2.categories.length>0">
+                            <mat-expansion-panel *ngFor="let item3 of item2.categories">
+                                <mat-accordion *ngIf="item.categories.length" [displayMode]="'flat'" class="pt-3">
+                                    <mat-expansion-panel *ngFor="let item3 of item2.categories">
+                                        <mat-expansion-panel-header>
+                                            {{item3.name}}
+                                        </mat-expansion-panel-header>
+                                    </mat-expansion-panel>
+                                </mat-accordion>
+                            </mat-expansion-panel>
+                        </mat-accordion>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>
