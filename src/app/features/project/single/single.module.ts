@@ -12,6 +12,7 @@ import { EditComponent } from './edit/edit.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NgxDatePickerModule } from '@ah99/ngx-date-picker';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CategoryComponent } from './categories/category/category.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CategoriesComponent,
     PersonsComponent,
     EditComponent,
+    CategoryComponent,
   ],
   imports: [
     CommonModule,

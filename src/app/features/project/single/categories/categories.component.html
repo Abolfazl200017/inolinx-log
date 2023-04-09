@@ -2,22 +2,22 @@
     داشبورد
 </div>
 <div class="w-[90%] mx-auto mt-5">
-    <mat-accordion *ngIf="categories.length>0" [displayMode]="'flat'" theme="primray">
+    <!-- <mat-accordion *ngIf="categories.length>0" [displayMode]="'flat'" theme="primray">
         <mat-expansion-panel *ngFor="let item of categories">
             <mat-expansion-panel-header>
                 {{item.name}}
             </mat-expansion-panel-header>
             <div class="pt-4">
-                <mat-accordion *ngIf="item.categories.length" [displayMode]="'flat'" class="pt-3">
-                    <mat-expansion-panel *ngFor="let item2 of item.categories">
+                <mat-accordion *ngIf="item.categories.length>0" [displayMode]="'flat'" class="pt-3">
+                    <mat-expansion-panel *ngFor="let item of item.categories">
                         <mat-expansion-panel-header>
-                            {{item2.name}}
+                            {{item.name}}
                         </mat-expansion-panel-header>
                         <div class="pt-4">
-                            <mat-accordion *ngIf="item2.categories.length>0" [displayMode]="'flat'" class="pt-3">
-                                <mat-expansion-panel *ngFor="let item3 of item2.categories">
+                            <mat-accordion *ngIf="item.categories.length>0" [displayMode]="'flat'" class="pt-3">
+                                <mat-expansion-panel *ngFor="let item of item.categories">
                                     <mat-expansion-panel-header>
-                                        {{item3.name}}
+                                        {{item.name}}
                                     </mat-expansion-panel-header>
                                 </mat-expansion-panel>
                             </mat-accordion>
@@ -26,5 +26,6 @@
                 </mat-accordion>
             </div>
         </mat-expansion-panel>
-    </mat-accordion>
+    </mat-accordion> -->
+    <app-category [category]="categories"></app-category>
 </div>
