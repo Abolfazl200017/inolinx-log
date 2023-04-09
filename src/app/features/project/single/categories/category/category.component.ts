@@ -11,6 +11,7 @@ interface ICategory{
   styleUrls: ['./category.component.scss']
 })
 export class CategoryComponent implements OnInit {
+  isStateOpen:boolean=false;
   @Input() category: ICategory = {
     name: '',
     categories:[]

@@ -5,6 +5,9 @@ mat-expansion-panel-header.mat-expanded,
 mat-expansion-panel-header.mat-expanded:focus {
   @apply bg-llPrimary;
 }
+mat-expansion-panel-header.mat-expanded:hover {
+  @apply bg-lightPrimary text-white transition-colors ease-in-out duration-300;
+}
 .mat-expansion-panel:not(.mat-expanded)
   .mat-expansion-panel-header:hover:not([aria-disabled="true"]) {
     @apply bg-lightPrimary text-white transition-colors ease-in-out duration-300;
