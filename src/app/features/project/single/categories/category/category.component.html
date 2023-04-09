@@ -3,7 +3,7 @@
         <div *ngFor="let item of category.categories">
             <mat-expansion-panel *ngIf="item.categories.length>0;else single">
                 <mat-expansion-panel-header (click)="isStateOpen = !isStateOpen">
-                    <div class="w-full flex items-center justify-between">
+                    <div *ngIf="!delete" class="w-full flex items-center justify-between">
                         <input [disabled]="editable" (click)="$event.stopPropagation(); "type="text" [placeholder]="item.name" class="focus:outlien-none outline-none bg-transparent focus:bg-none py-1 px-2 rounded-md" [class]="editable?'text-inherit placeholder:text-inherit ':'bg-white text-gray-900 hover:text-gray focus:text-gray placeholder:text-gray-900'">
                         <div class="flex items-center">
                             <div class="flex items-center">
@@ -17,7 +17,7 @@
                                         {{editable?'edit':'done'}}
                                     </mat-icon>
                                 </button>
-                                <button matRipple class="w-6 h-6 text-white rounded-full overflow-hidden justify-center items-center bg-primary flex mr-1 p-4 hover:bg-opacity-80" (click)="$event.stopPropagation();">
+                                <button matRipple class="w-6 h-6 text-white rounded-full overflow-hidden justify-center items-center bg-primary flex mr-1 p-4 hover:bg-opacity-80" (click)="$event.stopPropagation();" (click)="delete = !delete">
                                     <mat-icon class="mat-center w-full h-full">
                                         delete
                                     </mat-icon>
@@ -31,6 +31,21 @@
                                     remove
                                 </mat-icon>
                             </div>
+                        </div>
+                    </div>
+                    <div *ngIf="delete" class="w-full flex justify-between items-center">
+                        <div>
+                            آیا از حذف این دسته‌بندی مطمئنید؟
+                        </div>
+                        <div class="flex items-center">
+                            <div class="ml-2">
+                                <button mat-raised-button (click)="$event.stopPropagation();" color="accent">
+                                    بله
+                                </button>
+                            </div>
+                            <button mat-raised-button  (click)="$event.stopPropagation();" (click)="delete = !delete">
+                                انصراف
+                            </button>
                         </div>
                     </div>
                 </mat-expansion-panel-header>

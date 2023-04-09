@@ -13,6 +13,7 @@ interface ICategory{
 export class CategoryComponent implements OnInit {
   isStateOpen:boolean=false;
   editable:boolean=true;
+  delete:boolean=false;
   @Input() category: ICategory = {
     name: '',
     categories:[]
