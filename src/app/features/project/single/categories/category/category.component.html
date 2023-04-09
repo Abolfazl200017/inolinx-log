@@ -37,9 +37,36 @@
                 <app-category [category]="item"></app-category>
             </mat-expansion-panel>
             <ng-template #single class="w-full">
-                <a href="" class="flex rounded-md shadow-lg w-full my-3 py-4 bg-llPrimary hover:bg-lightPrimary hover:text-white transition-colors ease-in-out duration-300 text-gray-900 px-5">
-                    {{item.name}}
-                </a>
+                <div class="w-full flex justify-between items-center my-3 py-2 px-6 bg-llPrimary hover:bg-lightPrimary hover:text-white transition-colors ease-in-out duration-300 text-gray-900 rounded-md shadow-lg">
+                    <input type="text" [placeholder]="item.name" class="focus:outlien-none outline-none bg-transparent focus:bg-none text-inherit placeholder:text-inherit">
+                    <div class="flex items-center">
+                        <div class="flex items-center">
+                            <button matRipple class="w-6 h-6 rounded-full overflow-hidden justify-center items-center text-white bg-primary flex p-4 hover:bg-opacity-80">
+                                <mat-icon class="mat-center w-full h-full">
+                                    add
+                                </mat-icon>
+                            </button>
+                            <button matRipple class="w-6 h-6 text-white rounded-full overflow-hidden justify-center items-center bg-primary flex mr-1 p-4 hover:bg-opacity-80">
+                                <mat-icon class="mat-center w-full h-full">
+                                    edit
+                                </mat-icon>
+                            </button>
+                            <button matRipple class="w-6 h-6 text-white rounded-full overflow-hidden justify-center items-center bg-primary flex mr-1 p-4 hover:bg-opacity-80">
+                                <mat-icon class="mat-center w-full h-full">
+                                    delete
+                                </mat-icon>
+                            </button>
+                        </div>
+                        <div class="mr-3 flex items-center">
+                            <mat-icon *ngIf="!isStateOpen" class="mat-center">
+                                add
+                            </mat-icon>
+                            <mat-icon *ngIf="isStateOpen" class="mat-center">
+                                remove
+                            </mat-icon>
+                        </div>
+                </div>
+                </div>
             </ng-template>
             
         </div>
