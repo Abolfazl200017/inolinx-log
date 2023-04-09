@@ -49,54 +49,65 @@
                         </div>
                     </div>
                 </mat-expansion-panel-header>
-                <div *ngIf="add[i]" class="w-full mt-4 p-2 bg-blue-900">
-                    sadfaf
-                </div>
+                <form *ngIf="add[i]" class="w-full bg-llPrimary shadow-lightPrimary rounded-b-md flex items-center justify-between border-t">
+                    <div class="w-full">
+                        <input type="text" placeholder="عنوان دسته‌بندی" class="w-full h-full bg-llprimary outline-none bg-transparent px-2">
+                    </div>
+                    <button mat-raised-button color="primary" (click)="add[i]=!add[i]">
+                        ایجاد
+                    </button>
+                </form>
                 <app-category [category]="item"></app-category>
             </mat-expansion-panel>
             <ng-template #single class="w-full">
-                <div *ngIf="!delete[i]" class="w-full flex justify-between items-center my-3 py-2 px-6 bg-llPrimary hover:bg-lightPrimary hover:text-white transition-colors ease-in-out duration-300 text-gray-900 rounded-md shadow-lg">
-                    <input [disabled]="editable[i]" (click)="$event.stopPropagation(); "type="text" [placeholder]="item.name" class="focus:outlien-none outline-none bg-transparent focus:bg-none py-1 px-2 rounded-md" [class]="editable[i]?'text-inherit placeholder:text-inherit ':'bg-white text-gray-900 hover:text-gray focus:text-gray placeholder:text-gray-900'">
-                    <div class="flex items-center">
+                <div class="w-full">
+                    <div *ngIf="!delete[i]" class="w-full flex justify-between items-center my-3 py-2 px-6 bg-llPrimary hover:bg-lightPrimary hover:text-white transition-colors ease-in-out duration-300 text-gray-900 rounded-md shadow-lg" [class]="add[i]?'mb-0 rounded-b-none':''">
+                        <input [disabled]="editable[i]" (click)="$event.stopPropagation(); "type="text" [placeholder]="item.name" class="focus:outlien-none outline-none bg-transparent focus:bg-none py-1 px-2 rounded-md" [class]="editable[i]?'text-inherit placeholder:text-inherit ':'bg-white text-gray-900 hover:text-gray focus:text-gray placeholder:text-gray-900'">
                         <div class="flex items-center">
-                            <button matRipple class="w-6 h-6 rounded-full overflow-hidden justify-center items-center text-white bg-primary flex p-4 hover:bg-opacity-80" (click)="isStateOpen?$event.stopPropagation():null;" (click)="add[i] = !add[i]">
-                                <mat-icon class="mat-center w-full h-full">
-                                    add
-                                </mat-icon>
-                            </button>
-                            <button matRipple class="w-6 h-6 text-white rounded-full overflow-hidden justify-center items-center bg-primary flex mr-1 p-4 hover:bg-opacity-80" (click)="$event.stopPropagation();" (click)="editable[i] = !editable[i]">
-                                <mat-icon class="mat-center w-full h-full">
-                                    {{editable[i]?'edit':'done'}}
-                                </mat-icon>
-                            </button>
-                            <button matRipple class="w-6 h-6 text-white rounded-full overflow-hidden justify-center items-center bg-primary flex mr-1 p-4 hover:bg-opacity-80" (click)="delete[i] = !delete[i]">
-                                <mat-icon class="mat-center w-full h-full">
-                                    delete
-                                </mat-icon>
+                            <div class="flex items-center">
+                                <button matRipple class="w-6 h-6 rounded-full overflow-hidden justify-center items-center text-white bg-primary flex p-4 hover:bg-opacity-80" (click)="isStateOpen?$event.stopPropagation():null;" (click)="add[i] = !add[i]">
+                                    <mat-icon class="mat-center w-full h-full">
+                                        add
+                                    </mat-icon>
+                                </button>
+                                <button matRipple class="w-6 h-6 text-white rounded-full overflow-hidden justify-center items-center bg-primary flex mr-1 p-4 hover:bg-opacity-80" (click)="$event.stopPropagation();" (click)="editable[i] = !editable[i]">
+                                    <mat-icon class="mat-center w-full h-full">
+                                        {{editable[i]?'edit':'done'}}
+                                    </mat-icon>
+                                </button>
+                                <button matRipple class="w-6 h-6 text-white rounded-full overflow-hidden justify-center items-center bg-primary flex mr-1 p-4 hover:bg-opacity-80" (click)="delete[i] = !delete[i]">
+                                    <mat-icon class="mat-center w-full h-full">
+                                        delete
+                                    </mat-icon>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="delete[i]" class="w-full flex justify-between items-center">
+                        <div>
+                            آیا از حذف این دسته‌بندی مطمئنید؟
+                        </div>
+                        <div class="flex items-center">
+                            <div class="ml-2">
+                                <button mat-raised-button (click)="$event.stopPropagation();" color="accent">
+                                    بله
+                                </button>
+                            </div>
+                            <button mat-raised-button  (click)="$event.stopPropagation();" (click)="delete[i] = !delete[i]">
+                                انصراف
                             </button>
                         </div>
                     </div>
                 </div>
-                <div *ngIf="delete[i]" class="w-full flex justify-between items-center">
-                    <div>
-                        آیا از حذف این دسته‌بندی مطمئنید؟
+                <form *ngIf="add[i]" class="w-full mb-5 bg-llPrimary shadow-lightPrimary rounded-b-md flex items-center justify-between border-t">
+                    <div class="w-full">
+                        <input type="text" placeholder="عنوان دسته‌بندی" class="w-full h-full bg-llprimary outline-none bg-transparent px-2">
                     </div>
-                    <div class="flex items-center">
-                        <div class="ml-2">
-                            <button mat-raised-button (click)="$event.stopPropagation();" color="accent">
-                                بله
-                            </button>
-                        </div>
-                        <button mat-raised-button  (click)="$event.stopPropagation();" (click)="delete[i] = !delete[i]">
-                            انصراف
-                        </button>
-                    </div>
-                </div>
+                    <button mat-raised-button color="primary" (click)="add[i]=!add[i]">
+                        ایجاد
+                    </button>
+                </form>
             </ng-template>
-            <div *ngIf="add[i]" class="w-full mb-5 bg-pink-500">
-                dsfgdf
-            </div>
-            
         </div>
     </mat-accordion>
 </div>
