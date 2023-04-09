@@ -13,17 +13,15 @@
                         <mat-expansion-panel-header>
                             {{item2.name}}
                         </mat-expansion-panel-header>
-                        <mat-accordion *ngIf="item2.categories.length>0">
-                            <mat-expansion-panel *ngFor="let item3 of item2.categories">
-                                <mat-accordion *ngIf="item.categories.length" [displayMode]="'flat'" class="pt-3">
-                                    <mat-expansion-panel *ngFor="let item3 of item2.categories">
-                                        <mat-expansion-panel-header>
-                                            {{item3.name}}
-                                        </mat-expansion-panel-header>
-                                    </mat-expansion-panel>
-                                </mat-accordion>
-                            </mat-expansion-panel>
-                        </mat-accordion>
+                        <div class="pt-4">
+                            <mat-accordion *ngIf="item2.categories.length>0" [displayMode]="'flat'" class="pt-3">
+                                <mat-expansion-panel *ngFor="let item3 of item2.categories">
+                                    <mat-expansion-panel-header>
+                                        {{item3.name}}
+                                    </mat-expansion-panel-header>
+                                </mat-expansion-panel>
+                            </mat-accordion>
+                        </div>
                     </mat-expansion-panel>
                 </mat-accordion>
             </div>

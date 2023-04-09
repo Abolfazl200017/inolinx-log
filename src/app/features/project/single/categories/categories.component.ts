@@ -19,7 +19,7 @@ export class CategoriesComponent implements OnInit {
           categories: [
             {
               name: 'زیرمجموعه پنجم',
-              categories: []
+              categories: [],
             },
             {
               name: 'زیرمجموعه ششم',
