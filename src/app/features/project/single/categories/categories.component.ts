@@ -41,6 +41,19 @@ export class CategoriesComponent implements OnInit {
       {
         name: 'زیرمجموعه دوم',
         categories: []
+      },
+      {
+        name: 'زیرمجموعه چهارم',
+        categories: [
+          {
+            name: 'زیرمجموعه پنجم',
+            categories: [],
+          },
+          {
+            name: 'زیرمجموعه ششم',
+            categories: []
+          }
+        ]
       }
     ]
   }
