@@ -2,30 +2,13 @@
     داشبورد
 </div>
 <div class="w-[90%] mx-auto mt-5">
-    <!-- <mat-accordion *ngIf="categories.length>0" [displayMode]="'flat'" theme="primray">
-        <mat-expansion-panel *ngFor="let item of categories">
-            <mat-expansion-panel-header>
-                {{item.name}}
-            </mat-expansion-panel-header>
-            <div class="pt-4">
-                <mat-accordion *ngIf="item.categories.length>0" [displayMode]="'flat'" class="pt-3">
-                    <mat-expansion-panel *ngFor="let item of item.categories">
-                        <mat-expansion-panel-header>
-                            {{item.name}}
-                        </mat-expansion-panel-header>
-                        <div class="pt-4">
-                            <mat-accordion *ngIf="item.categories.length>0" [displayMode]="'flat'" class="pt-3">
-                                <mat-expansion-panel *ngFor="let item of item.categories">
-                                    <mat-expansion-panel-header>
-                                        {{item.name}}
-                                    </mat-expansion-panel-header>
-                                </mat-expansion-panel>
-                            </mat-accordion>
-                        </div>
-                    </mat-expansion-panel>
-                </mat-accordion>
-            </div>
-        </mat-expansion-panel>
-    </mat-accordion> -->
+    <form class="w-full bg-llPrimary shadow-lightPrimary flex items-center justify-between rounded-md mt-5">
+        <div class="w-full">
+            <input type="text" placeholder="عنوان دسته‌بندی" class="w-full h-full bg-llprimary outline-none bg-transparent px-2 text-gray-900">
+        </div>
+        <button mat-raised-button color="primary" style="padding-top: 0.25rem;padding-bottom: 0.25rem;">
+            ایجاد
+        </button>
+    </form>
     <app-category [category]="categories"></app-category>
 </div>
