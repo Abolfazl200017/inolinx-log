@@ -49,11 +49,11 @@
                         </div>
                     </div>
                 </mat-expansion-panel-header>
-                <form *ngIf="add[i]" class="w-full bg-llPrimary shadow-lightPrimary rounded-b-md flex items-center justify-between border-t">
+                <form *ngIf="add[i]" class="w-full bg-llPrimary shadow-lightPrimary rounded-b-md flex items-center justify-between ">
                     <div class="w-full">
-                        <input type="text" placeholder="عنوان دسته‌بندی" class="w-full h-full bg-llprimary outline-none bg-transparent px-2">
+                        <input type="text" placeholder="عنوان دسته‌بندی" class="w-full h-full bg-llprimary outline-none bg-transparent px-2 text-gray-900">
                     </div>
-                    <button mat-raised-button color="primary" (click)="add[i]=!add[i]">
+                    <button mat-raised-button color="primary" (click)="add[i]=!add[i]" class="rounded-top-none">
                         ایجاد
                     </button>
                 </form>
@@ -99,11 +99,11 @@
                         </div>
                     </div>
                 </div>
-                <form *ngIf="add[i]" class="w-full mb-5 bg-llPrimary shadow-lightPrimary rounded-b-md flex items-center justify-between border-t">
+                <form *ngIf="add[i]" class="w-full mb-5 bg-llPrimary shadow-lightPrimary rounded-b-md flex items-center justify-between ">
                     <div class="w-full">
-                        <input type="text" placeholder="عنوان دسته‌بندی" class="w-full h-full bg-llprimary outline-none bg-transparent px-2">
+                        <input type="text" placeholder="عنوان دسته‌بندی" class="w-full h-full bg-llprimary outline-none bg-transparent px-2 text-gray-900">
                     </div>
-                    <button mat-raised-button color="primary" (click)="add[i]=!add[i]">
+                    <button mat-raised-button color="primary" (click)="add[i]=!add[i]" class="rounded-top-none">
                         ایجاد
                     </button>
                 </form>
