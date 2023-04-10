@@ -10,7 +10,6 @@ import { CategoriesComponent } from './categories/categories.component';
 import { PersonsComponent } from './persons/persons.component';
 import { EditComponent } from './edit/edit.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { NgxDatePickerModule } from '@ah99/ngx-date-picker';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CategoryComponent } from './categories/category/category.component';
 
@@ -30,6 +29,8 @@ import { CategoryComponent } from './categories/category/category.component';
     SingleRoutingModule,
     AngularMaterialModule,
     SharedModule,
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class SingleModule { }

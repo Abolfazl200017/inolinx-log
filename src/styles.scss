@@ -26,6 +26,9 @@ $angular-default-theme: mat.define-light-theme(
 );
 
 @include mat.all-component-themes($angular-default-theme);
+@include mat.all-component-typographies(
+  mat.define-typography-config($font-family: vazir)
+);
 
 $angular-dark-theme: mat.define-dark-theme(
   (
@@ -34,6 +37,7 @@ $angular-dark-theme: mat.define-dark-theme(
       accent: $angular-accent-dark,
       warn: $angular-warn-dark,
     ),
+    typography: $angular-typography,
   )
 );
 

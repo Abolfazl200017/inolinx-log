@@ -13,3 +13,6 @@
 .custom-card{
     @apply hover:bg-llPrimary hover:shadow-md hover:shadow-primary dark:hover:bg-secondary dark:hover:shadow-md dark:hover:shadow-secondary dark:hover:bg-opacity-50 hover:transition-colors ease-in-out duration-300
 }
+.mat-h1,.mat-h2,.mat-h3,.mat-h4,.mat-h5{
+    font-family: vazir !important;
+}
