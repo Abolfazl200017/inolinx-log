@@ -3,6 +3,7 @@ import { UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/for
 
 interface ICategory{
   name: string;
+  choosed: boolean;
   categories: ICategory[];
 }
 
@@ -13,26 +14,31 @@ interface ICategory{
 })
 export class IssuesComponent implements OnInit {
   categories: ICategory={
-
     name: 'parent',
+    choosed: true,
     categories:
     [
       {
         name: 'زیرمجموعه اول',
+        choosed: true,
         categories: [
           {
             name: 'زیرمجموعه سوم',
+            choosed: true,
             categories: []
           },
           {
             name: 'زیرمجموعه چهارم',
+            choosed: true,
             categories: [
               {
                 name: 'زیرمجموعه پنجم',
+                choosed: true,
                 categories: [],
               },
               {
                 name: 'زیرمجموعه ششم',
+                choosed: true,
                 categories: []
               }
             ]
@@ -41,17 +47,21 @@ export class IssuesComponent implements OnInit {
       },
       {
         name: 'زیرمجموعه دوم',
+        choosed: true,
         categories: []
       },
       {
         name: 'زیرمجموعه چهارم',
+        choosed: true,
         categories: [
           {
             name: 'زیرمجموعه پنجم',
+            choosed: true,
             categories: [],
           },
           {
             name: 'زیرمجموعه ششم',
+            choosed: true,
             categories: []
           }
         ]

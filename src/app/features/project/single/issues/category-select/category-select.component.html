@@ -1,19 +1,25 @@
-<section class="example-section">
-    <span class="example-list-section">
-      <mat-checkbox class="example-margin"
-                    [checked]="allComplete"
-                    [indeterminate]="someComplete()"
-                    (change)="setAll($event.checked)">
+<section class="example-section" *ngFor="let subtask1 of task.subtasks">
+    <span>
+      <mat-checkbox [indeterminate]="someComplete()"
+                    (change)="setSubTask($event.checked,subtask1)">
         {{task.name}}
       </mat-checkbox>
     </span>
-    <span class="example-list-section">
+    <span>
       <ul class="pr-5">
-        <li *ngFor="let subtask of task.subtasks">
-          <mat-checkbox [(ngModel)]="subtask.completed"
-                        (ngModelChange)="updateAllComplete()">
-            {{subtask.name}}
+        <li *ngFor="let subtask2 of subtask1.subtasks">
+          <mat-checkbox (change)="subtask2.subtasks?subtask2.subtasks.length>0?setSubTask($event.checked,subtask2):null:null" [(ngModel)]="subtask2.completed" (ngModelChange)="checkSubTask(subtask1)">
+            {{subtask2.name}}
           </mat-checkbox>
+          <span *ngIf="subtask2.subtasks?subtask2.subtasks.length>0:false">
+            <ul class="pr-5">
+              <li *ngFor="let subtask3 of subtask2.subtasks">
+                <mat-checkbox *ngIf="subtask3.subtasks?subtask3.subtasks.length<=0:false" [(ngModel)]="subtask3.completed" (ngModelChange)="checkSubTask(subtask2)">
+                  {{subtask3.name}}
+                </mat-checkbox>
+              </li>
+            </ul>
+          </span>
         </li>
       </ul>
     </span>

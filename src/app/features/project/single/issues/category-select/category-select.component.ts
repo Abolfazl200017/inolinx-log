@@ -1,15 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ThemePalette } from '@angular/material/core';
 
 interface ICategory{
   name: string;
+  choosed: boolean;
   categories: ICategory[];
 }
 export interface Task {
   name: string;
   completed: boolean;
-  color: ThemePalette;
-  subtasks?: Task[];
+  subtasks: Task[];
 }
 
 @Component({
@@ -20,13 +19,19 @@ export interface Task {
 export class CategorySelectComponent implements OnInit {
   @Input() categories: ICategory[] | undefined;
   task: Task = {
-    name: 'Indeterminate',
+    name: 'root',
     completed: false,
-    color: 'primary',
     subtasks: [
-      {name: 'Primary', completed: false, color: 'primary'},
-      {name: 'Accent', completed: false, color: 'accent'},
-      {name: 'Warn', completed: false, color: 'warn'},
+      {name: 'Primary', completed: false, subtasks:[
+        {name: 'Primary', completed: false, subtasks:[]},
+        {name: 'Accent', completed: false, subtasks:[
+          {name: 'Primary', completed: false, subtasks:[]},
+          {name: 'Accent', completed: false, subtasks:[]},
+        ]},
+        {name: 'Warn', completed: false, subtasks:[]},
+      ]},
+      {name: 'Accent', completed: false, subtasks:[]},
+      {name: 'Warn', completed: false, subtasks:[]},
     ],
   };
   constructor() { }
@@ -37,6 +42,12 @@ export class CategorySelectComponent implements OnInit {
 
   updateAllComplete() {
     this.allComplete = this.task.subtasks != null && this.task.subtasks.every(t => t.completed);
+  }
+
+  checkSubTask(task: Task){
+    let completed = true;
+    task.subtasks?.forEach(t => {if(!t.completed)completed=false})
+    task.completed = completed;
   }
 
   someComplete(): boolean {
@@ -52,5 +63,8 @@ export class CategorySelectComponent implements OnInit {
       return;
     }
     this.task.subtasks.forEach(t => (t.completed = completed));
+  }
+  setSubTask(completed: boolean, item: Task){
+    item.subtasks?.forEach(t => (t.completed = completed))
   }
 }
