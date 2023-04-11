@@ -12,6 +12,7 @@ import { EditComponent } from './edit/edit.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CategoryComponent } from './categories/category/category.component';
+import { CategorySelectComponent } from './issues/category-select/category-select.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { CategoryComponent } from './categories/category/category.component';
     PersonsComponent,
     EditComponent,
     CategoryComponent,
+    CategorySelectComponent,
   ],
   imports: [
     CommonModule,
