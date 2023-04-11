@@ -67,4 +67,29 @@ export class CategorySelectComponent implements OnInit {
   setSubTask(completed: boolean, item: Task){
     item.subtasks?.forEach(t => (t.completed = completed))
   }
+  console(){
+    console.log(this.task)
+  }
+  test(task: Task){
+
+  }
+  initTask(){
+    this.upDownCheck(this.task);
+    this.downUpCheck(this.task);
+  }
+  upDownCheck(task: Task){
+    if(task.subtasks.length>0){
+      task.subtasks.forEach((t) => {
+        if(task.completed)t.completed = true;
+        this.upDownCheck(t);
+      })
+    }
+  }
+  downUpCheck(task: Task){
+    if(task.subtasks.length>0){
+      let complete = false;
+      task.subtasks.forEach((t)=>{if(!t.completed)complete = false;this.downUpCheck(t);})
+      task.completed = complete;
+    }
+  }
 }
