@@ -3,17 +3,28 @@
 
     </div>
     <div class="col-span-1 border-r-2 border-primary pr-3 pl-2 py-3">
-        <form class="example-section" [formGroup]="issueTypeFormControl">
-            <h4 >حالت مسئله</h4>
-            <p><mat-checkbox formControlName="todo" [color]="'warn'">Todo</mat-checkbox></p>
-            <p><mat-checkbox formControlName="inProgress" [color]="'warn'">InProgress</mat-checkbox></p>
-            <p><mat-checkbox formControlName="done" [color]="'warn'">Done</mat-checkbox></p>
-        </form>
+        <mat-chip-list [multiple]="true">
+            <mat-chip color="primary" (click)="types.todo =! types.todo" [selected]="types.todo">
+                <span class="select-none">
+                    ToDo
+                </span>
+            </mat-chip>
+            <mat-chip color="accent" (click)="types.inprogress = !types.inprogress" [selected]="types.inprogress">
+                <span class="select-none">
+                    InProgress
+                </span>
+            </mat-chip>
+            <mat-chip color="warn" (click)="types.done = !types.done" [selected]="types.done">
+                <span class="select-none">
+                    Done
+                </span>
+            </mat-chip>
+        </mat-chip-list>
         <div class="mt-5">
             <h4>
                 دسته‌بندی‌ها
             </h4>
-            <app-category-select></app-category-select>
+            <app-category-select [task]="task"></app-category-select>
         </div>
     </div>
 </div>

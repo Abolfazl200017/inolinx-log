@@ -5,10 +5,10 @@ interface ICategory{
   choosed: boolean;
   categories: ICategory[];
 }
-export interface Task {
+interface ITask {
   name: string;
   completed: boolean;
-  subtasks: Task[];
+  subtasks: ITask[];
 }
 
 @Component({
@@ -17,79 +17,9 @@ export interface Task {
   styleUrls: ['./category-select.component.scss']
 })
 export class CategorySelectComponent implements OnInit {
-  @Input() categories: ICategory[] | undefined;
-  task: Task = {
-    name: 'root',
-    completed: false,
-    subtasks: [
-      {name: 'Primary', completed: false, subtasks:[
-        {name: 'Primary', completed: false, subtasks:[]},
-        {name: 'Accent', completed: false, subtasks:[
-          {name: 'Primary', completed: false, subtasks:[]},
-          {name: 'Accent', completed: false, subtasks:[]},
-        ]},
-        {name: 'Warn', completed: false, subtasks:[]},
-      ]},
-      {name: 'Accent', completed: false, subtasks:[]},
-      {name: 'Warn', completed: false, subtasks:[]},
-    ],
-  };
+  @Input() task: ITask = <ITask>{};
   constructor() { }
 
   ngOnInit(): void {
-  }
-  allComplete: boolean = false;
-
-  updateAllComplete() {
-    this.allComplete = this.task.subtasks != null && this.task.subtasks.every(t => t.completed);
-  }
-
-  checkSubTask(task: Task){
-    let completed = true;
-    task.subtasks?.forEach(t => {if(!t.completed)completed=false})
-    task.completed = completed;
-  }
-
-  someComplete(): boolean {
-    if (this.task.subtasks == null) {
-      return false;
-    }
-    return this.task.subtasks.filter(t => t.completed).length > 0 && !this.allComplete;
-  }
-
-  setAll(completed: boolean) {
-    this.allComplete = completed;
-    if (this.task.subtasks == null) {
-      return;
-    }
-    this.task.subtasks.forEach(t => (t.completed = completed));
-  }
-  setSubTask(completed: boolean, item: Task){
-    item.subtasks?.forEach(t => (t.completed = completed))
-  }
-  console(){
-    console.log(this.task)
-  }
-  test(task: Task){
-
-  }
-  initTask(){
-    this.upDownCheck(this.task);
-    this.downUpCheck(this.task);
-  }
-  upDownCheck(task: Task){
-    if(task.subtasks.length>0){
-      task.subtasks.forEach((t) => {
-        if(task.completed)t.completed = true;
-        this.upDownCheck(t);
-      })
-    }
-  }
-  downUpCheck(task: Task){
-    if(task.subtasks.length>0){
-      let complete = false;
-      task.subtasks.forEach((t)=>{if(!t.completed)complete = false;this.downUpCheck(t);})
-      task.completed = complete;
-    }
   }
 }

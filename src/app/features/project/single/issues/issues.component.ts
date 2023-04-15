@@ -6,6 +6,11 @@ interface ICategory{
   choosed: boolean;
   categories: ICategory[];
 }
+interface ITask {
+  name: string;
+  completed: boolean;
+  subtasks: ITask[];
+}
 
 @Component({
   selector: 'app-issues',
@@ -68,14 +73,28 @@ export class IssuesComponent implements OnInit {
       }
     ]
   }
-  constructor(
-    private formBuilder: UntypedFormBuilder,
-  ) { }
-  issueTypeFormControl = this.formBuilder.group({
-    todo: new UntypedFormControl(true, [Validators.required]),
-    inProgress: new UntypedFormControl(true, [Validators.required]),
-    done: new UntypedFormControl(true, [Validators.required]),
-  })
+  task: ITask = {
+    name: 'root',
+    completed: false,
+    subtasks: [
+      {name: 'Primary', completed: false, subtasks:[
+        {name: 'Primary', completed: false, subtasks:[]},
+        {name: 'Accent', completed: false, subtasks:[
+          {name: 'Primary', completed: false, subtasks:[]},
+          {name: 'Accent', completed: false, subtasks:[]},
+        ]},
+        {name: 'Warn', completed: false, subtasks:[]},
+      ]},
+      {name: 'Accent', completed: false, subtasks:[]},
+      {name: 'Warn', completed: false, subtasks:[]},
+    ],
+  };
+  types = {
+    todo: true,
+    inprogress: true,
+    done: true,
+  }
+  constructor() { }
   ngOnInit(): void {
   }
 }
