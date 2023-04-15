@@ -1,9 +1,12 @@
 <div class="grid grid-cols-3">
-    <div class="col-span-2">
+    <div class="col-span-2 px-3">
+        <div class="w-full border-b border-primary text-primary dark:text-lightPrimary pb-2 mb-3 text-lg">
+            امروز
+        </div>
 
     </div>
     <div class="col-span-1 border-r-2 border-primary pr-3 pl-2 py-3">
-        <mat-chip-list [multiple]="true">
+        <mat-chip-list [multiple]="true" class="mb-3">
             <mat-chip color="primary" (click)="types.todo =! types.todo" [selected]="types.todo">
                 <span class="select-none">
                     ToDo
@@ -20,10 +23,10 @@
                 </span>
             </mat-chip>
         </mat-chip-list>
-        <div class="mt-5">
-            <h4>
+        <div class="mt-5 pt-3 border-t">
+            <div class="mb-2 select-none font-semibold">
                 دسته‌بندی‌ها
-            </h4>
+            </div>
             <app-category-select [task]="task"></app-category-select>
         </div>
     </div>

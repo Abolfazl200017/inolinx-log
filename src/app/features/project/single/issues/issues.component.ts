@@ -94,6 +94,7 @@ export class IssuesComponent implements OnInit {
     inprogress: true,
     done: true,
   }
+  
   constructor() { }
   ngOnInit(): void {
   }
