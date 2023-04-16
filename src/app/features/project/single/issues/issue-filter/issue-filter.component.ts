@@ -17,6 +17,7 @@ export class IssueFilterComponent implements OnInit {
     todo: true,
     inprogress: true,
     done: true,
+    all: true,
   }
   task: ITask = {
     name: 'root',
@@ -38,5 +39,38 @@ export class IssueFilterComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  setAll(){
+    this.types.all = !this.types.all;
+    if(this.types.all){
+      this.types.todo=true;
+      this.types.inprogress=true;
+      this.types.done=true;
+    }
+  }
+  checkAll(){
+    if(this.types.todo && this.types.inprogress && this.types.done){
+      this.types.all = true;
+    }
+  }
+  setTodo(){
+    this.types.todo = !this.types.todo;
+    if(!this.types.todo){
+      this.types.all=false;
+    }
+    // this.checkAll();
+  }
+  setInprogress(){
+    this.types.inprogress = !this.types.inprogress;
+    if(!this.types.inprogress){
+      this.types.all=false;
+    }
+    // this.checkAll();
+  }
+  setDone(){
+    this.types.done = !this.types.done;
+    if(!this.types.done){
+      this.types.all=false;
+    }
+    // this.checkAll();
+  }
 }
