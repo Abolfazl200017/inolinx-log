@@ -6,11 +6,14 @@
         <div class="w-full px-3 py-4">
             <a [routerLink]="'.'" class="w-full p-2 bg-lightCardBg dark:bg-darkCardBg rounded-md border border-color transition-colors duration-200 ease-in-out hover:bg-llPrimary dark:hover:bg-primary block">
                 <div class="flex items-center w-full">
-                    <div class="w-6 aspect-square p-2 ml-2 rounded-full" matRipple>
+                    <button [mat-menu-trigger-for]="menu" class="w-6 aspect-square p-2 ml-2 rounded-full" matRipple>
                         <mat-icon class="mat-full-center">
                             more_vert
                         </mat-icon>
-                    </div>
+                    </button>
+                    <mat-menu #menu>
+                        go to
+                    </mat-menu>
                     <div class="w-full pl-2 text-[1.05rem]">
                         عنوان مربوط به مسئله
                     </div>
