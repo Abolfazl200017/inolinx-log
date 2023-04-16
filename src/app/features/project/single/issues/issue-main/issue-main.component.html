@@ -1,47 +1,28 @@
 <div class="w-full grid grid-cols-3 gap-5">
-    <div class="col-span-1 border border-color rounded-md bg-[#fafafa] dark:bg-[#575757]">
-        <div class="w-full py-3 px-3 border-b border-color text-primary dark:text-llPrimary text-lg font-semibold text-center">
-            ToDo
-        </div>
-        <div class="w-full px-3 py-4">
-            <a [routerLink]="'.'" class="w-full p-2 bg-lightCardBg dark:bg-darkCardBg rounded-md border border-color transition-colors duration-200 ease-in-out hover:bg-llPrimary dark:hover:bg-primary block">
-                <div class="flex items-center w-full">
-                    <button [mat-menu-trigger-for]="menu" class="w-6 aspect-square p-2 ml-2 rounded-full" matRipple>
-                        <mat-icon class="mat-full-center">
-                            more_vert
-                        </mat-icon>
-                    </button>
-                    <mat-menu #menu>
-                        go to
-                    </mat-menu>
-                    <div class="w-full pl-2 text-[1.05rem]">
-                        عنوان مربوط به مسئله
-                    </div>
-                    <div class="w-12 aspect-square rounded-md overflow-hidden">
-                        <img src="assets/img/profile.jpg" alt="" class="min-w-full min-h-full object-cover">
-                    </div>
-                </div>
-                <div class="w-full flex mt-3 text-white text-xs">
-                    <div class="bg-secondary py-1 px-2 rounded-md ml-2">
-                        باگ
-                    </div>
-                    <div class="bg-warn py-1 px-2 rounded-md">
-                        یه لیبل
-                    </div>
-                </div>
-            </a>
+    <div class="col-span-1">
+        <div class="w-full border border-color rounded-md bg-[#fafafa] dark:bg-[#575757]">
+            <div class="w-full py-3 px-3 border-b border-color text-primary dark:text-llPrimary text-lg font-semibold text-center">
+                ToDo
+            </div>
+            <div class="w-full px-3 pt-4">
+                <app-issue-card *ngFor="let item of list"></app-issue-card>
+            </div>
         </div>
     </div>
-    <div class="col-span-1 border border-color rounded-md bg-[#fafafa] dark:bg-[#575757]">
-        <div class="w-full py-3 px-3 border-b border-color text-primary dark:text-llPrimary text-lg font-semibold text-center">
-            InProgress
+    <div class="col-span-1">
+        <div class="col-span-1 border border-color rounded-md bg-[#fafafa] dark:bg-[#575757]">
+            <div class="w-full py-3 px-3 border-b border-color text-primary dark:text-llPrimary text-lg font-semibold text-center">
+                InProgress
+            </div>
+            hello
         </div>
-        hello
     </div>
-    <div class="col-span-1 border border-color rounded-md bg-[#fafafa] dark:bg-[#575757]">
-        <div class="w-full py-3 px-3 border-b border-color text-primary dark:text-llPrimary text-lg font-semibold text-center">
-            Done
+    <div class="col-span-1">
+        <div class="col-span-1 border border-color rounded-md bg-[#fafafa] dark:bg-[#575757]">
+            <div class="w-full py-3 px-3 border-b border-color text-primary dark:text-llPrimary text-lg font-semibold text-center">
+                Done
+            </div>
+            hello
         </div>
-        hello
     </div>
 </div>

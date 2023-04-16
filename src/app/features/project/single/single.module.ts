@@ -16,6 +16,7 @@ import { CategorySelectComponent } from './issues/category-select/category-selec
 import { IssueMainComponent } from './issues/issue-main/issue-main.component';
 import { IssueFilterComponent } from './issues/issue-filter/issue-filter.component';
 import { ToolsComponent } from './tools/tools.component';
+import { IssueCardComponent } from './issues/issue-main/issue-card/issue-card.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { ToolsComponent } from './tools/tools.component';
     IssueMainComponent,
     IssueFilterComponent,
     ToolsComponent,
+    IssueCardComponent,
   ],
   imports: [
     CommonModule,
