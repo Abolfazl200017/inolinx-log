@@ -10,6 +10,7 @@ module.exports = {
         'llPrimary': '#e8f0fe',
         'inputBg': '#80808030',
         'secondary': '#e61a58',
+        'warn': '#f44336',
         'lightCardBg': '#ffffff',
         'darkCardBg': '#424242',
         'darkBorder': '#595959',

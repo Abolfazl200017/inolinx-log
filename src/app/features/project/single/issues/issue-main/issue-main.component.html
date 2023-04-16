@@ -4,9 +4,29 @@
             ToDo
         </div>
         <div class="w-full px-3 py-4">
-            <div class="w-full p-2 bg-lightCardBg dark:bg-darkCardBg rounded-md border border-color">
-
-            </div>
+            <a [routerLink]="'.'" class="w-full p-2 bg-lightCardBg dark:bg-darkCardBg rounded-md border border-color transition-colors duration-200 ease-in-out hover:bg-llPrimary dark:hover:bg-primary block">
+                <div class="flex items-center w-full">
+                    <div class="w-6 aspect-square p-2 ml-2 rounded-full" matRipple>
+                        <mat-icon class="mat-full-center">
+                            more_vert
+                        </mat-icon>
+                    </div>
+                    <div class="w-full pl-2 text-[1.05rem]">
+                        عنوان مربوط به مسئله
+                    </div>
+                    <div class="w-12 aspect-square rounded-md overflow-hidden">
+                        <img src="assets/img/profile.jpg" alt="" class="min-w-full min-h-full object-cover">
+                    </div>
+                </div>
+                <div class="w-full flex mt-3 text-white text-xs">
+                    <div class="bg-secondary py-1 px-2 rounded-md ml-2">
+                        باگ
+                    </div>
+                    <div class="bg-warn py-1 px-2 rounded-md">
+                        یه لیبل
+                    </div>
+                </div>
+            </a>
         </div>
     </div>
     <div class="col-span-1 border border-color rounded-md bg-[#fafafa] dark:bg-[#575757]">
