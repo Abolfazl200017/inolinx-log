@@ -1,5 +1,5 @@
 <div class="w-12 md:w-[4.5rem] h-full my-3 mx-1 rounded-md relative transition-all ease-in-out duration-500">
-    <mat-card class="md:w-[4.5rem] absolute top-0 right-0 z-10 transition-all duration-500 ease-in-out" [class]="isFull?'md:w-52':''" (mouseenter)="isFull=true" (mouseleave)="isFull=false">
+    <mat-card class="w-[4.5rem] absolute top-0 right-0 z-10 transition-side" [class]="isFull?'md:w-52':''" (mouseenter)="setIsFullTrue()" (mouseleave)="setIsFullFalse()">
         <div class="flex items-center">
             <div class="w-full flex items-center justify-center" [class]="isFull?'md:ml-3 md:w-auto':''">
                 <mat-icon class="mat-full-center text-[2rem] md:text-[3.5rem]">

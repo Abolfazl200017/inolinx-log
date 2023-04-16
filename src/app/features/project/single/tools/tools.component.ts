@@ -7,8 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolsComponent implements OnInit {
   isFull:boolean=false;
+  onHover:boolean=true;
   constructor() { }
 
   ngOnInit(): void {
+  }
+  setIsFullTrue(){
+    this.onHover=true;
+    setTimeout(() => {
+      this.isFull=this.onHover?true:false;
+    }, 300);
+  }
+  setIsFullFalse(){
+    this.onHover=false;
+    this.isFull=false;
   }
 }
