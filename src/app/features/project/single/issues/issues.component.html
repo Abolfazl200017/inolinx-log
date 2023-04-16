@@ -19,7 +19,7 @@
                 filter_list
             </mat-icon>
         </button>
-        <div class="w-screen h-screen fixed" *ngIf="!isShowFilter" (click)="changeFilterState()"></div>
+        <div class="w-screen h-screen fixed top-0 right-0" *ngIf="!isShowFilter" (click)="changeFilterState()"></div>
         <div *ngIf="!isShowFilter" class="absolute top-10 left-3 transition-opacity ease-in-out duration-100 z-10" [class]="filterOpacity">
             <app-issue-filter></app-issue-filter>
         </div>
