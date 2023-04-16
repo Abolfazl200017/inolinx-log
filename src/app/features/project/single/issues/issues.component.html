@@ -1,5 +1,5 @@
-<div class="grid grid-cols-4">
-    <div class="col-span-3 px-3">
+<div class="w-full flex">
+    <div class="w-full">
         <div class="w-full border-b border-primary text-primary dark:text-lightPrimary pb-2 mb-3 text-lg">
             امروز
         </div>
@@ -12,29 +12,14 @@
             </div>
         </div>
     </div>
-    <div class="col-span-1 border-r-2 border-primary pr-3 pl-2 py-3">
-        <mat-chip-list [multiple]="true" class="mb-3">
-            <mat-chip color="primary" (click)="types.todo =! types.todo" [selected]="types.todo">
-                <span class="select-none">
-                    ToDo
-                </span>
-            </mat-chip>
-            <mat-chip color="accent" (click)="types.inprogress = !types.inprogress" [selected]="types.inprogress">
-                <span class="select-none">
-                    InProgress
-                </span>
-            </mat-chip>
-            <mat-chip color="warn" (click)="types.done = !types.done" [selected]="types.done">
-                <span class="select-none">
-                    Done
-                </span>
-            </mat-chip>
-        </mat-chip-list>
-        <div class="mt-5 pt-3 border-t">
-            <div class="mb-2 select-none font-semibold">
-                دسته‌بندی‌ها
-            </div>
-            <app-category-select [task]="task"></app-category-select>
+    <div class="relative w-14 flex justify-center">
+        <button matRipple class="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center bg-primary dark:bg-lightPrimary" (click)="changeFilterState()">
+            <mat-icon class="mat-full-center text-white">
+                filter_list
+            </mat-icon>
+        </button>
+        <div *ngIf="!isShowFilter" class="absolute top-11 left-3 transition-opacity ease-in-out duration-100" [class]="filterOpacity">
+            <app-issue-filter></app-issue-filter>
         </div>
     </div>
 </div>

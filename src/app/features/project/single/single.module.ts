@@ -13,6 +13,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CategoryComponent } from './categories/category/category.component';
 import { CategorySelectComponent } from './issues/category-select/category-select.component';
+import { IssueMainComponent } from './issues/issue-main/issue-main.component';
+import { IssueFilterComponent } from './issues/issue-filter/issue-filter.component';
 
 
 @NgModule({
@@ -25,6 +27,8 @@ import { CategorySelectComponent } from './issues/category-select/category-selec
     EditComponent,
     CategoryComponent,
     CategorySelectComponent,
+    IssueMainComponent,
+    IssueFilterComponent,
   ],
   imports: [
     CommonModule,

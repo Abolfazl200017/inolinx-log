@@ -6,11 +6,6 @@ interface ICategory{
   choosed: boolean;
   categories: ICategory[];
 }
-interface ITask {
-  name: string;
-  completed: boolean;
-  subtasks: ITask[];
-}
 
 @Component({
   selector: 'app-issues',
@@ -73,29 +68,22 @@ export class IssuesComponent implements OnInit {
       }
     ]
   }
-  task: ITask = {
-    name: 'root',
-    completed: false,
-    subtasks: [
-      {name: 'Primary', completed: false, subtasks:[
-        {name: 'Primary', completed: false, subtasks:[]},
-        {name: 'Accent', completed: false, subtasks:[
-          {name: 'Primary', completed: false, subtasks:[]},
-          {name: 'Accent', completed: false, subtasks:[]},
-        ]},
-        {name: 'Warn', completed: false, subtasks:[]},
-      ]},
-      {name: 'Accent', completed: false, subtasks:[]},
-      {name: 'Warn', completed: false, subtasks:[]},
-    ],
-  };
-  types = {
-    todo: true,
-    inprogress: true,
-    done: true,
-  }
-  
+  filterOpacity:string='opacity-0'
+  isShowFilter:boolean=true;
   constructor() { }
   ngOnInit(): void {
+  }
+  changeFilterState(){
+    if(this.isShowFilter){
+      this.isShowFilter = false;
+      setTimeout(() => {
+        this.filterOpacity = 'opacity-100'
+      }, 10);
+    }else{
+      this.filterOpacity = 'opacity-0'
+      setTimeout(() => {
+        this.isShowFilter = true
+      }, 150);
+    }
   }
 }
