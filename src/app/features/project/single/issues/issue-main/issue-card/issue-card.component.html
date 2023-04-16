@@ -1,4 +1,4 @@
-<a [routerLink]="'.'" class="w-full p-2 mb-3 bg-lightCardBg dark:bg-darkCardBg rounded-md border border-color transition-colors duration-200 ease-in-out hover:bg-llPrimary dark:hover:bg-primary block">
+<a [routerLink]="'.'" class="w-full p-2 mb-3 bg-lightCardBg dark:bg-darkCardBg rounded-md border border-color transition-colors duration-200 ease-in-out hover:bg-llPrimary dark:hover:bg-darkPrimary block">
     <div class="flex items-center w-full">
         <button [mat-menu-trigger-for]="menu" class="w-6 aspect-square p-2 ml-2 rounded-full" matRipple>
             <mat-icon class="mat-full-center">
@@ -6,7 +6,15 @@
             </mat-icon>
         </button>
         <mat-menu #menu>
-            go to
+            <button mat-menu-item>
+                انتقال به فلان
+            </button>
+            <button mat-menu-item>
+                انتقال به بهمان
+            </button>
+            <button mat-menu-item>
+                ویرایش
+            </button>
         </mat-menu>
         <div class="w-full pl-2 text-[1.05rem] text-primary dark:text-llPrimary">
             <div class="w-full mb-2">
