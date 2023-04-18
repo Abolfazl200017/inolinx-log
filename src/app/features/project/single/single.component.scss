@@ -4,3 +4,9 @@
         padding: 0.5rem; 
     }
 }
+.content-width{
+    width: calc(100% - 56px);
+    @media(min-width: 768px){
+        width: calc(100% - 72px);
+    }
+}
