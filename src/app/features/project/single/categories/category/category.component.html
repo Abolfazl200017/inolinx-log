@@ -2,7 +2,7 @@
     <mat-accordion *ngIf="category.categories.length>0" [displayMode]="'flat'" [hideToggle]="true" class="pt-3">
         <div *ngFor="let item of category.categories;let i = index">
             <mat-expansion-panel *ngIf="item.categories.length>0;else single">
-                <mat-expansion-panel-header (click)="isStateOpen = !isStateOpen">
+                <mat-expansion-panel-header (click)="isStateOpen = !isStateOpen" class="px-1">
                     <div *ngIf="!delete[i]" class="w-full flex items-center justify-between">
                         <input [disabled]="editable[i]" (click)="$event.stopPropagation(); "type="text" [placeholder]="item.name" class="focus:outlien-none outline-none bg-transparent focus:bg-none py-1 px-2 rounded-md" [class]="editable[i]?'text-inherit placeholder:text-inherit ':'bg-white text-gray-900 hover:text-gray focus:text-gray placeholder:text-gray-900'">
                         <div class="flex items-center">
