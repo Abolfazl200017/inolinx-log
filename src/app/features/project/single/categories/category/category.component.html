@@ -4,30 +4,50 @@
             <mat-expansion-panel *ngIf="item.categories.length>0;else single">
                 <mat-expansion-panel-header (click)="isStateOpen = !isStateOpen" class="px-1">
                     <div *ngIf="!delete[i]" class="w-full flex items-center justify-between">
-                        <input [disabled]="editable[i]" (click)="$event.stopPropagation(); "type="text" [placeholder]="item.name" class="focus:outlien-none outline-none bg-transparent focus:bg-none py-1 px-2 rounded-md" [class]="editable[i]?'text-inherit placeholder:text-inherit ':'bg-white text-gray-900 hover:text-gray focus:text-gray placeholder:text-gray-900'">
+                        <input [disabled]="editable[i]" (click)="$event.stopPropagation(); "type="text" [placeholder]="item.name" class="focus:outlien-none outline-none bg-transparent focus:bg-none py-1 px-2 rounded-md" [class]="editable[i]?'text-inherit placeholder:text-inherit ':'bg-white text-gray-900 hover:text-gray focus:text-gray placeholder:text-gray-900'" (click)="$event.stopPropagation();">
                         <div class="flex items-center">
-                            <div class="flex items-center">
-                                <button matRipple class="w-6 h-6 rounded-full overflow-hidden justify-center items-center text-white bg-primary flex p-4 hover:bg-opacity-80" (click)="isStateOpen?$event.stopPropagation():null;" (click)="isStateOpen?$event.stopPropagation():null;" (click)="add[i] = !add[i]">
-                                    <mat-icon class="mat-center w-full h-full">
-                                        add
+                            <div class="hidden md:flex items-center">
+                                <div class="flex items-center">
+                                    <button matRipple class="w-6 h-6 rounded-full overflow-hidden justify-center items-center text-white bg-primary flex p-4 hover:bg-opacity-80" (click)="isStateOpen?$event.stopPropagation():null;" (click)="add[i] = !add[i]">
+                                        <mat-icon class="mat-center w-full h-full">
+                                            add
+                                        </mat-icon>
+                                    </button>
+                                    <button matRipple class="w-6 h-6 text-white rounded-full overflow-hidden justify-center items-center bg-primary flex mr-1 p-4 hover:bg-opacity-80" (click)="$event.stopPropagation();" (click)="editable[i] = !editable[i]">
+                                        <mat-icon class="mat-center w-full h-full">
+                                            {{editable[i]?'edit':'done'}}
+                                        </mat-icon>
+                                    </button>
+                                    <button matRipple class="w-6 h-6 text-white rounded-full overflow-hidden justify-center items-center bg-primary flex mr-1 p-4 hover:bg-opacity-80" (click)="$event.stopPropagation();" (click)="delete[i] = !delete[i]">
+                                        <mat-icon class="mat-center w-full h-full">
+                                            delete
+                                        </mat-icon>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="md:hidden">
+                                <button matRipple [matMenuTriggerFor]="menu" class="h-full aspect-square rounded-full flex items-center justify-center" (click)="$event.stopPropagation();">
+                                    <mat-icon class="mat-full-center">
+                                        more_vert
                                     </mat-icon>
                                 </button>
-                                <button matRipple class="w-6 h-6 text-white rounded-full overflow-hidden justify-center items-center bg-primary flex mr-1 p-4 hover:bg-opacity-80" (click)="$event.stopPropagation();" (click)="editable[i] = !editable[i]">
-                                    <mat-icon class="mat-center w-full h-full">
-                                        {{editable[i]?'edit':'done'}}
-                                    </mat-icon>
-                                </button>
-                                <button matRipple class="w-6 h-6 text-white rounded-full overflow-hidden justify-center items-center bg-primary flex mr-1 p-4 hover:bg-opacity-80" (click)="$event.stopPropagation();" (click)="delete[i] = !delete[i]">
-                                    <mat-icon class="mat-center w-full h-full">
-                                        delete
-                                    </mat-icon>
-                                </button>
+                                <mat-menu #menu="matMenu">
+                                    <button mat-menu-item (click)="add[i] = !add[i]">
+                                        افزودن زیردسته
+                                    </button>
+                                    <button mat-menu-item  (click)="editable[i] = !editable[i]">
+                                        {{editable[i]?'ویرایش':'تایید'}}
+                                    </button>
+                                    <button mat-menu-item (click)="delete[i] = !delete[i]">
+                                        حذف
+                                    </button>
+                                </mat-menu>
                             </div>
                             <div class="mr-1 md:mr-3 flex items-center">
-                                <mat-icon *ngIf="!isStateOpen" class="mat-center">
+                                <mat-icon (click)="$event.stopPropagation();" *ngIf="!isStateOpen" class="mat-center">
                                     add
                                 </mat-icon>
-                                <mat-icon *ngIf="isStateOpen" class="mat-center">
+                                <mat-icon (click)="$event.stopPropagation();" *ngIf="isStateOpen" class="mat-center">
                                     remove
                                 </mat-icon>
                             </div>
@@ -61,7 +81,7 @@
             </mat-expansion-panel>
             <ng-template #single class="w-full">
                 <div class="w-full">
-                    <div *ngIf="!delete[i]" class="w-full flex justify-between items-center my-3 py-2 px-6 bg-llPrimary hover:bg-lightPrimary hover:text-white transition-colors ease-in-out duration-300 text-gray-900 rounded-md shadow-lg" [class]="add[i]?'mb-0 rounded-b-none':''">
+                    <div *ngIf="!delete[i]" class="w-full flex justify-between items-center my-3 py-2 px-1 md:px-3 bg-llPrimary hover:bg-lightPrimary hover:text-white transition-colors ease-in-out duration-300 text-gray-900 rounded-md shadow-lg" [class]="add[i]?'mb-0 rounded-b-none':''">
                         <input [disabled]="editable[i]" (click)="$event.stopPropagation(); "type="text" [placeholder]="item.name" class="focus:outlien-none outline-none bg-transparent focus:bg-none py-1 px-2 rounded-md" [class]="editable[i]?'text-inherit placeholder:text-inherit ':'bg-white text-gray-900 hover:text-gray focus:text-gray placeholder:text-gray-900'">
                         <div class="flex items-center">
                             <div class="flex items-center">
