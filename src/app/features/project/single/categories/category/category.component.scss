@@ -1,5 +1,5 @@
 .mat-expansion-panel-header {
-    @apply bg-llPrimary text-gray-900;
+    @apply bg-llPrimary text-gray-900 px-1 md:px-3;
 }
 mat-expansion-panel-header.mat-expanded,
 mat-expansion-panel-header.mat-expanded:focus {
