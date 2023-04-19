@@ -3,7 +3,7 @@
 </header>
   <main [class]="darkMode?'darkMode dark':''" class="example-container h-full" (window:resize)="setMainHeight()" [style]="mainHeight">
     <mat-drawer-container class="h-full" [hasBackdrop]="true" autosize>
-      <mat-drawer #drawer class="example-sidenav w-full md:w-1/4" mode="side"> 
+      <mat-drawer #drawer class="example-sidenav w-full md:w-1/4" mode="over"> 
         <app-sidebar></app-sidebar>
       </mat-drawer>
     
