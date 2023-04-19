@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: '', component: SingleComponent, children:[
     { path: 'dashboard', component: DashboardComponent},
     { path: 'issues', component: IssuesComponent},
+    { path: 'issues/:id', loadChildren: () => import('../../issue/issue.module').then(m => m.IssueModule) },
     { path: 'categories', component: CategoriesComponent},
     { path: 'edit', component: EditComponent},
     { path: 'persons', component: PersonsComponent},
