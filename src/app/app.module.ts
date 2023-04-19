@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './shared/angular-material/angular-material.module'
 import { FormsModule } from '@angular/forms';
-import { ProjectCardComponent } from './shared/component/project-card/project-card.component';
+import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
   declarations: [
@@ -18,6 +18,7 @@ import { ProjectCardComponent } from './shared/component/project-card/project-ca
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    SwiperModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
