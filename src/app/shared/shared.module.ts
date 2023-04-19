@@ -6,6 +6,7 @@ import { PersonCardComponent } from './component/person-card/person-card.compone
 import { NewProjectComponent } from './component/new-project/new-project.component';
 import { NgxDatePickerModule } from '@ah99/ngx-date-picker';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { IssueSideColComponent } from './component/issue-side-col/issue-side-col.component';
 
 
 
@@ -13,7 +14,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [
     ProjectCardComponent,
     PersonCardComponent,
-    NewProjectComponent
+    NewProjectComponent,
+    IssueSideColComponent
   ],
   imports: [
     CommonModule,
