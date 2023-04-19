@@ -4,7 +4,7 @@
             <mat-expansion-panel *ngIf="item.categories.length>0;else single">
                 <mat-expansion-panel-header (click)="isStateOpen = !isStateOpen" class="px-1">
                     <div *ngIf="!delete[i]" class="w-full flex items-center justify-between">
-                        <input [disabled]="editable[i]" (click)="$event.stopPropagation(); "type="text" [placeholder]="item.name" class="focus:outlien-none outline-none bg-transparent focus:bg-none py-1 px-2 rounded-md" [class]="editable[i]?'text-inherit placeholder:text-inherit ':'bg-white text-gray-900 hover:text-gray focus:text-gray placeholder:text-gray-900'" (click)="$event.stopPropagation();">
+                        <input [disabled]="editable[i]" (click)="$event.stopPropagation(); "type="text" [placeholder]="item.name" class="focus:outlien-none outline-none bg-transparent focus:bg-none py-1 px-2 rounded-md" [class]="editable[i]?'text-inherit placeholder:text-inherit ':'bg-white text-gray-900 hover:text-gray focus:text-gray placeholder:text-gray-900'" (click)="$event.stopPropagation();" (keydown.space)="$event.stopPropagation()" (keydown.enter)="$event.stopPropagation();editable[i] = !editable[i];">
                         <div class="flex items-center">
                             <div class="hidden md:flex items-center">
                                 <div class="flex items-center">
