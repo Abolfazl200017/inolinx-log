@@ -1,5 +1,23 @@
 <div class="w-[90%] mx-auto  bg-primary dark:bg-lprimary bg-opacity-60 dark:bg-opacity-50 rounded-md text-center text-lg md:text-xl p-3">
-    نام مسئله
+    <div *ngIf="!editable" class="flex justify-between items-center">
+        <span>
+            نام مسئله
+        </span>
+        <button mat-flat-button color="primary" (click)="editable = true">
+            ویرایش
+        </button>
+    </div>
+    <div *ngIf="editable">
+        <input type="text" [value]="'نام مسئله'" class="w-full py-1 px-3 rounded-md outline-none">
+        <div class="w-full mt-2 grid grid-cols-2 gap-3">
+            <button mat-flat-button color="primary" class="col-span-1" (click)="editable = false">
+                ویرایش
+            </button>
+            <button mat-flat-button color="primary" class="col-span-1" (click)="editable = false">
+                انصراف
+            </button>
+        </div>
+    </div>
 </div>
 <div class="w-full mt-5">
     <div class="w-[90%] mx-auto">
@@ -10,14 +28,18 @@
             <div class="card-width">
                 <div class="w-full h-10 flex items-center rounded-t-md pl-2 bg-lightBorder dark:bg-darkBorder">
                     <div class="w-3 h-3 -mr-[0.3rem] rotate-45 rounded-sm bg-lightBorder dark:bg-darkBorder"></div>
-                    <span>
+                    <span class="mx-1">
                         یه بنده‌خدایی
                     </span>
-                    این کامنت را در 
-                    <span>
+                    <span class="opacity-80">
+                        این کامنت را در 
+                    </span>
+                    <span class="mx-1">
                         دیروز
                     </span>
-                    ایجاد نموده است
+                    <span class="opacity-80">
+                        ایجاد نموده است
+                    </span>
                 </div>
                 <div class="w-full p-3 rounded-b-md bg-lightBg dark:bg-darkBg shadow-md">
                     <span class="opacity-80">

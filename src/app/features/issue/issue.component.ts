@@ -27,6 +27,7 @@ interface IPersonType{
   styleUrls: ['./issue.component.scss']
 })
 export class IssueComponent implements OnInit {
+  editable:boolean=false;
   selectedPersons:any;
   issueTypes:IIssueTypes[]=[
     {
