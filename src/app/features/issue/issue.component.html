@@ -19,9 +19,9 @@
         </div>
     </div>
 </div>
-<div class="w-full mt-5">
-    <div class="w-[90%] mx-auto">
-        <div class="flex items-start justify-between">
+<div class="w-[90%] mx-auto grid grid-cols-3 gap-3 mt-5">
+    <div class="col-span-3 md:col-span-2">
+        <div class="flex items-start justify-between mb-3">
             <div class="w-10 h-10 flex items-center justify-center rounded-md overflow-hidden">
                 <img src="assets/img/profile.jpg" alt="" class="min-w-full min-h-full object-cover">
             </div>
@@ -47,6 +47,110 @@
                     </span>
                 </div>
             </div>
+        </div>
+        <div class="flex items-start justify-between mb-3">
+            <div class="w-10 h-10 flex items-center justify-center rounded-md overflow-hidden">
+                <img src="assets/img/profile.jpg" alt="" class="min-w-full min-h-full object-cover">
+            </div>
+            <div class="card-width">
+                <div class="w-full h-10 flex items-center rounded-t-md pl-2 bg-lightBorder dark:bg-darkBorder">
+                    <div class="w-3 h-3 -mr-[0.3rem] rotate-45 rounded-sm bg-lightBorder dark:bg-darkBorder"></div>
+                    <span class="mx-1">
+                        یه بنده‌خدایی
+                    </span>
+                    <span class="opacity-80">
+                        این کامنت را در 
+                    </span>
+                    <span class="mx-1">
+                        دیروز
+                    </span>
+                    <span class="opacity-80">
+                        ایجاد نموده است
+                    </span>
+                </div>
+                <div class="w-full p-3 rounded-b-md bg-lightBg dark:bg-darkBg shadow-md">
+                    <editor class="w-full mt-5"
+                [init]="{
+                  content_css: 'default',
+                  height: 500,
+                  menubar: false,
+                  directionality : 'rtl',
+                  plugins: [
+                    'image',
+                    'wordcount',
+                    'codesample',
+                    'quickbars',
+                  ],
+                  toolbar:
+                    'undo redo | formatselect | bold italic backcolor | \
+                    alignleft aligncenter alignright alignjustify | \
+                    bullist numlist outdent indent | removeformat | h1 h2 h3 h4 h5 h6 | image | wordcount | codesample'
+                }"></editor>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-span-3 md:col-span-1 my-3 md:my-0" [formGroup]="issueGroup">
+        <div class="w-full rounded-md  flex flex-col items-center px-3 bg-lightBg dark:bg-darkBg border border-[#d8d8d89a] dark:border-none">
+            <mat-form-field appearance="fill" class="w-full mt-5">
+                <mat-label>
+                    حالت مسئله
+                </mat-label>
+                <mat-select formControlName="type">
+                    <mat-option *ngFor="let type of issueTypes" [value]="type.id">
+                        {{type.value}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="w-full mt-5">
+                <mat-label>
+                    پروژه مربوطه
+                </mat-label>
+                <mat-select formControlName="project">
+                    <mat-option *ngFor="let project of parentProjectList" [value]="project.id">
+                        <div class="flex items-center">
+                            <div class="rounded-full w-6 h-6 flex items-center justify-center overflow-hidden mat-app-background ml-3 border">
+                                <img class="min-w-full min-h-full object-cover" [src]="project.img?project.img:'https://anbare.inolinx.com/media/logo/iot.jpg'" [alt]="project.value">
+                            </div>
+                            <div>
+                                {{project.value}}
+                            </div>
+                        </div>
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="w-full mt-5">
+                <mat-label>
+                    دسته بندی‌ها
+                </mat-label>
+                <mat-select formControlName="categories" [multiple]="true">
+                    <mat-option *ngFor="let category of categoryTypes" [value]="category.id">
+                        {{category.value}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="w-full mt-5">
+                <mat-label>
+                    افراد مربوط
+                </mat-label>
+                <mat-select (selectionChange)="getSelectedPersons()" [multiple]="true" formControlName="selectedPersons">
+                    <mat-option *ngFor="let person of personList" [value]="person.id">
+                        <div class="flex items-center">
+                            <div class="rounded-full w-6 h-6 flex items-center justify-center overflow-hidden mat-app-background ml-3 border">
+                                <img class="min-w-full min-h-full object-cover" [src]="person.img?person.img:'https://anbare.inolinx.com/media/logo/iot.jpg'" [alt]="person.value">
+                            </div>
+                            <div>
+                                {{person.value}}
+                            </div>
+                        </div>
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <ul class="w-full flex flex-wrap items-center pb-3">
+                <li *ngFor="let sp of selectedPersons" class="ml-2 w-8 h-8 flex items-center justify-center rounded-full overflow-hidden">
+                     <img [src]="sp.img" [alt]="sp.id" class="min-w-full min-h-full object-cover">
+                </li> 
+             </ul>
         </div>
     </div>
 </div>
