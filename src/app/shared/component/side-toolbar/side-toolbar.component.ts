@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ISideToolbar } from '../interface';
+import { ISideToolbar } from '../../interface';
 
 @Component({
   selector: 'app-side-toolbar',

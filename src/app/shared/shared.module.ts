@@ -7,7 +7,7 @@ import { NewProjectComponent } from './component/new-project/new-project.compone
 import { NgxDatePickerModule } from '@ah99/ngx-date-picker';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { SideToolbarComponent } from './side-toolbar/side-toolbar.component';
+import { SideToolbarComponent } from './component/side-toolbar/side-toolbar.component';
 
 @NgModule({
   declarations: [
