@@ -27,11 +27,11 @@
         </mat-slide-toggle>
       </div>
       <div class="relative flex items-center justify-center">
-        <a (click)="isShowProfile = !isShowProfile" class="rounded-full w-6 h-6 bg-white overflow-hidden cursor-pointer">
+        <a (click)="isShowProfile = !isShowProfile" class="rounded-full w-10 h-10 bg-white overflow-hidden cursor-pointer">
           <img src="assets/img/profile.jpg" alt="" class="w-full h-full object-cover">
         </a>
-        <div *ngIf="isShowProfile" class="mat-app-background absolute top-7 left-0 w-52 h-64 z-20 border border-inputBg rounded-md transition-all ease-in-out duration-300">
-
+        <div *ngIf="isShowProfile" class="mat-app-background absolute top-7 left-0 z-20 border border-inputBg rounded-md transition-all ease-in-out duration-300">
+          <app-profile-dropdown (closeProfile)="isShowProfile = false"></app-profile-dropdown>
         </div>
         <div *ngIf="isShowProfile" (click)="isShowProfile = !isShowProfile" class="fixed w-screen h-screen top-0 left-0 bg-darkCardBg dark:bg-lightCardBg bg-opacity-30 dark:bg-opacity-30 z-10"></div>
       </div>

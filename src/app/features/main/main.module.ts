@@ -6,13 +6,15 @@ import { MainComponent } from './main.component';
 import { AngularMaterialModule } from '../../shared/angular-material/angular-material.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from './header/header.component';
+import { ProfileDropdownComponent } from './header/profile-dropdown/profile-dropdown.component';
 
 
 @NgModule({
   declarations: [
     MainComponent,
     SidebarComponent,
-    HeaderComponent
+    HeaderComponent,
+    ProfileDropdownComponent
   ],
   imports: [
     CommonModule,
