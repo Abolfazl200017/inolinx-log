@@ -1,6 +1,18 @@
-<a [routerLink]="['/new', 'project']">
-    new project
-</a>
-<a [routerLink]="['/new', 'issue']">
-    new issue
-</a>
+<div class="w-full h-full flex flex-col justify-between overflow-hidden">
+    <ul class="li w-full pt-5 px-2 text-gray-700 dark:text-gray-50">
+        <li *ngFor="let item of navLinks">
+            <a [routerLink]="item.link" [routerLinkActiveOptions]="{exact: true}" class="w-full mb-1 px-1 py-3 text-inherit rounded-md flex items-center hover:bg-lightBorder hover:bg-opacity-50 dark:hover:bg-opacity-10" [routerLinkActive]="'active'">
+                <mat-icon class="mat-center ml-3">
+                    {{item.icon}}
+                </mat-icon>
+                {{item.name}}
+            </a>
+        </li>
+    </ul>
+    <div class="w-full px-3 flex items-center pb-5">
+        <div class="w-12 h-12 ml-3 rounded-full flex items-center justify-center overflow-hidden">
+            <img src="assets/img/profile.jpg" alt="profile" class="min-w-full min-h-full object-cover">
+        </div>
+        استاد سید عباس موسوی اصل بزرگ
+    </div>
+</div>
