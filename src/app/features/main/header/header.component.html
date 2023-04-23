@@ -5,10 +5,8 @@
           menu
         </mat-icon>
       </button>
-      <a matRipple routerLink="/">
-        <mat-icon class="mat-center">
-          home
-        </mat-icon>
+      <a matRipple routerLink="/" class="w-10 h-10 p-1 rounded-full flex items-center justify-center">
+        <img src="https://inolinx.com/assets/image/site-logo.webp" alt="" class="min-w-full min-h-full object-cover">
       </a>
       <form action="" (ngSubmit)="doIt()" class="h-full relative mr-3 hidden">
         <input type="text" placeholder="جستجو" class="text-gray-800 text-sm py-1 px-3 rounded-3xl focus:outline-none h-full">
@@ -30,7 +28,7 @@
       </div>
       <div class="relative flex items-center justify-center">
         <a (click)="changeProfileExpansionState()" class="rounded-full w-6 h-6 bg-white overflow-hidden cursor-pointer">
-          <img src="https://inolinx.com/assets/image/site-logo.webp" alt="" class="w-full h-full object-cover">
+          <img src="assets/img/profile.jpg" alt="" class="w-full h-full object-cover">
         </a>
         <div class="mat-app-background absolute top-7 left-0 w-52 h-64 z-10 border border-inputBg rounded-md transition-all ease-in-out duration-300" [class]="profileExpansion.class">
 
@@ -38,3 +36,4 @@
       </div>
     </div>
 </mat-toolbar>
+<!-- https://inolinx.com/assets/image/site-logo.webp -->
