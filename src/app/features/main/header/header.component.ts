@@ -7,6 +7,7 @@ import { StorageService } from '../../../services/storage/storage.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  isShowProfile:boolean=false;
   darkMode:boolean=false;
   profileExpansion:{isShow:boolean;running:boolean;class:string}={isShow:false, running:false,class:'opacity-0 hidden'};
   isShow:boolean=false;
@@ -22,21 +23,6 @@ export class HeaderComponent implements OnInit {
   }
   doIt(){
     console.log('submit search')
-  }
-  changeProfileExpansionState(){
-    this.profileExpansion.running=true;
-    if(this.profileExpansion.isShow){
-      this.profileExpansion.class='opacity-0'
-      setTimeout(() => {
-        this.profileExpansion.class = 'opacity-0 hidden'
-      }, 300);
-    }else{
-      this.profileExpansion.class='opacity-0'
-      setTimeout(() => {
-        this.profileExpansion.class='opacity-100'
-      }, 10);
-    }
-    this.profileExpansion.isShow = !this.profileExpansion.isShow
   }
   initMode(){
     if(!this.local.getItem('darkMode')){

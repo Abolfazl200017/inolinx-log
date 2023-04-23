@@ -14,13 +14,13 @@
         </div> -->
     </div>
     <div class="relative flex justify-center">
-        <button matRipple class="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center bg-primary dark:bg-lightPrimary absolute left-3 -top-1 z-20" (click)="changeFilterState()">
+        <button matRipple class="w-12 h-12 rounded-full overflow-hidden flex items-center justify-center bg-primary dark:bg-lightPrimary absolute left-5 top-1 z-20" (click)="changeFilterState()">
             <mat-icon class="mat-full-center text-white">
                 filter_list
             </mat-icon>
         </button>
-        <div class="w-screen h-screen fixed top-0 right-0 z-10" *ngIf="!isShowFilter" (click)="changeFilterState()"></div>
-        <div *ngIf="!isShowFilter" class="absolute top-10 left-3 transition-opacity ease-in-out duration-100 z-10" [class]="filterOpacity">
+        <div class="w-screen h-screen fixed top-0 right-0 z-10 bg-darkCardBg dark:bg-lightCardBg bg-opacity-30 dark:bg-opacity-30 transition-opacity ease-in-out duration-100" [class]="filterOpacity" *ngIf="!isShowFilter" (click)="changeFilterState()"></div>
+        <div *ngIf="!isShowFilter" class="absolute top-14 left-5 transition-opacity ease-in-out duration-100 z-10" [class]="filterOpacity">
             <app-issue-filter></app-issue-filter>
         </div>
     </div>
