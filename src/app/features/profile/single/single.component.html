@@ -1,83 +1,8 @@
 <div class="w-full h-full flex px-1 md:px-2 2xl:container mx-auto justify-center">
-    <div class="md:w-1/5 h-full py-3 px-1">
-        <app-side-toolbar></app-side-toolbar>
-        <mat-card class="">
-            <div class="flex items-center">
-                <div class="md:ml-3 w-full md:w-auto flex items-center justify-center">
-                    <mat-icon class="mat-full-center text-[2rem] md:text-[3.5rem]">
-                        account_circle
-                    </mat-icon>
-                </div>
-                <div class="hidden md:block xl:text-lg">
-                    ابوالفضل زراعتکار
-                </div>
-            </div>
-            <div class="my-3 w-full border border-t border-[#f1f2f4] dark:border-zinc-600 mat-app-background"></div>
-            <ul class="px-1 py-2">
-                <li class="w-full">
-                    <a routerLink="dashboard"  class="flex items-center rounded-md w-full p-2 bg-black dark:bg-white bg-opacity-0 dark:bg-opacity-0 ease-in-out duration-300 dark:hover:bg-opacity-10 hover:bg-opacity-10 my-1" [routerLinkActive]="'dark:bg-opacity-10 bg-opacity-10'">
-                        <mat-icon class="mat-center md:ml-2">
-                            dashboard
-                        </mat-icon>
-                        <span class="hidden md:block">
-                            داشبورد
-                        </span>
-                    </a>
-                </li>
-                <li class="w-full">
-                    <a routerLink="issues"  class="flex items-center rounded-md w-full p-2 bg-black dark:bg-white bg-opacity-0 dark:bg-opacity-0 ease-in-out duration-300 dark:hover:bg-opacity-10 hover:bg-opacity-10 my-1" [routerLinkActive]="'dark:bg-opacity-10 bg-opacity-10'">
-                        <mat-icon class="mat-center md:ml-2">
-                            task
-                        </mat-icon>
-                        <span class="hidden md:block">
-                            مسائل
-                        </span>
-                    </a>
-                </li>
-                <li class="w-full">
-                    <a routerLink="projects"  class="flex items-center rounded-md w-full p-2 bg-black dark:bg-white bg-opacity-0 dark:bg-opacity-0 ease-in-out duration-300 dark:hover:bg-opacity-10 hover:bg-opacity-10 my-1" [routerLinkActive]="'dark:bg-opacity-10 bg-opacity-10'">
-                        <mat-icon class="mat-center md:ml-2">
-                            fact_check
-                        </mat-icon>
-                        <span class="hidden md:block">
-                            پروژه‌ها
-                        </span>
-                    </a>
-                </li>
-                <li class="w-full">
-                    <a routerLink="persons"  class="flex items-center rounded-md w-full p-2 bg-black dark:bg-white bg-opacity-0 dark:bg-opacity-0 ease-in-out duration-300 dark:hover:bg-opacity-10 hover:bg-opacity-10 my-1" [routerLinkActive]="'dark:bg-opacity-10 bg-opacity-10'">
-                        <mat-icon class="mat-center md:ml-2">
-                            group
-                        </mat-icon>
-                        <span class="hidden md:block">
-                            افراد
-                        </span>
-                    </a>
-                </li>
-                <li class="w-full">
-                    <a routerLink="requests"  class="flex items-center rounded-md w-full p-2 bg-black dark:bg-white bg-opacity-0 dark:bg-opacity-0 ease-in-out duration-300 dark:hover:bg-opacity-10 hover:bg-opacity-10 my-1" [routerLinkActive]="'dark:bg-opacity-10 bg-opacity-10'">
-                        <mat-icon class="mat-center md:ml-2">
-                            person_add
-                        </mat-icon>
-                        <span class="hidden md:block">
-                            درخواست‌ها
-                        </span>
-                    </a>
-                </li>
-                <li class="w-full">
-                    <a routerLink="edit" class="flex items-center rounded-md w-full p-2 bg-black dark:bg-white bg-opacity-0 dark:bg-opacity-0 ease-in-out duration-300 dark:hover:bg-opacity-10 hover:bg-opacity-10 my-1" [routerLinkActive]="'dark:bg-opacity-10 bg-opacity-10'">
-                        <mat-icon class="mat-center md:ml-2">
-                            edit
-                        </mat-icon>
-                        <span class="hidden md:block">
-                            ویرایش
-                        </span>
-                    </a>
-                </li>
-            </ul>
-        </mat-card>
+    <div class="h-full py-3 px-1">
+        <app-side-toolbar [config]="config"></app-side-toolbar>
     </div>
-    <div class="w-full md:w-4/5 h-full pt-3 px-1">
+    <div class="content-width h-full pt-3 px-1">
         <mat-card class="w-full custom-min-h min-h-full">
             <router-outlet></router-outlet>
         </mat-card>

@@ -3,62 +3,22 @@
         <div class="flex items-center pt-2 md:pt-0">
             <div class="w-full flex items-center justify-center" [class]="isFull?'md:ml-3 md:w-auto':''">
                 <mat-icon class="mat-full-center text-[2rem] md:text-[3.5rem]">
-                    settings_applications
+                    {{config.logoIcon}}
                 </mat-icon>
             </div>
             <div class="xl:text-lg hidden" [class]="isFull?'md:block':''">
-                ربومک
+                {{config.title}}
             </div>
         </div>
         <div class="my-3 w-full border border-t border-[#f1f2f4] dark:border-zinc-600 mat-app-background"></div>
         <ul class="px-1 py-2">
-            <li class="w-full">
-                <a routerLink="dashboard" class="flex items-center justify-center rounded-md w-full p-2 bg-black dark:bg-white bg-opacity-0 dark:bg-opacity-0 ease-in-out duration-300 dark:hover:bg-opacity-10 hover:bg-opacity-10 my-1" [class]="isFull?'md:justify-start':''" [routerLinkActive]="'dark:bg-opacity-10 bg-opacity-10'">
+            <li class="w-full" *ngFor="let link of config.links">
+                <a [routerLink]="link.link" class="flex items-center justify-center rounded-md w-full p-2 bg-black dark:bg-white bg-opacity-0 dark:bg-opacity-0 ease-in-out duration-300 dark:hover:bg-opacity-10 hover:bg-opacity-10 my-1" [class]="isFull?'md:justify-start':''" [routerLinkActive]="'dark:bg-opacity-10 bg-opacity-10'">
                     <mat-icon class="mat-center" [class]="isFull?'md:ml-2':''">
-                        dashboard
+                        {{link.icon}}
                     </mat-icon>
                     <span class="hidden" [class]="isFull?'md:block':''">
-                        داشبورد
-                    </span>
-                </a>
-            </li>
-            <li class="w-full">
-                <a routerLink="issues" class="flex items-center justify-center rounded-md w-full p-2 bg-black dark:bg-white bg-opacity-0 dark:bg-opacity-0 ease-in-out duration-300 dark:hover:bg-opacity-10 hover:bg-opacity-10 my-1" [class]="isFull?'md:justify-start':''" [routerLinkActive]="'dark:bg-opacity-10 bg-opacity-10'">
-                    <mat-icon class="mat-center" [class]="isFull?'md:ml-2':''">
-                        task
-                    </mat-icon>
-                    <span class="hidden" [class]="isFull?'md:block':''">
-                        مسائل
-                    </span>
-                </a>
-            </li>
-            <li class="w-full">
-                <a routerLink="categories" class="flex items-center justify-center rounded-md w-full p-2 bg-black dark:bg-white bg-opacity-0 dark:bg-opacity-0 ease-in-out duration-300 dark:hover:bg-opacity-10 hover:bg-opacity-10 my-1" [class]="isFull?'md:justify-start':''" [routerLinkActive]="'dark:bg-opacity-10 bg-opacity-10'">
-                    <mat-icon class="mat-center" [class]="isFull?'md:ml-2':''">
-                        category
-                    </mat-icon>
-                    <span class="hidden" [class]="isFull?'md:block':''">
-                        دسته‌بندی
-                    </span>
-                </a>
-            </li>
-            <li class="w-full">
-                <a routerLink="persons" class="flex items-center justify-center rounded-md w-full p-2 bg-black dark:bg-white bg-opacity-0 dark:bg-opacity-0 ease-in-out duration-300 dark:hover:bg-opacity-10 hover:bg-opacity-10 my-1" [class]="isFull?'md:justify-start':''" [routerLinkActive]="'dark:bg-opacity-10 bg-opacity-10'">
-                    <mat-icon class="mat-center" [class]="isFull?'md:ml-2':''">
-                        groups
-                    </mat-icon>
-                    <span class="hidden" [class]="isFull?'md:block':''">
-                        افراد
-                    </span>
-                </a>
-            </li>
-            <li class="w-full">
-                <a routerLink="edit" class="flex items-center justify-center rounded-md w-full p-2 bg-black dark:bg-white bg-opacity-0 dark:bg-opacity-0 ease-in-out duration-300 dark:hover:bg-opacity-10 hover:bg-opacity-10 my-1" [class]="isFull?'md:justify-start':''" [routerLinkActive]="'dark:bg-opacity-10 bg-opacity-10'">
-                    <mat-icon class="mat-center" [class]="isFull?'md:ml-2':''">
-                        edit
-                    </mat-icon>
-                    <span class="hidden" [class]="isFull?'md:block':''">
-                        ویرایش
+                        {{link.name}}
                     </span>
                 </a>
             </li>
