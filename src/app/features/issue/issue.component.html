@@ -130,6 +130,23 @@
             </mat-form-field>
             <mat-form-field appearance="fill" class="w-full mt-5">
                 <mat-label>
+                    برچسب‌ها
+                </mat-label>
+                <mat-select [multiple]="true" formControlName="selectedLabels">
+                    <mat-option *ngFor="let label of labels" [value]="label.id">
+                        <div class="flex items-center">
+                            {{label.name}}
+                        </div>
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <ul *ngIf="issueGroup.get('selectedLabels')?.value.length>0" class="w-full flex flex-wrap items-center">
+                <li *ngFor="let sl of getLabels(issueGroup.get('selectedLabels')?.value)" class="ml-2 px-3 py-1 flex items-center justify-center rounded-full overflow-hidden" [class]="'text-'+sl.color+' bg-'+sl.bg">
+                    {{sl.name}}
+                </li> 
+            </ul>
+            <mat-form-field appearance="fill" class="w-full mt-5">
+                <mat-label>
                     افراد مربوط
                 </mat-label>
                 <mat-select (selectionChange)="getSelectedPersons()" [multiple]="true" formControlName="selectedPersons">

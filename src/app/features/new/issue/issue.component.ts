@@ -156,7 +156,4 @@ export class IssueComponent implements OnInit {
     }
     return labels
   }
-  console(){
-    console.log(this.issueGroup.get('selectedLabels'))
-  }
 }
