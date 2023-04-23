@@ -1,10 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-interface ICategory{
-  name: string;
-  choosed: boolean;
-  categories: ICategory[];
-}
 interface ITask {
   name: string;
   completed: boolean;

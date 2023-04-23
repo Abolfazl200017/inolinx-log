@@ -13,61 +13,6 @@ interface ICategory{
   styleUrls: ['./issues.component.scss']
 })
 export class IssuesComponent implements OnInit {
-  categories: ICategory={
-    name: 'parent',
-    choosed: true,
-    categories:
-    [
-      {
-        name: 'زیرمجموعه اول',
-        choosed: true,
-        categories: [
-          {
-            name: 'زیرمجموعه سوم',
-            choosed: true,
-            categories: []
-          },
-          {
-            name: 'زیرمجموعه چهارم',
-            choosed: true,
-            categories: [
-              {
-                name: 'زیرمجموعه پنجم',
-                choosed: true,
-                categories: [],
-              },
-              {
-                name: 'زیرمجموعه ششم',
-                choosed: true,
-                categories: []
-              }
-            ]
-          }
-        ]
-      },
-      {
-        name: 'زیرمجموعه دوم',
-        choosed: true,
-        categories: []
-      },
-      {
-        name: 'زیرمجموعه چهارم',
-        choosed: true,
-        categories: [
-          {
-            name: 'زیرمجموعه پنجم',
-            choosed: true,
-            categories: [],
-          },
-          {
-            name: 'زیرمجموعه ششم',
-            choosed: true,
-            categories: []
-          }
-        ]
-      }
-    ]
-  }
   filterOpacity:string='opacity-0'
   isShowFilter:boolean=true;
   constructor() { }
