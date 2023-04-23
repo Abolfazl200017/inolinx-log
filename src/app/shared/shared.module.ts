@@ -7,12 +7,14 @@ import { NewProjectComponent } from './component/new-project/new-project.compone
 import { NgxDatePickerModule } from '@ah99/ngx-date-picker';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { SideToolbarComponent } from './side-toolbar/side-toolbar.component';
 
 @NgModule({
   declarations: [
     ProjectCardComponent,
     PersonCardComponent,
     NewProjectComponent,
+    SideToolbarComponent,
   ],
   imports: [
     CommonModule,
@@ -26,6 +28,7 @@ import { RouterModule } from '@angular/router';
     ProjectCardComponent,
     PersonCardComponent,
     NewProjectComponent,
+    SideToolbarComponent,
   ]
 })
 export class SharedModule { }
