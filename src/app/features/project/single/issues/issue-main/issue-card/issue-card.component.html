@@ -1,4 +1,4 @@
-<a [routerLink]="'./is'" class="w-full p-2 mb-3 bg-lightCardBg dark:bg-darkCardBg rounded-md border border-color transition-colors duration-200 ease-in-out hover:bg-llPrimary dark:hover:bg-darkPrimary block">
+<a class="w-full p-2 mb-3 bg-lightCardBg dark:bg-darkCardBg rounded-md border border-color transition-colors duration-200 ease-in-out hover:bg-llPrimary dark:hover:bg-darkPrimary block cursor-pointer">
     <div class="flex items-center w-full">
         <button [mat-menu-trigger-for]="menu" class="w-6 aspect-square p-2 ml-2 rounded-full" matRipple>
             <mat-icon class="mat-full-center">
@@ -16,7 +16,7 @@
                 ویرایش
             </button>
         </mat-menu>
-        <div class="w-full pl-2 text-[1.05rem] text-primary dark:text-llPrimary">
+        <div class="w-full pl-2 text-[1.05rem] text-primary dark:text-llPrimary" [routerLink]="'./x'">
             <div class="w-full mb-2">
                 عنوان مربوط به مسئله
             </div>
@@ -24,11 +24,11 @@
                 ابوالفضل در ۱۲/۲/۱۴۰۲ ایجاد کرد
             </div>
         </div>
-        <div class="w-12 aspect-square rounded-md overflow-hidden">
+        <div class="w-12 aspect-square rounded-md overflow-hidden" [routerLink]="'./x'">
             <img src="assets/img/profile.jpg" alt="" class="min-w-full min-h-full object-cover">
         </div>
     </div>
-    <div class="w-full flex mt-2 border-t border-color pt-1 text-white text-xs">
+    <div class="w-full flex mt-2 border-t border-color pt-1 text-white text-xs" [routerLink]="'./x'">
         <div class="bg-secondary py-1 px-2 rounded-md ml-2">
             باگ
         </div>
