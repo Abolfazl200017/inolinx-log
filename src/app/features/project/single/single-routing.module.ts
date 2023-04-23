@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SingleComponent } from './single.component';
-import { IssuesComponent } from './issues/issues.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { EditComponent } from './edit/edit.component';
 import { PersonsComponent } from './persons/persons.component';
+import { IssuesComponent } from 'src/app/shared/component/issues/issues.component';
 
 const routes: Routes = [
   { path: '', component: SingleComponent, children:[
