@@ -1,1 +1,8 @@
-<p>category-select works!</p>
+<div *ngFor="let item of task.subtasks">
+    <mat-checkbox class="pt-1" [(ngModel)]="item.completed">
+      {{item.name}}
+    </mat-checkbox>
+    <div class="pr-5" *ngIf="item.subtasks.length>0">
+      <app-category-select [task]="item"></app-category-select>
+    </div>
+  </div>

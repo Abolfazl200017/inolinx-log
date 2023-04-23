@@ -1,1 +1,30 @@
-<p>issue-filter works!</p>
+<div class="min-w-[14rem] bg-[#fafafa] border border-color dark:bg-[#575757] rounded-md px-4 py-4">
+    <mat-chip-list [multiple]="true" class="mb-3">
+        <mat-chip (click)="setAll()" [selected]="types.all">
+            <span class="select-none">
+                All
+            </span>
+        </mat-chip>
+        <mat-chip color="primary" (click)="setTodo()" [selected]="types.todo">
+            <span class="select-none">
+                ToDo
+            </span>
+        </mat-chip>
+        <mat-chip color="accent" (click)="setInprogress()" [selected]="types.inprogress">
+            <span class="select-none">
+                InProgress
+            </span>
+        </mat-chip>
+        <mat-chip color="warn" (click)="setDone()" [selected]="types.done">
+            <span class="select-none">
+                Done
+            </span>
+        </mat-chip>
+    </mat-chip-list>
+    <div class="mt-5 pt-3 border-t border-gray-500 dark:border-white">
+        <div class="mb-2 select-none font-semibold">
+            دسته‌بندی‌ها
+        </div>
+        <app-category-select [task]="task"></app-category-select>
+    </div>
+</div>
