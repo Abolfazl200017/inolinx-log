@@ -8,6 +8,10 @@ import { NgxDatePickerModule } from '@ah99/ngx-date-picker';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SideToolbarComponent } from './component/side-toolbar/side-toolbar.component';
+import { IssuesComponent } from './component/issues/issues.component';
+import { IssueMainComponent } from './component/issues/issue-main/issue-main.component';
+import { IssueFilterComponent } from './component/issues/issue-filter/issue-filter.component';
+import { CategorySelectComponent } from './component/issues/category-select/category-select.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +19,10 @@ import { SideToolbarComponent } from './component/side-toolbar/side-toolbar.comp
     PersonCardComponent,
     NewProjectComponent,
     SideToolbarComponent,
+    IssuesComponent,
+    IssueMainComponent,
+    IssueFilterComponent,
+    CategorySelectComponent,
   ],
   imports: [
     CommonModule,
