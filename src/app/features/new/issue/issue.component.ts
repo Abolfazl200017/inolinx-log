@@ -19,7 +19,12 @@ interface IPersonType{
   value:string;
   img:string|undefined;
 }
-
+interface ILabel{
+  name:string;
+  id:string;
+  color:string;
+  bg:string;
+}
 @Component({
   templateUrl: './issue.component.html',
   styleUrls: ['./issue.component.scss']
@@ -102,6 +107,26 @@ export class IssueComponent implements OnInit {
       img: 'https://cdn.zoomg.ir/assets/team/Sadegh-Tavazoyi.jpg',
     },
   ]
+  labels:ILabel[]=[
+    {
+      name:'باگ',
+      id:'bug',
+      color:'white',
+      bg:'secondary'
+    },
+    {
+      name:'ویژگی',
+      id:'feature',
+      color:'black',
+      bg:'lightBorder',
+    },
+    {
+      name:'تکراری',
+      id:'duplicate',
+      color:'white',
+      bg:'primary'
+    },
+  ]
   constructor(
     private formBuilder: UntypedFormBuilder,
   ) { }
@@ -110,7 +135,8 @@ export class IssueComponent implements OnInit {
     type: new UntypedFormControl(),
     project: new UntypedFormControl(),
     categories: new UntypedFormControl(),
-    selectedPersons: new UntypedFormControl()
+    selectedPersons: new UntypedFormControl(),
+    selectedLabels: new UntypedFormControl([]),
   })
   ngOnInit(): void {
   }
@@ -122,5 +148,15 @@ export class IssueComponent implements OnInit {
     });
     this.selectedPersons = selectedPersonObjects;
     return selectedPersonObjects;
+  }
+  getLabels(id:string[]):ILabel[]{
+    let labels:ILabel[]=[];
+    for(let i=0;i<id.length;i++){
+      this.labels.map(label => label.id==id[i]?labels.push(label):null)
+    }
+    return labels
+  }
+  console(){
+    console.log(this.issueGroup.get('selectedLabels'))
   }
 }
