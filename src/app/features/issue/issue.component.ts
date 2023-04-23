@@ -66,15 +66,15 @@ export class IssueComponent implements OnInit {
       value:'زیردسته اول'
     },
     {
-      id:'one',
+      id:'two',
       value:'زیردسته دوم'
     },
     {
-      id:'one',
+      id:'three',
       value:'زیردسته سوم'
     },
     {
-      id:'one',
+      id:'four',
       value:'زیردسته چهارم'
     },
   ]
@@ -111,12 +111,13 @@ export class IssueComponent implements OnInit {
 
   issueGroup = this.formBuilder.group({
     title: new UntypedFormControl('', [Validators.required]),
-    type: new UntypedFormControl(),
-    project: new UntypedFormControl(),
-    categories: new UntypedFormControl(),
-    selectedPersons: new UntypedFormControl()
+    type: new UntypedFormControl(1, [Validators.required]),
+    project: new UntypedFormControl('3', [Validators.required]),
+    categories: new UntypedFormControl(['two', 'four']),
+    selectedPersons: new UntypedFormControl(['user-1','user-3'])
   })
   ngOnInit(): void {
+    this.getSelectedPersons()
   }
   getSelectedPersons(){
     let selectedPerson = this.issueGroup.controls['selectedPersons'].value;
