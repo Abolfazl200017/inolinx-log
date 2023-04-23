@@ -15,7 +15,6 @@ import { CategoryComponent } from './categories/category/category.component';
 import { CategorySelectComponent } from './issues/category-select/category-select.component';
 import { IssueMainComponent } from './issues/issue-main/issue-main.component';
 import { IssueFilterComponent } from './issues/issue-filter/issue-filter.component';
-import { ToolsComponent } from './tools/tools.component';
 import { IssueCardComponent } from './issues/issue-main/issue-card/issue-card.component';
 
 
@@ -31,7 +30,6 @@ import { IssueCardComponent } from './issues/issue-main/issue-card/issue-card.co
     CategorySelectComponent,
     IssueMainComponent,
     IssueFilterComponent,
-    ToolsComponent,
     IssueCardComponent,
   ],
   imports: [
