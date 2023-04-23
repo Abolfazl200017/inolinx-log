@@ -1,5 +1,5 @@
 <div *ngIf="projects" class="w-[90%] mx-auto grid grid-cols-6 gap-3 py-5">
-    <mat-card *ngFor="let project of projects" class="custom-card" [class]="customClass">
+    <mat-card *ngFor="let project of projects" class="custom-card cursor-pointer" [class]="customClass" [routerLink]="['../x']">
         <div class="w-full h-full flex flex-col items-between justify-between">
             <div class="w-full h-full">
                 <div class="rounded-lg mb-6 overflow-hidden flex items-center justify-center w-full aspect-square mx-auto">
