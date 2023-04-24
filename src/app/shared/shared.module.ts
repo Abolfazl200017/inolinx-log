@@ -13,6 +13,7 @@ import { IssueMainComponent } from './component/issues/issue-main/issue-main.com
 import { IssueFilterComponent } from './component/issues/issue-filter/issue-filter.component';
 import { CategorySelectComponent } from './component/issues/category-select/category-select.component';
 import { IssueCardComponent } from './component/issues/issue-main/issue-card/issue-card.component';
+import { LogCardComponent } from './component/log-card/log-card.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { IssueCardComponent } from './component/issues/issue-main/issue-card/iss
     IssueFilterComponent,
     CategorySelectComponent,
     IssueCardComponent,
+    LogCardComponent,
   ],
   imports: [
     CommonModule,
@@ -39,6 +41,7 @@ import { IssueCardComponent } from './component/issues/issue-main/issue-card/iss
     PersonCardComponent,
     NewProjectComponent,
     SideToolbarComponent,
+    LogCardComponent,
   ]
 })
 export class SharedModule { }
