@@ -8,7 +8,7 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 })
 export class FeedComponent implements OnInit {
   pageEvent?:PageEvent;
-  states:string[]=['signup', 'signup', 'signup', 'comment', 'crub', 'comment', 'comment', 'crub', 'crub', 'crub']
+  states:string[]=['signup', 'signup', 'signup', 'comment', 'crud', 'comment', 'comment', 'crud', 'crud', 'crud']
   constructor() { }
 
   ngOnInit(): void {

@@ -1,10 +1,12 @@
 <div class="w-full h-full flex flex-col justify-between">
-    <div class="w-full h-full overflow-y-auto max-w-7xl mx-auto py-5 px-3">
-        <div class="w-full py-2 border-b border-primary dark:border-lightPrimary text-primary dark:text-lightPrimary text-xl">
-            امروز
-        </div>
-        <div class="px-3">
-            <app-log-card *ngFor="let item of states" [state]="item"></app-log-card>
+    <div class="w-full h-full overflow-y-auto mx-auto py-5 px-3">
+        <div class="w-full max-w-7xl mx-auto">
+            <div class="w-full py-2 border-b border-primary dark:border-lightPrimary text-primary dark:text-lightPrimary text-xl">
+                امروز
+            </div>
+            <div class="px-3">
+                <app-log-card *ngFor="let item of states" [state]="item"></app-log-card>
+            </div>
         </div>
     </div>
     <div class="w-full flex justify-center dark:bg-darkCardBg border-t border-lightBorder dark:border-none">
