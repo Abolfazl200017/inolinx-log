@@ -4,7 +4,7 @@
             امروز
         </div>
         <div class="px-3">
-            <app-log-card></app-log-card>
+            <app-log-card *ngFor="let item of states" [state]="item"></app-log-card>
         </div>
     </div>
     <div class="w-full flex justify-center dark:bg-darkCardBg border-t border-lightBorder dark:border-none">

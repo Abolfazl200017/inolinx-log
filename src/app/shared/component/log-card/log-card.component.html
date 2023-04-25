@@ -1,4 +1,4 @@
-<app-signup-card></app-signup-card>
-<app-crud-card></app-crud-card>
-<app-assign-card></app-assign-card>
-<app-comment-card></app-comment-card>
+<app-signup-card *ngIf="state==='signup'"></app-signup-card>
+<app-crud-card *ngIf="state==='crud'"></app-crud-card>
+<app-assign-card *ngIf="state==='assign'"></app-assign-card>
+<app-comment-card *ngIf="state==='comment'"></app-comment-card>

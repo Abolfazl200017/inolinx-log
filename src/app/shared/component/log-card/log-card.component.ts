@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-log-card',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./log-card.component.scss']
 })
 export class LogCardComponent implements OnInit {
-
+  @Input() state: string='';
   constructor() { }
 
   ngOnInit(): void {
