@@ -1,9 +1,18 @@
-<div class="max-w-7xl mx-auto min-h-full">
-    hellow my frend
+<div class="max-w-7xl mx-auto min-h-full flex flex-col justify-between">
+    <div class="w-full py-5 px-3">
+        <div class="w-full border-b border-primary dark:border-llPrimary text-primary dark:text-llPrimary text-lg">
+            امروز
+        </div>
+        <div class="px-3">
+            
+        </div>
+    </div>
     <mat-paginator
         [length]="100"
         [pageSize]="10"
         [hidePageSize]="true"
+        [showFirstLastButtons]="true"
         (page)="pageEvent=$event"
+        class="border-t border-lightBorder dark:border-none"
     ></mat-paginator>
 </div>
