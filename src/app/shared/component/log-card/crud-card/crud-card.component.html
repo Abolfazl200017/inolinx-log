@@ -7,12 +7,12 @@
         </div>
         <div>
             <div class="flex items-center flex-wrap" *ngIf="base==='project'">
-                <a [routerLink]="['/profile', 'x']" class="text-[1.05rem] ml-1">
+                <a [routerLink]="['/profile', 'x']" class="text-[1.05rem] ml-1 hover:opacity-90 dark:hover:opacity-80">
                     مجتبی اکبری
                 </a>
                 <div>
                     پروژه
-                    <a [routerLink]="['/project', 'x']" class="mx-1 text-[1.05rem]">
+                    <a [routerLink]="['/project', 'x']" class="mx-1 text-[1.05rem] hover:opacity-90 dark:hover:opacity-80">
                         اسم الکی پروژه
                     </a>
                     <span *ngIf="type==='add'">
@@ -27,15 +27,15 @@
                 </div>
             </div>
             <div class="flex items-center flex-wrap" *ngIf="base==='issue'">
-                <a [routerLink]="['/profile', 'x']" class="text-[1.05rem] ml-1">
+                <a [routerLink]="['/profile', 'x']" class="text-[1.05rem] ml-1 hover:opacity-90 dark:hover:opacity-80">
                     مجتبی اکبری
                 </a>
                 مسئله
-                <a [routerLink]="['/project', 'x', 'issues', 'x']" class="mx-1 text-[1.05rem]">
+                <a [routerLink]="['/project', 'x', 'issues', 'x']" class="mx-1 text-[1.05rem] hover:opacity-90 dark:hover:opacity-80">
                     اسم الکی مسئله
                 </a>
                 در پروژه
-                <a [routerLink]="['/project', 'x']" class="mx-1 text-[1.05rem]">
+                <a [routerLink]="['/project', 'x']" class="mx-1 text-[1.05rem] hover:opacity-90 dark:hover:opacity-80">
                     اسم الکی پروژه
                 </a>
                 <span *ngIf="type==='add'">
