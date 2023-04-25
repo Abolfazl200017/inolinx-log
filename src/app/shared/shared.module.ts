@@ -15,6 +15,7 @@ import { CategorySelectComponent } from './component/issues/category-select/cate
 import { IssueCardComponent } from './component/issues/issue-main/issue-card/issue-card.component';
 import { LogCardComponent } from './component/log-card/log-card.component';
 import { SignupCardComponent } from './component/log-card/signup-card/signup-card.component';
+import { CrudCardComponent } from './component/log-card/crud-card/crud-card.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { SignupCardComponent } from './component/log-card/signup-card/signup-car
     IssueCardComponent,
     LogCardComponent,
     SignupCardComponent,
+    CrudCardComponent,
   ],
   imports: [
     CommonModule,

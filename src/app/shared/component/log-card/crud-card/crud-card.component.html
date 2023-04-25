@@ -1,0 +1,46 @@
+<div class="w-full py-3 px-1 border-b border-lightBorder dark:border-darkBorder flex justify-between items-center">
+    <div class="flex items-center">
+        <div class="flex items-start">
+            <div class="w-10 h-10 overflow-hidden rounded-full ml-2">
+                <img src="assets/img/profile.jpg" alt="profile" class="min-w-full min-h-full object-cover">
+            </div>
+        </div>
+        <div *ngIf="type==='add'">
+            <div class="flex items-center flex-wrap" *ngIf="base==='project'">
+                <div class="text-[1.05rem] ml-1">
+                    مجتبی اکبری
+                </div>
+                <div>
+                    پروژه
+                    <a [routerLink]="['/project', 'x']" class="mx-1 text-[1.05rem]">
+                        اسم الکی پروژه
+                    </a>
+                    را ایجاد نمود.
+                </div>
+            </div>
+            <div class="flex items-center flex-wrap" *ngIf="base==='issue'">
+                <div class="text-[1.05rem] ml-1">
+                    مجتبی اکبری
+                </div>
+                مسئله
+                <a [routerLink]="['/project', 'x', 'issues', 'x']" class="mx-1 text-[1.05rem]">
+                    اسم الکی مسئله
+                </a>
+                در پروژه
+                <a [routerLink]="['/project', 'x']" class="mx-1 text-[1.05rem]">
+                    اسم الکی پروژه
+                </a>
+                ایجاد نمود.
+            </div>
+        </div>
+    </div>
+    <div class="text-xs text-gray-700 dark:text-gray-300 pr-2">
+        <span class="whitespace-nowrap">
+            ۱ ساعت
+        </span>
+        و
+        <span class="whitespace-nowrap">
+            ۲۲ دقیقه
+        </span>
+    </div>
+</div>
