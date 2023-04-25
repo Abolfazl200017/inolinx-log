@@ -1,11 +1,17 @@
-<div class="w-full py-3 border-b border-lightBorder dark:border-darkBorder flex justify-between">
-    <div>
-        <a [routerLink]="['/profile', 'x']" class="text-[1.1rem]">
+<div class="w-full py-3 px-1 border-b border-lightBorder dark:border-darkBorder flex justify-between items-center">
+    <div class="flex items-center">
+        <span class="w-10 h-10 flex items-center justify-center">
+            <mat-icon class="mat-full-center text-green-500 text-3xl">
+                account_circle
+            </mat-icon>
+        </span>
+        کاربر
+        <a [routerLink]="['/profile', 'x']" class="text-[1.1rem] mx-1">
             سیدعباس موسوی
         </a>
         با موفقیت در سایت ثبت نام کرد.
     </div>
-    <div class="text-gray-700 dark:text-gray-300">
+    <div class="text-gray-700 dark:text-gray-300 pr-2 whitespace-nowrap">
         ۲۲ دقیقه پیش
     </div>
 </div>
