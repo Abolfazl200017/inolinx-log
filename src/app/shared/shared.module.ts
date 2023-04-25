@@ -17,6 +17,7 @@ import { LogCardComponent } from './component/log-card/log-card.component';
 import { SignupCardComponent } from './component/log-card/signup-card/signup-card.component';
 import { CrudCardComponent } from './component/log-card/crud-card/crud-card.component';
 import { AssignCardComponent } from './component/log-card/assign-card/assign-card.component';
+import { CommentCardComponent } from './component/log-card/comment-card/comment-card.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { AssignCardComponent } from './component/log-card/assign-card/assign-car
     SignupCardComponent,
     CrudCardComponent,
     AssignCardComponent,
+    CommentCardComponent,
   ],
   imports: [
     CommonModule,

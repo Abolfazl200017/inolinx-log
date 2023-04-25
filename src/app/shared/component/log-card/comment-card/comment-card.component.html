@@ -1,0 +1,40 @@
+<div class="w-full py-3 px-1 border-b border-lightBorder dark:border-darkBorder flex justify-between items-center">
+    <div class="flex items-center">
+        <div class="flex items-start">
+            <div class="w-10 h-10 overflow-hidden rounded-full ml-2">
+                <img src="assets/img/profile.jpg" alt="profile" class="min-w-full min-h-full object-cover">
+            </div>
+        </div>
+        <div class="leading-6">
+            <div class="flex items-center flex-wrap">
+                <a [routerLink]="['/profile', 'x']" class="text-[1.05rem] hover:opacity-90 dark:hover:opacity-80 ml-1">
+                    مجتبی اکبری
+                </a>
+                در مسئله
+                <a [routerLink]="['/project', 'x', 'issues', 'x']" class="mx-1 text-[1.05rem] hover:opacity-90 dark:hover:opacity-80">
+                    اسم الکی مسئله
+                </a>
+                یک نظر را
+                <span class="mr-1" *ngIf="state==='add'">
+                    ایجاد کرد.
+                </span>
+                <span class="mr-1" *ngIf="state==='remove'">
+                    حذف کرد.
+                </span>
+                <span class="mr-1" *ngIf="state==='edit'">
+                    ویرایش کرد.
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="text-xs text-gray-700 dark:text-gray-300 pr-2">
+        <span class="whitespace-nowrap">
+            ۳ ساعت
+        </span>
+        و
+        <span class="whitespace-nowrap">
+            ۴ دقیقه
+        </span>
+        پیش
+    </div>
+</div>
