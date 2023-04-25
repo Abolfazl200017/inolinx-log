@@ -8,20 +8,21 @@
         <div>
             <div class="flex items-center flex-wrap" *ngIf="base==='project'">
                 <a [routerLink]="['/profile', 'x']" class="text-[1.05rem] ml-1">
-                    مجتبی اکبری
+                    ابوالفضل
                 </a>
                 <div>
-                    پروژه
+                    در تیم پروژه
                     <a [routerLink]="['/project', 'x']" class="mx-1 text-[1.05rem]">
                         اسم الکی پروژه
                     </a>
-                    <span *ngIf="type==='add'">
-                        را ایجاد نمود.
+                    <a [routerLink]="['/profile', 'x']" class="mx-1 text-[1.05rem]">
+                        محمدحسین رجب‌زاده
+                    </a>
+                    را
+                    <span class="mr-1" *ngIf="state==='add'">
+                        اضافه کرد.
                     </span>
-                    <span *ngIf="type==='edit'">
-                        ویرایش کرد.
-                    </span>
-                    <span *ngIf="type==='delete'">
+                    <span class="mr-1" *ngIf="state==='remove'">
                         حذف کرد.
                     </span>
                 </div>
@@ -30,21 +31,23 @@
                 <a [routerLink]="['/profile', 'x']" class="text-[1.05rem] ml-1">
                     مجتبی اکبری
                 </a>
-                مسئله
+                در مسئله
                 <a [routerLink]="['/project', 'x', 'issues', 'x']" class="mx-1 text-[1.05rem]">
                     اسم الکی مسئله
                 </a>
-                در پروژه
+                مربوط به پروژه
                 <a [routerLink]="['/project', 'x']" class="mx-1 text-[1.05rem]">
                     اسم الکی پروژه
                 </a>
-                <span *ngIf="type==='add'">
-                    را ایجاد نمود.
+                ،
+                <a [routerLink]="['/profile', 'x']" class="mx-1 text-[1.05rem]">
+                    شروین احمدی
+                </a>
+                را
+                <span class="mr-1" *ngIf="state==='add'">
+                    اضافه کرد.
                 </span>
-                <span *ngIf="type==='edit'">
-                    ویرایش کرد.
-                </span>
-                <span *ngIf="type==='delete'">
+                <span class="mr-1" *ngIf="state==='remove'">
                     حذف کرد.
                 </span>
             </div>
@@ -52,11 +55,11 @@
     </div>
     <div class="text-xs text-gray-700 dark:text-gray-300 pr-2">
         <span class="whitespace-nowrap">
-            ۱ ساعت
+            ۳ ساعت
         </span>
         و
         <span class="whitespace-nowrap">
-            ۲۲ دقیقه
+            ۴ دقیقه
         </span>
         پیش
     </div>
