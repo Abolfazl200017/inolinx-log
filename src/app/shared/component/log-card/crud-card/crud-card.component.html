@@ -1,4 +1,4 @@
-<div class="w-full py-3 px-1 border-b border-lightBorder dark:border-darkBorder flex justify-between items-center">
+<div class="w-full py-3 px-1 border-b border-lightBorder dark:border-darkBorder flex justify-between items-center leading-6">
     <div class="flex items-center">
         <div class="flex items-start">
             <div class="w-10 h-10 overflow-hidden rounded-full ml-2">
@@ -47,6 +47,14 @@
                 <span *ngIf="type==='delete'">
                     حذف کرد.
                 </span>
+                <div class="flex items-center text-xs lg:text-sm">
+                    <div class="mx-1 p-1 lg:px-2 rounded-md bg-warn text-white">
+                        باگ
+                    </div>
+                    <div class="mx-1 p-1 lg:px-2 rounded md bg-primary text-white">
+                        ویژگی
+                    </div>
+                </div>
             </div>
         </div>
     </div>
