@@ -5,7 +5,7 @@
                 <img src="assets/img/profile.jpg" alt="profile" class="min-w-full min-h-full object-cover">
             </div>
         </div>
-        <div *ngIf="type==='add'">
+        <div>
             <div class="flex items-center flex-wrap" *ngIf="base==='project'">
                 <div class="text-[1.05rem] ml-1">
                     مجتبی اکبری
@@ -15,7 +15,15 @@
                     <a [routerLink]="['/project', 'x']" class="mx-1 text-[1.05rem]">
                         اسم الکی پروژه
                     </a>
-                    را ایجاد نمود.
+                    <span *ngIf="type==='add'">
+                        را ایجاد نمود.
+                    </span>
+                    <span *ngIf="type==='edit'">
+                        ویرایش کرد.
+                    </span>
+                    <span *ngIf="type==='delete'">
+                        حذف کرد.
+                    </span>
                 </div>
             </div>
             <div class="flex items-center flex-wrap" *ngIf="base==='issue'">
@@ -30,7 +38,15 @@
                 <a [routerLink]="['/project', 'x']" class="mx-1 text-[1.05rem]">
                     اسم الکی پروژه
                 </a>
-                ایجاد نمود.
+                <span *ngIf="type==='add'">
+                    را ایجاد نمود.
+                </span>
+                <span *ngIf="type==='edit'">
+                    ویرایش کرد.
+                </span>
+                <span *ngIf="type==='delete'">
+                    حذف کرد.
+                </span>
             </div>
         </div>
     </div>

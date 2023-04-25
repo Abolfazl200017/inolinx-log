@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./crud-card.component.scss']
 })
 export class CrudCardComponent implements OnInit {
-  types:string[]=['add', 'create', 'edit']
+  types:string[]=['add', 'delete', 'edit']
   type:string=this.types[0]
   bases:string[]=['project', 'issue']
   base:string = this.bases[1]

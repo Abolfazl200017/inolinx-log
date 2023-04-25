@@ -1,5 +1,5 @@
-<div class="max-w-7xl mx-auto min-h-full flex flex-col justify-between">
-    <div class="w-full py-5 px-3">
+<div class="w-full min-h-full flex flex-col justify-between">
+    <div class="w-full max-w-7xl mx-auto py-5 px-3">
         <div class="w-full py-2 border-b border-primary dark:border-lightPrimary text-primary dark:text-lightPrimary text-xl">
             امروز
         </div>
@@ -7,12 +7,14 @@
             <app-log-card></app-log-card>
         </div>
     </div>
-    <mat-paginator
-        [length]="100"
-        [pageSize]="10"
-        [hidePageSize]="true"
-        [showFirstLastButtons]="true"
-        (page)="pageEvent=$event"
-        class="border-t border-lightBorder dark:border-none"
-    ></mat-paginator>
+    <div class="w-full flex justify-center dark:bg-darkCardBg border-t border-lightBorder dark:border-none">
+        <mat-paginator
+            [length]="100"
+            [pageSize]="10"
+            [hidePageSize]="true"
+            [showFirstLastButtons]="true"
+            (page)="pageEvent=$event"
+            class="w-full max-w-7xl"
+        ></mat-paginator>
+    </div>
 </div>
