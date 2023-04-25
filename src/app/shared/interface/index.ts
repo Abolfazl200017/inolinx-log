@@ -4,4 +4,5 @@ export {INewProject} from './new-project';
 export {IIssue} from './issue';
 export {ISideToolbar} from './side-toolbar';
 export {IFilter} from './filter';
-export {IIssues} from './issues'
+export {IIssues} from './issues';
+export {ILogCard} from './log-card';

@@ -1,1 +1,9 @@
-<p>feed works!</p>
+<div class="max-w-7xl mx-auto min-h-full">
+    hellow my frend
+    <mat-paginator
+        [length]="100"
+        [pageSize]="10"
+        [hidePageSize]="true"
+        (page)="pageEvent=$event"
+    ></mat-paginator>
+</div>

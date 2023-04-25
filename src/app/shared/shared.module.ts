@@ -14,6 +14,7 @@ import { IssueFilterComponent } from './component/issues/issue-filter/issue-filt
 import { CategorySelectComponent } from './component/issues/category-select/category-select.component';
 import { IssueCardComponent } from './component/issues/issue-main/issue-card/issue-card.component';
 import { LogCardComponent } from './component/log-card/log-card.component';
+import { SignupCardComponent } from './component/log-card/signup-card/signup-card.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { LogCardComponent } from './component/log-card/log-card.component';
     CategorySelectComponent,
     IssueCardComponent,
     LogCardComponent,
+    SignupCardComponent,
   ],
   imports: [
     CommonModule,
