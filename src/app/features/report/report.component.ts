@@ -8,12 +8,20 @@ import { PageEvent } from '@angular/material/paginator';
 })
 export class ReportComponent implements OnInit {
   pageEvent?:PageEvent;
-  message:any='';
+  message:string='';
+  textFieldSize:string='h-6'
   constructor() { }
 
   ngOnInit(): void {
   }
   enter(){
-    console.log(this.pageEvent)
+   this.textFieldSize=(1.5*(this.message.split('\n').length+1)).toString()
+   if(this.message.split('\n').length==1){
+    this.textFieldSize = 'h-6';
+   }else if(this.message.split('\n').length==2){
+    this.textFieldSize = 'h-12';
+   }else if(this.message.split('\n').length>2){
+    this.textFieldSize = 'h-[4.5rem]'
+   }
   }
 }

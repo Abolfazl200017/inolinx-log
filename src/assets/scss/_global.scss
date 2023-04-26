@@ -19,3 +19,6 @@
 .border-color{
     @apply border-lightBorder dark:border-[#6e6d6d]
 }
+.mat-paginator-container{
+    min-height: 45px;
+}

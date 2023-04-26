@@ -3,9 +3,6 @@
         <app-report-card></app-report-card>
     </div>
     <div class="w-full flex flex-col items-center">
-        <div class="w-full max-w-7xl relative flex bg-lightBorder dark:bg-darkBorder p-2">
-            <textarea [(ngModel)]="message" name="" id="" cols="30" rows="10" class="w-full h-6 max-h-[4.5rem] text-base overflow-y-hidden outline-none bg-transparent resize-none" (keydown.enter)="enter()"></textarea>
-        </div>
         <mat-paginator
             [length]="100"
             [pageSize]="10"
@@ -14,5 +11,15 @@
             (page)="pageEvent=$event"
             class="w-full max-w-7xl dark:bg-darkCardBg border-t border-lightBorder dark:border-none"
         ></mat-paginator>
+        <div class="w-full max-w-7xl relative flex bg-lightCard border-t border-lightBorder dark:border-none dark:bg-darkBorder py-4 px-3 md:px-6">
+            <div class="absolute h-full left-3 top-0 flex items-center justify-center">
+                <button matRipple class="w-9 h-9 flex items-center justify-center rounded-full bg-primary dark:bg-lightPrimary">
+                    <mat-icon class="rotate-180 mat-center text-white">
+                        send
+                    </mat-icon>
+                </button>
+            </div>
+            <textarea autocomplete="ViewCrunch" [(ngModel)]="message" name="message" id="message" cols="30" rows="10" class="w-full max-h-[4.5rem] text-base overflow-y-hidden outline-none bg-transparent resize-none" placeholder="پیام خودرا اینجا بنویسید..." [class]="textFieldSize" (input)="enter()"></textarea>
+        </div>
     </div>
 </div>
