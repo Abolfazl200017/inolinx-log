@@ -8,10 +8,12 @@ import { PageEvent } from '@angular/material/paginator';
 })
 export class ReportComponent implements OnInit {
   pageEvent?:PageEvent;
-
+  message:any='';
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  enter(){
+    console.log(this.pageEvent)
+  }
 }

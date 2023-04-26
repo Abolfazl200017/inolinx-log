@@ -2,14 +2,17 @@
     <div class="w-full overflow-y-auto max-w-7xl mx-auto px-3 md:px-6">
         <app-report-card></app-report-card>
     </div>
-    <div class="w-full flex justify-center dark:bg-darkCardBg border-t border-lightBorder dark:border-none">
+    <div class="w-full flex flex-col items-center">
+        <div class="w-full max-w-7xl relative flex bg-lightBorder dark:bg-darkBorder p-2">
+            <textarea [(ngModel)]="message" name="" id="" cols="30" rows="10" class="w-full h-6 max-h-[4.5rem] text-base overflow-y-hidden outline-none bg-transparent resize-none" (keydown.enter)="enter()"></textarea>
+        </div>
         <mat-paginator
             [length]="100"
             [pageSize]="10"
             [hidePageSize]="true"
             [showFirstLastButtons]="true"
             (page)="pageEvent=$event"
-            class="w-full max-w-7xl"
+            class="w-full max-w-7xl dark:bg-darkCardBg border-t border-lightBorder dark:border-none"
         ></mat-paginator>
     </div>
 </div>
