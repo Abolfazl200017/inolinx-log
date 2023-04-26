@@ -1,12 +1,12 @@
-<div class="w-12 md:w-[4.5rem] h-full my-3 mx-1 rounded-md relative transition-all ease-in-out duration-500">
-    <mat-card class="absolute top-0 right-0 z-10 transition-side" [style]="isFull?'':'transition: none;'" [class]="isFull?'md:w-52':'w-12 md:w-[4.5rem]'" (mouseenter)="setIsFullTrue()" (mouseleave)="setIsFullFalse()">
+<div class="w-12 md:w-[5rem] h-full my-3 mx-1 rounded-md relative transition-all ease-in-out duration-500">
+    <mat-card class="absolute top-0 right-0 z-10 transition-side" [style]="isFull?'':'transition: none;'" [class]="isFull?'md:w-52':'w-12 md:w-[5rem]'" (mouseenter)="setIsFullTrue()" (mouseleave)="setIsFullFalse()">
         <div class="flex items-center pt-2 md:pt-0">
-            <div class="w-full flex items-center justify-center" [class]="isFull?'md:ml-3 md:w-auto':''">
+            <div class="w-full flex items-center justify-center" [class]="isFull?'md:ml-1 md:w-auto':''">
                 <mat-icon class="mat-full-center text-[2rem] md:text-[3.5rem]">
                     {{config.logoIcon}}
                 </mat-icon>
             </div>
-            <div class="xl:text-lg hidden" [class]="isFull?'md:block':''">
+            <div class="xl:text-[1.075rem] hidden h-10 overflow-hidden items-center whitespace-nowrap" [class]="isFull?'md:flex':''">
                 {{config.title}}
             </div>
         </div>
