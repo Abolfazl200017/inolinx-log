@@ -2,10 +2,10 @@
     <a [routerLink]="['/profile', 'x']" class="w-12 h-12 flex items-center justify-center rounded-full overflow-hidden" [class]="isSent?'ml-1':'mr-1'">
         <img src="/assets/img/profile.jpg" alt="profile" class="min-w-full min-h-full object-cover">
     </a>
-    <div class="w-5 h-5 bg-lightBorder dark:bg-darkBorder flex items-end" [class]="isSent?'-scale-x-100':''">
-        <div class="w-full h-full bg-lightBg dark:bg-darkBg rounded-full rounded-l-none" style="border-top-right-radius: 0;"></div>
+    <div class="w-5 h-5 bg-lightCardBg dark:bg-darkCardBg flex items-end" [class]="isSent?'-scale-x-100':''">
+        <div class="w-full h-full bg-lightBorder dark:bg-darkBorder rounded-full rounded-l-none" style="border-top-right-radius: 0;"></div>
     </div>
-    <div class="bg-lightBorder dark:bg-darkBorder max-w-[70%]" [class]="isSent?'rounded-l-3xl rounded-t-3xl':'rounded-r-3xl rounded-t-3xl'">
+    <div class="bg-lightCardBg dark:bg-darkCardBg max-w-[70%]" [class]="isSent?'rounded-l-3xl rounded-t-3xl':'rounded-r-3xl rounded-t-3xl'">
         <div class="w-72 h-32 p-3">
             جزئیات
         </div>

@@ -1,4 +1,4 @@
-<div class="w-full h-full flex flex-col justify-between">
+<div class="w-full h-full flex flex-col justify-between bg-lightBorder dark:bg-darkBorder">
     <div class="w-full overflow-y-auto max-w-7xl mx-auto px-3 md:px-6">
         <app-report-card></app-report-card>
     </div>
@@ -11,7 +11,7 @@
             (page)="pageEvent=$event"
             class="w-full max-w-7xl dark:bg-darkCardBg border-t border-lightBorder dark:border-none"
         ></mat-paginator>
-        <div class="w-full max-w-7xl relative flex bg-lightCard border-t border-lightBorder dark:border-none dark:bg-darkBorder py-4 px-3 md:px-6">
+        <div class="w-full max-w-7xl relative flex border-t border-lightBorder dark:border-[#7c7c7c3b] bg-lightCardBg dark:bg-darkCardBg py-4 px-3 md:px-6">
             <div class="absolute h-full left-3 top-0 flex items-center justify-center">
                 <div class="h-full flex items-center justify-center pl-2">
                     <label for="date" class="w-9 h-9 flex items-center justify-center cursor-pointer rounded-full" matRipple>
