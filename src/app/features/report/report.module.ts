@@ -6,6 +6,7 @@ import { ReportComponent } from './report.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AngularMaterialModule } from 'src/app/shared/angular-material/angular-material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxDatePickerModule } from '@ah99/ngx-date-picker';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AngularMaterialModule,
     ReactiveFormsModule,
     FormsModule,
+    NgxDatePickerModule.forRoot(),
   ]
 })
 export class ReportModule { }

@@ -13,6 +13,14 @@
         ></mat-paginator>
         <div class="w-full max-w-7xl relative flex bg-lightCard border-t border-lightBorder dark:border-none dark:bg-darkBorder py-4 px-3 md:px-6">
             <div class="absolute h-full left-3 top-0 flex items-center justify-center">
+                <div class="h-full flex items-center justify-center pl-2">
+                    <label for="date" class="w-9 h-9 flex items-center justify-center cursor-pointer rounded-full" matRipple>
+                        <mat-icon class="mat-center text-primary dark:text-lightPrimary">
+                            calendar_month
+                        </mat-icon>
+                    </label>
+                </div>
+                <input id="date" ngx-date-picker [datePickerConfig]="config" [(ngModel)]="startDateControl" [ngModelOptions]="{standalone: true}" class="focus:outline-none w-0 h-0 overflow-hidden bg-inputBg">
                 <button matRipple class="w-9 h-9 flex items-center justify-center rounded-full bg-primary dark:bg-lightPrimary">
                     <mat-icon class="rotate-180 mat-center text-white">
                         send

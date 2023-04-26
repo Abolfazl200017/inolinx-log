@@ -10,6 +10,25 @@ export class ReportComponent implements OnInit {
   pageEvent?:PageEvent;
   message:string='';
   textFieldSize:string='h-6'
+  startDateControl:any;
+  config:any={
+    calendar:'jalali',
+    doneText:'تایید',
+    cancelText:'انصراف',
+    themeConfig: {
+      light: {
+          primaryColor: "#3f51b5", // string
+          secondaryColor: "#444444", // string
+          backgroudColor: "#ffffff" // string
+      },
+      dark: {
+          primaryColor: "#ffffff", //string
+          secondaryColor: "#eeeeee", // string
+          backgroudColor: "#444444" // string
+      },
+      rounded: "medium" // flase | "medium" | "full"
+    }
+  }
   constructor() { }
 
   ngOnInit(): void {
