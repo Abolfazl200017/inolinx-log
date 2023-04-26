@@ -18,6 +18,7 @@ import { SignupCardComponent } from './component/log-card/signup-card/signup-car
 import { CrudCardComponent } from './component/log-card/crud-card/crud-card.component';
 import { AssignCardComponent } from './component/log-card/assign-card/assign-card.component';
 import { CommentCardComponent } from './component/log-card/comment-card/comment-card.component';
+import { ReportCardComponent } from './component/report-card/report-card.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { CommentCardComponent } from './component/log-card/comment-card/comment-
     CrudCardComponent,
     AssignCardComponent,
     CommentCardComponent,
+    ReportCardComponent,
   ],
   imports: [
     CommonModule,
@@ -50,6 +52,7 @@ import { CommentCardComponent } from './component/log-card/comment-card/comment-
     NewProjectComponent,
     SideToolbarComponent,
     LogCardComponent,
+    ReportCardComponent
   ]
 })
 export class SharedModule { }

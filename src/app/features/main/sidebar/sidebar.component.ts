@@ -22,6 +22,11 @@ export class SidebarComponent implements OnInit {
       link: ['/profile', 'list'],
       name: 'افراد',
       icon: 'groups',
+    },
+    {
+      link: ['/report'],
+      name: 'گزارش‌ها',
+      icon: 'checklist',
     }
   ]
   constructor() { }
