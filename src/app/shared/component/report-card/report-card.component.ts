@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./report-card.component.scss']
 })
 export class ReportCardComponent implements OnInit {
-
+  isSent:boolean=false;
   constructor() { }
 
   ngOnInit(): void {

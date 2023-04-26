@@ -1,1 +1,8 @@
-<p>report-card works!</p>
+<div class="flex items-end py-3" [class]="isSent?'':'flex-row-reverse'">
+    <a [routerLink]="['/profile', 'x']" class="w-12 h-12 flex items-center justify-center rounded-full overflow-hidden" [class]="isSent?'ml-3':'mr-3'">
+        <img src="/assets/img/profile.jpg" alt="profile" class="min-w-full min-h-full object-cover">
+    </a>
+    <div class="w-64 h-32 bg-red-500 max-w-[70%]" [class]="isSent?'rounded-l-3xl rounded-t-3xl':'rounded-r-3xl rounded-t-3xl'">
+
+    </div>
+</div>
