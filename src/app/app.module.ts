@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './shared/angular-material/angular-material.module'
 import { FormsModule } from '@angular/forms';
+import { MatPaginatorIntl } from '@angular/material/paginator';
+import { CustomPaginator } from 'src/assets/ts/CustomPaginatorConfiguration';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [
+    { provide: MatPaginatorIntl, useValue: CustomPaginator() }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
