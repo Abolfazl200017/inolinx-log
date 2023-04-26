@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
   isShow:boolean=false;
   @Output() darkModeChange: EventEmitter<boolean> = new EventEmitter();
   @Output() menu:EventEmitter<null> = new EventEmitter();
+  @Output() closeNav:EventEmitter<null> = new EventEmitter();
   constructor(private local:StorageService){}
   ngOnInit():void {
   }
@@ -36,5 +37,8 @@ export class HeaderComponent implements OnInit {
     this.darkMode = !this.darkMode;
     this.local.setData('darkMode', this.darkMode)
     this.darkModeChange.emit(this.darkMode)
+  }
+  route(){
+    this.closeNav.emit()
   }
 }
