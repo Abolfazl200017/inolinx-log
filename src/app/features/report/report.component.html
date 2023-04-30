@@ -2,14 +2,14 @@
     <div class="w-full overflow-y-auto max-w-7xl mx-auto px-3 md:px-6">
         <app-report-card></app-report-card>
     </div>
-    <div class="w-full flex flex-col items-center">
+    <div class="w-full flex flex-col items-center bg-lightCardBg dark:bg-darkCardBg border-t border-lightBorder dark:border-none">
         <mat-paginator
             [length]="100"
             [pageSize]="10"
             [hidePageSize]="true"
             [showFirstLastButtons]="true"
             (page)="pageEvent=$event"
-            class="w-full max-w-7xl dark:bg-darkCardBg border-t border-lightBorder dark:border-none"
+            class="w-full max-w-7xl dark:bg-darkCardBg"
         ></mat-paginator>
         <div class="w-full max-w-7xl relative flex border-t border-lightBorder dark:border-[#7c7c7c3b] bg-lightCardBg dark:bg-darkCardBg py-4 px-3 md:px-6">
             <div class="absolute h-full left-3 top-0 flex items-center justify-center">
