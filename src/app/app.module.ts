@@ -8,6 +8,7 @@ import { AngularMaterialModule } from './shared/angular-material/angular-materia
 import { FormsModule } from '@angular/forms';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { CustomPaginator } from 'src/assets/ts/CustomPaginatorConfiguration';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { CustomPaginator } from 'src/assets/ts/CustomPaginatorConfiguration';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    HttpClientModule,
   ],
   providers: [
     { provide: MatPaginatorIntl, useValue: CustomPaginator() }
