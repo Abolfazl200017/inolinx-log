@@ -25,7 +25,7 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmitSignup(){
-    if(this.formGroup.valid){1
+    if(this.formGroup.valid){
       this.signup.signup(this.formGroup.value).subscribe(
         (data)=>{
           console.log(data)
