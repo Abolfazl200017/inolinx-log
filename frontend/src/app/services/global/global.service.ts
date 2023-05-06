@@ -10,4 +10,7 @@ export class GlobalService {
   changeLoading = ()=>{
     this.loading = !this.loading;
   }
+  setLoading = (value:boolean)=>{
+    this.loading = value;
+  }
 }

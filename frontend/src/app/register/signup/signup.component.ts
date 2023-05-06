@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subscription } from 'rxjs';
 import { SignupService } from 'src/app/services/auth/signup.service';
 import { passwordValidator } from './password-validator';
+import { GlobalService } from 'src/app/services/global/global.service';
 
 @Component({
   selector: 'app-signup',
@@ -18,6 +19,7 @@ export class SignupComponent implements OnInit {
     private formBuilder: UntypedFormBuilder,
     private signup: SignupService,
     private snack: MatSnackBar,
+    private global: GlobalService,
   ) { }
   formGroup = this.formBuilder.group({
     first_name: new UntypedFormControl('', [Validators.required]),
@@ -29,12 +31,15 @@ export class SignupComponent implements OnInit {
   }
   onSubmitSignup(){
     if(this.formGroup.valid){
+      this.global.setLoading(true)
       this.signup.signup(this.formGroup.value).subscribe(
         (data)=>{
+          this.global.setLoading(false)
           this.snack.open('ثبت نام شما با موفقیت انجام شد', 'بستن')
           this.formGroup.reset()
         },
         (err)=>{
+          this.global.setLoading(false)
           console.log(err)
           if(err.status==0){
             this.snack.open('اتصال شما برقرار نیست','بستن')
