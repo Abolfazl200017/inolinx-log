@@ -17,7 +17,7 @@ export class SignupComponent implements OnInit {
   constructor(
     private formBuilder: UntypedFormBuilder,
     private signup: SignupService,
-    private error: MatSnackBar,
+    private snack: MatSnackBar,
   ) { }
   formGroup = this.formBuilder.group({
     first_name: new UntypedFormControl('', [Validators.required]),
@@ -31,7 +31,8 @@ export class SignupComponent implements OnInit {
     if(this.formGroup.valid){
       this.signup.signup(this.formGroup.value).subscribe(
         (data)=>{
-          console.log(data)
+          this.snack.open('ثبت نام شما با موفقیت انجام شد', 'بستن')
+          this.formGroup.reset()
         },
         (err)=>{
           console.log(err)
