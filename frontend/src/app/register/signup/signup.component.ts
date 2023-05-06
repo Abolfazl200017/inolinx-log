@@ -13,6 +13,7 @@ import { passwordValidator } from './password-validator';
 export class SignupComponent implements OnInit {
   sub:Subscription[]=[]
   passwordVisibility:boolean=false;
+  errs:string[]=[]
   constructor(
     private formBuilder: UntypedFormBuilder,
     private signup: SignupService,
@@ -55,10 +56,10 @@ export class SignupComponent implements OnInit {
         if(this.formGroup.get("password")?.value==''){
           err.push("لطفا رمز عبور را وارد کنید")
         }else{
-          err.push('رمز عبور قوی نمی‌باشد لطفا از ترکیب کاراکتر های بزرگ و کوچک و علامت‌های خاص استفاده کنید')
+          err.push('رمز عبور قوی نمی‌باشد')
         }
       }
-      console.log(err)
+      this.errs = err;
     }
   }
 }
