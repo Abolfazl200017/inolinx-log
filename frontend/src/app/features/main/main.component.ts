@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { StorageService } from '../../services/storage/storage.service';
+import { GlobalService } from 'src/app/services/global/global.service';
 
 @Component({
   selector: 'app-main',
@@ -11,7 +12,10 @@ export class MainComponent implements OnInit {
   showFiller = false;
   mainHeight:string='';
   @ViewChild('header') header:ElementRef|undefined;
-  constructor(private local:StorageService){}
+  constructor(
+    private local:StorageService,
+    private global:GlobalService,
+  ){}
 
   ngOnInit(): void {
   }
@@ -29,5 +33,11 @@ export class MainComponent implements OnInit {
   }
   setMainHeight(){
     this.mainHeight = `height: calc(100% - ${this.header?.nativeElement.offsetHeight}px);`
+  }
+  isShowLoading(){
+    return this.global.loading
+  }
+  change(){
+    this.global.changeLoading()
   }
 }

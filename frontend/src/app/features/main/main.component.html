@@ -1,4 +1,4 @@
-<div *ngIf="false" class="fixed top-0 right-0 w-full">
+<div *ngIf="isShowLoading()" class="fixed top-0 right-0 w-full">
   <mat-progress-bar class="" [color]="'accent'" [mode]="'indeterminate'"></mat-progress-bar>
 </div>
 <header #header [class]="darkMode?'darkMode':''" class="">

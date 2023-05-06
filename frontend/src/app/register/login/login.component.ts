@@ -13,12 +13,14 @@ export class LoginComponent implements OnInit {
   ) { }
 
   formGroup = this.formBuilder.group({
-    email: new UntypedFormControl('', [Validators.required, Validators.pattern((/^(\d{10}|\w+([\.-]?\w+)*@\w+([\.-]?\w+)*)$/))]),
+    email: new UntypedFormControl('', [Validators.required, Validators.email]),
     password: new UntypedFormControl('', [Validators.required, Validators.minLength(8)])
   })
   ngOnInit(): void {
   }
-  console(){
-    console.log(this.formGroup.valid)
+  login(){
+    if(this.formGroup.valid){
+
+    }
   }
 }
