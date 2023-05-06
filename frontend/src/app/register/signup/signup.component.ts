@@ -36,6 +36,16 @@ export class SignupComponent implements OnInit {
         },
         (err)=>{
           console.log(err)
+          if(err.status==0){
+            this.snack.open('اتصال شما برقرار نیست','بستن')
+          }else{
+            if(err.status<500){
+              this.snack.open('ارور چهارصدی داریم','بستن')
+            }
+          }
+          if(err.status>=500){
+            this.snack.open('مشکلی از سمت سرور پیش آمده','بستن')
+          }
         }
       )
     }else{
