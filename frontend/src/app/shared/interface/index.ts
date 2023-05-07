@@ -6,4 +6,5 @@ export {ISideToolbar} from './side-toolbar';
 export {IFilter} from './filter';
 export {IIssues} from './issues';
 export {ILogCard} from './log-card';
-export {ISignupForm} from './signup-form'
+export {ISignupForm} from './signup-form';
+export {IProfile} from './profile';

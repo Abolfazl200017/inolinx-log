@@ -19,11 +19,14 @@ export class JwtService {
     private snack: MatSnackBar,
   ) { }
   setTokenInLocal(token:{access:string;refresh:string}){
+    // console.log(this.jwtHelper.decodeToken(token.access))
+    this.setAccessToken(token.access)
+    localStorage.setItem('refresh_token', JSON.stringify(token.refresh))
     let updateToken = timer(0,200000).subscribe(
       (event)=>{
         // console.log('access_token: ', this.isAccessTokenExpired(), '\nrefresh_token: ', this.isRefreshTokenExpired())
-        if(this.isAccessTokenExpired()){
-          if(!this.isRefreshTokenExpired()){
+        if(!this.isRefreshTokenExpired()){
+          if(this.isAccessTokenExpired()){
             this.http.post( `${environment.SHARE_PATH}/users/token/refresh/` , {refresh:JSON.parse(this.getRefreshTokenInLocal())}).subscribe(
               (response:{access:string}|any)=>{
                 this.setAccessToken(response?.access)
@@ -34,14 +37,12 @@ export class JwtService {
             )
           }else{
             this.router.navigate(['/register', 'login'])
-            this.snack.open('باید دوباره وارد شوید', 'بستن')
+            this.snack.open('باید دوباره وارد شوید', 'بستن', {duration:1500})
             updateToken.unsubscribe()
           }
         }
       }
     )
-    this.setAccessToken(token.access)
-    localStorage.setItem('refresh_token', JSON.stringify(token.refresh))
   }
   setAccessToken(token:string){
     this.accessToken = JSON.stringify(token);
