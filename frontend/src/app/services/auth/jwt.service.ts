@@ -19,12 +19,15 @@ export class JwtService {
   setTokenInLocal(token:{access:string;refresh:string}){
     let updateToken = timer(0,5000).subscribe(
       (event)=>{
-        console.log('access_token: ', this.isAccessTokenExpired(), '\nrefresh_token: ', this.isRefreshTokenExpired())
+        // console.log('access_token: ', this.isAccessTokenExpired(), '\nrefresh_token: ', this.isRefreshTokenExpired())
         if(this.isAccessTokenExpired()){
           if(!this.isRefreshTokenExpired()){
             this.http.post( `${environment.SHARE_PATH}/users/token/refresh/` , {refresh:JSON.parse(this.getRefreshTokenInLocal())}).subscribe(
-              (response:{refresh:string}|any)=>{
-                // this.setAccessToken(response?.refresh)
+              (response:{access:string}|any)=>{
+                this.setAccessToken(response?.access)
+              },
+              (err)=>{
+                console.log(err)
               }
             )
           }else{
