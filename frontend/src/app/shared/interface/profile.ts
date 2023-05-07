@@ -5,5 +5,5 @@ export interface IProfile {
     email: string;
     url: string;
     password: string;
-    id: number;
+    id: number|string;
 }
