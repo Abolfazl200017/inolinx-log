@@ -7,6 +7,7 @@ const routes: Routes = [{ path: '', component: MainComponent, children:[
   { path: 'profile', loadChildren: () => import('../profile/profile.module').then(m => m.ProfileModule) },
   { path: 'project', loadChildren: () => import('../project/project.module').then(m => m.ProjectModule) },
   { path: 'report', loadChildren: () => import('../report/report.module').then(m => m.ReportModule) },
+  { path: 'issue', loadChildren: () => import('../issue/issue.module').then(m => m.IssueModule) },
   { path: '', loadChildren: () => import('../feed/feed.module').then(m => m.FeedModule) },
 ]}];
 
