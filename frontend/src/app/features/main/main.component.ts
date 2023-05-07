@@ -14,7 +14,6 @@ export class MainComponent implements OnInit {
   @ViewChild('header') header:ElementRef|undefined;
   constructor(
     private local:StorageService,
-    private global:GlobalService,
   ){}
 
   ngOnInit(): void {
@@ -33,11 +32,5 @@ export class MainComponent implements OnInit {
   }
   setMainHeight(){
     this.mainHeight = `height: calc(100% - ${this.header?.nativeElement.offsetHeight}px);`
-  }
-  isShowLoading(){
-    return this.global.loading
-  }
-  change(){
-    this.global.changeLoading()
   }
 }

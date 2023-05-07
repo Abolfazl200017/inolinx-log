@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { JwtService } from 'src/app/services/auth/jwt.service';
 import { LoginService } from 'src/app/services/auth/login.service';
+import { GlobalService } from 'src/app/services/global/global.service';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private jwtService: JwtService,
     private snack: MatSnackBar,
+    private global: GlobalService,
   ) { }
 
   formGroup = this.formBuilder.group({
@@ -28,12 +30,15 @@ export class LoginComponent implements OnInit {
   }
   login(){
     if(this.formGroup.valid || true){
+      this.global.setLoading(true);
       this.loginService.login(this.formGroup.value).subscribe(
         (response:any)=>{
+        this.global.setLoading(false);
           this.jwtService.setTokenInLocal(response)
           this.router.navigate(["/"]);
         },
         (err)=>{
+          this.global.setLoading(false);
           if(err.status==401){
             this.snack.open('نام کاربری یارمز عبور اشتباه است', 'بستن', {duration:2000})
           }else{

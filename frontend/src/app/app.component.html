@@ -1,1 +1,4 @@
+<div *ngIf="isShowLoading()" class="fixed top-0 right-0 w-full">
+    <mat-progress-bar class="" [color]="'accent'" [mode]="'indeterminate'"></mat-progress-bar>
+</div>
 <router-outlet></router-outlet>
