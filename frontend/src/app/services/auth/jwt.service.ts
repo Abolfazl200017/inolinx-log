@@ -19,7 +19,7 @@ export class JwtService {
     private snack: MatSnackBar,
   ) { }
   setTokenInLocal(token:{access:string;refresh:string}){
-    let updateToken = timer(0,5000).subscribe(
+    let updateToken = timer(0,200000).subscribe(
       (event)=>{
         // console.log('access_token: ', this.isAccessTokenExpired(), '\nrefresh_token: ', this.isRefreshTokenExpired())
         if(this.isAccessTokenExpired()){
