@@ -7,12 +7,12 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ProfileService {
-  profile: IProfile|undefined;
+  private profile: IProfile|undefined;
   constructor(
     private http: HttpClient,
   ){}
   setProfile(id:number){
-    console.log('id: ', id);
+    // console.log('id: ', id);
     this.http.get(`${environment.SHARE_PATH}/users/user/list/`).subscribe(
       (response: any) => {
         // console.log(response);
@@ -22,5 +22,8 @@ export class ProfileService {
         // console.log(err)
       }
     )
+  }
+  getProfile():IProfile|undefined{
+    return this.profile;
   }
 }
