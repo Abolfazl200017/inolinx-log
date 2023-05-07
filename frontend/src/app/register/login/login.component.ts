@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { JwtService } from 'src/app/services/auth/jwt.service';
 import { LoginService } from 'src/app/services/auth/login.service';
@@ -16,6 +17,7 @@ export class LoginComponent implements OnInit {
     private loginService: LoginService,
     private router: Router,
     private jwtService: JwtService,
+    private snack: MatSnackBar,
   ) { }
 
   formGroup = this.formBuilder.group({
@@ -29,10 +31,14 @@ export class LoginComponent implements OnInit {
       this.loginService.login(this.formGroup.value).subscribe(
         (response:any)=>{
           this.jwtService.setTokenInLocal(response)
-          // this.router.navigate(["/"]);
+          this.router.navigate(["/"]);
         },
         (err)=>{
-          console.log(err);
+          if(err.status==401){
+            this.snack.open('نام کاربری یارمز عبور اشتباه است', 'بستن', {duration:2000})
+          }else{
+            // console.log(err);
+          }
         }
       )
     }
