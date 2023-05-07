@@ -17,18 +17,20 @@ export class JwtService {
     private snack: MatSnackBar,
   ) { }
   setTokenInLocal(token:{access:string;refresh:string}){
-    timer(0,20000).subscribe(
+    let updateToken = timer(0,5000).subscribe(
       (event)=>{
+        console.log('access_token: ', this.isAccessTokenExpired(), '\nrefresh_token: ', this.isRefreshTokenExpired())
         if(this.isAccessTokenExpired()){
           if(!this.isRefreshTokenExpired()){
-            this.http.post( `${environment.BASE_API_URL}users/token/refresh/` , this.getRefreshTokenInLocal()).subscribe(
+            this.http.post( `${environment.SHARE_PATH}/users/token/refresh/` , {refresh:JSON.parse(this.getRefreshTokenInLocal())}).subscribe(
               (response:{refresh:string}|any)=>{
-                this.setAccessToken(response?.refresh)
+                // this.setAccessToken(response?.refresh)
               }
             )
           }else{
             this.router.navigate(['/register', 'login'])
             this.snack.open('باید دوباره وارد شوید', 'بستن')
+            updateToken.unsubscribe()
           }
         }
       }

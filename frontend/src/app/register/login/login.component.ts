@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
     if(this.formGroup.valid || true){
       this.loginService.login(this.formGroup.value).subscribe(
         (response:any)=>{
-          console.log(response);
           this.jwtService.setTokenInLocal(response)
           // this.router.navigate(["/"]);
         },
