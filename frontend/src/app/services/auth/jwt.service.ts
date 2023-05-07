@@ -11,6 +11,8 @@ import { environment } from 'src/environments/environment';
 })
 export class JwtService {
   private jwtHelper:JwtHelperService = new JwtHelperService();
+  private accessToken:string|undefined;
+  
   constructor(
     private http: HttpClient,
     private router: Router,
@@ -38,11 +40,12 @@ export class JwtService {
         }
       }
     )
-    localStorage.setItem('access_token', JSON.stringify(token.access))
+    this.setAccessToken(token.access)
     localStorage.setItem('refresh_token', JSON.stringify(token.refresh))
   }
   setAccessToken(token:string){
-    localStorage.setItem('access_token', JSON.stringify(token))
+    this.accessToken = JSON.stringify(token);
+    localStorage.setItem('access_token', this.accessToken)
   }
   getAccessTokenInLocal():string{
     return localStorage.getItem('access_token') as string;
@@ -56,5 +59,9 @@ export class JwtService {
   isRefreshTokenExpired():boolean{
     return this.jwtHelper.isTokenExpired(localStorage.getItem('refresh_token'))
   }
-
+  logOut(){
+    localStorage.removeItem("access_token")
+    localStorage.removeItem("refresh_token")
+    this.router.navigate(["/register"])
+  }
 }

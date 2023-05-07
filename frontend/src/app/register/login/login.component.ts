@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
       this.global.setLoading(true);
       this.loginService.login(this.formGroup.value).subscribe(
         (response:any)=>{
-        this.global.setLoading(false);
+          this.global.setLoading(false);
           this.jwtService.setTokenInLocal(response)
           this.router.navigate(["/"]);
         },
