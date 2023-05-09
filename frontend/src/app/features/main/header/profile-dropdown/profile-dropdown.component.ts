@@ -1,5 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ProfileService } from 'src/app/services/api/profile.service';
 import { JwtService } from 'src/app/services/auth/jwt.service';
+import { IProfile } from 'src/app/shared/interface';
 
 @Component({
   selector: 'app-profile-dropdown',
@@ -8,13 +10,19 @@ import { JwtService } from 'src/app/services/auth/jwt.service';
 })
 export class ProfileDropdownComponent implements OnInit {
   @Output() closeProfile = new EventEmitter<null>();
+  profileLink:string[]=[]
   constructor(
     private jwt: JwtService,
+    private profileService: ProfileService,
   ) { }
 
   ngOnInit(): void {
+    this.profileLink = this.profileService.getProfileLink();
   }
   profileLinkClicked(){
+    this.closeProfile.emit()
+  }
+  logOut(){
     this.closeProfile.emit()
     this.jwt.logOut()
   }

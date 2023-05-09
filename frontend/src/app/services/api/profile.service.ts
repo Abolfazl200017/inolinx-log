@@ -7,23 +7,29 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ProfileService {
-  private profile: IProfile|undefined;
+  private profile: IProfile = <IProfile>{}
   constructor(
     private http: HttpClient,
   ){}
   setProfile(id:number){
     // console.log('id: ', id);
-    this.http.get(`${environment.SHARE_PATH}/users/user/list/`).subscribe(
+    let prof = this.http.get(`${environment.SHARE_PATH}/users/user/list/${id}`).subscribe(
       (response: any) => {
-        // console.log(response);
-        this.profile = response.find((item:IProfile)=> item.id == id);
+        this.profile = response;
+        console.log(this.profile)
+        prof.unsubscribe();
       },
       (err)=>{
-        // console.log(err)
+        console.log(err);
+        prof.unsubscribe();
       }
     )
   }
-  getProfile():IProfile|undefined{
+  getProfile():IProfile{
     return this.profile;
+  }
+  getProfileLink():string[]{
+    console.log(this.profile)
+    return ['/profile', `${this.profile.id}_${this.profile.first_name}_${this.profile.last_name}`];
   }
 }

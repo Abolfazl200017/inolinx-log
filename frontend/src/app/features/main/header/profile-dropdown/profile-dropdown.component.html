@@ -1,4 +1,4 @@
-<a class="mt-3 flex select-none text-base items-center px-3 pb-3 border-b border-[#a7a7a777]" [routerLink]="['/profile', 'x']" [routerLink]="['/profile', 'x']">
+<a class="mt-3 flex select-none text-base items-center px-3 pb-3 border-b border-[#a7a7a777]" [routerLink]="['/profile', 'x']" [routerLink]="profileLink" (click)="profileLinkClicked()">
   <div class="w-14 h-14 ml-3 flex items-center justify-center rounded-full overflow-hidden">
     <img src="assets/img/profile.jpg" class="min-w-full min-h-full object-cover" alt="">
   </div>
@@ -30,7 +30,7 @@
         </a>
     </li>
     <li>
-        <a [routerLink]="" class="min-w-full flex items-center py-3 cursor-pointer hover:opacity-80" (click)="profileLinkClicked()">
+        <a [routerLink]="" class="min-w-full flex items-center py-3 cursor-pointer hover:opacity-80" (click)="logOut();profileLinkClicked();">
             <mat-icon class="mat-center ml-2">
                 logout
             </mat-icon>

@@ -13,13 +13,20 @@ import { ProfileService } from '../api/profile.service';
 export class JwtService {
   private jwtHelper:JwtHelperService = new JwtHelperService();
   private accessToken:string|undefined;
-  
+  private userId:number = 15;
   constructor(
     private http: HttpClient,
     private router: Router,
     private snack: MatSnackBar,
     private profile: ProfileService,
   ) { }
+  getId(){
+    if(localStorage.getItem('access_token'))
+      return this.jwtHelper.decodeToken(localStorage.getItem('access_token') as string).user_id;
+    else{
+      return 0
+    }
+  }
   setTokenInLocal(token:{access:string;refresh:string}){
     // console.log(this.jwtHelper.decodeToken(token.access))
     this.setAccessToken(token.access)
@@ -28,6 +35,7 @@ export class JwtService {
       (event)=>{
         // console.log('access_token: ', this.isAccessTokenExpired(), '\nrefresh_token: ', this.isRefreshTokenExpired())
         this.profile.setProfile(this.jwtHelper.decodeToken(token.access).user_id)
+        this.userId = this.jwtHelper.decodeToken(token.access).user_id;
         if(!this.isRefreshTokenExpired()){
           if(this.isAccessTokenExpired()){
             this.http.post( `${environment.SHARE_PATH}/users/token/refresh/` , {refresh:JSON.parse(this.getRefreshTokenInLocal())}).subscribe(
