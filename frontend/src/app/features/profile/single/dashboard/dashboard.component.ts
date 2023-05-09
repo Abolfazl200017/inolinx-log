@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProfileService } from 'src/app/services/api/profile.service';
 import { IPersonCard } from 'src/app/shared/interface';
 
 @Component({
@@ -16,10 +17,14 @@ export class DashboardComponent implements OnInit {
         'DevOps'
       ],
       registeryDate: '12-1-1399'
-    }
-  constructor() { }
+  }
+  constructor(
+  ) {
+
+  }
 
   ngOnInit(): void {
+
   }
 
 }

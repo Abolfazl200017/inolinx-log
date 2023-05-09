@@ -32,4 +32,5 @@ export class ProfileService {
     console.log(this.profile)
     return ['/profile', `${this.profile.id}_${this.profile.first_name}_${this.profile.last_name}`];
   }
+  
 }

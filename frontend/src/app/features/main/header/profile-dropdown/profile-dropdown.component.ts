@@ -11,6 +11,8 @@ import { IProfile } from 'src/app/shared/interface';
 export class ProfileDropdownComponent implements OnInit {
   @Output() closeProfile = new EventEmitter<null>();
   profileLink:string[]=[]
+  imageLogo:string|undefined;
+  name:string|undefined;
   constructor(
     private jwt: JwtService,
     private profileService: ProfileService,
@@ -18,6 +20,9 @@ export class ProfileDropdownComponent implements OnInit {
 
   ngOnInit(): void {
     this.profileLink = this.profileService.getProfileLink();
+    let profile = this.profileService.getProfile()
+    this.imageLogo = profile.image?profile.image:'assets/img/default_profile.jpg';
+    this.name = `${profile.first_name} ${profile.last_name}`
   }
   profileLinkClicked(){
     this.closeProfile.emit()
