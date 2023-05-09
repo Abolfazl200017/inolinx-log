@@ -13,6 +13,7 @@ import { GlobalService } from 'src/app/services/global/global.service';
 })
 export class LoginComponent implements OnInit {
   formError:boolean=false;
+  log_in:any;
   constructor(
     private formBuilder: UntypedFormBuilder,
     private loginService: LoginService,
@@ -31,7 +32,7 @@ export class LoginComponent implements OnInit {
   login(){
     if(this.formGroup.valid || true){
       this.global.setLoading(true);
-      this.loginService.login(this.formGroup.value).subscribe(
+      this.log_in = this.loginService.login(this.formGroup.value).subscribe(
         (response:any)=>{
           this.global.setLoading(false);
           this.jwtService.setTokenInLocal(response)
@@ -47,5 +48,8 @@ export class LoginComponent implements OnInit {
         }
       )
     }
+  }
+  ngOnDestroy(): void {
+    this.log_in.unsubscribe();
   }
 }

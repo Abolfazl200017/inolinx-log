@@ -15,6 +15,7 @@ export class SignupComponent implements OnInit {
   sub:Subscription[]=[]
   passwordVisibility:boolean=false;
   errs:string[]=[]
+  sign_up:any;
   constructor(
     private formBuilder: UntypedFormBuilder,
     private signup: SignupService,
@@ -32,7 +33,7 @@ export class SignupComponent implements OnInit {
   onSubmitSignup(){
     if(this.formGroup.valid){
       this.global.setLoading(true)
-      this.signup.signup(this.formGroup.value).subscribe(
+      this.sign_up = this.signup.signup(this.formGroup.value).subscribe(
         (data)=>{
           this.global.setLoading(false)
           this.snack.open('ثبت نام شما با موفقیت انجام شد', 'بستن')
@@ -77,5 +78,8 @@ export class SignupComponent implements OnInit {
       }
       this.errs = err;
     }
+  }
+  ngOnDestroy(): void {
+    this.sign_up.unsubscribe();
   }
 }

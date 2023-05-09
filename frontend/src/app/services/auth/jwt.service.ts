@@ -38,11 +38,11 @@ export class JwtService {
                 console.log(err)
               }
             )
-          }else{
-            this.router.navigate(['/register', 'login'])
-            this.snack.open('باید دوباره وارد شوید', 'بستن', {duration:1500})
-            updateToken.unsubscribe()
           }
+        }else{
+          this.router.navigate(['/register', 'login'])
+          this.snack.open('لطفا دوباره وارد شوید', 'بستن', {duration:1500})
+          updateToken.unsubscribe()
         }
       }
     )
