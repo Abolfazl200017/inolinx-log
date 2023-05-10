@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
@@ -38,7 +38,10 @@ export class JwtService {
         this.userId = this.jwtHelper.decodeToken(token.access).user_id;
         if(!this.isRefreshTokenExpired()){
           if(this.isAccessTokenExpired()){
-            this.http.post( `${environment.SHARE_PATH}/users/token/refresh/` , {refresh:JSON.parse(this.getRefreshTokenInLocal())}).subscribe(
+            let headers = new HttpHeaders({
+              'Content-Type': 'application/json',
+            })
+            this.http.post( `${environment.SHARE_PATH}/users/token/refresh/` , {refresh:JSON.stringify(this.getRefreshTokenInLocal())}, { headers: headers }).subscribe(
               (response:{access:string}|any)=>{
                 this.setAccessToken(response?.access)
               },

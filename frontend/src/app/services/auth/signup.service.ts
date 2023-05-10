@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ISignupForm } from 'src/app/shared/interface';
@@ -13,6 +13,9 @@ export class SignupService {
   ) { }
 
   signup(data:ISignupForm):Observable<any>{
-    return this.http.post(`${environment.BASE_API_URL}users/create/`, data)
+    let headers = new HttpHeaders({
+      "Content-Type": "application/json",
+    })
+    return this.http.post(`${environment.SHARE_PATH}/users/create/`, JSON.stringify(data) , { headers: headers })
   }
 }

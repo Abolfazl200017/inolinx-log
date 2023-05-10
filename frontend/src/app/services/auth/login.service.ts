@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { map } from 'rxjs';
@@ -18,7 +18,10 @@ export class LoginService {
   ) { }
   
   login(userLoginForm:IUserLoginForm){
-    return this.http.post<any>(`http://localhost:8000/users/token/`, userLoginForm)
+    let headers = new HttpHeaders({
+      "Content-Type": "application/json",
+    })
+    return this.http.post<any>(`http://localhost:8000/users/token/`, JSON.stringify(userLoginForm), { headers: headers })
   }
 }
   

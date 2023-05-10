@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { JwtService } from 'src/app/services/auth/jwt.service';
 import { LoginService } from 'src/app/services/auth/login.service';
 import { GlobalService } from 'src/app/services/global/global.service';
@@ -13,7 +14,7 @@ import { GlobalService } from 'src/app/services/global/global.service';
 })
 export class LoginComponent implements OnInit {
   formError:boolean=false;
-  log_in:any;
+  log_in:Subscription | undefined;
   constructor(
     private formBuilder: UntypedFormBuilder,
     private loginService: LoginService,
@@ -50,6 +51,6 @@ export class LoginComponent implements OnInit {
     }
   }
   ngOnDestroy(): void {
-    this.log_in.unsubscribe();
+    this.log_in?.unsubscribe();
   }
 }

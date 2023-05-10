@@ -15,7 +15,7 @@ export class SignupComponent implements OnInit {
   sub:Subscription[]=[]
   passwordVisibility:boolean=false;
   errs:string[]=[]
-  sign_up:any;
+  sign_up:Subscription | undefined;
   constructor(
     private formBuilder: UntypedFormBuilder,
     private signup: SignupService,
@@ -80,6 +80,6 @@ export class SignupComponent implements OnInit {
     }
   }
   ngOnDestroy(): void {
-    this.sign_up.unsubscribe();
+    this.sign_up?.unsubscribe();
   }
 }
