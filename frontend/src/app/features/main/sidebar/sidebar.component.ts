@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ProfileService } from 'src/app/services/api/profile.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,6 +8,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
   @Output() closeNav = new EventEmitter<null>();
+  profile = this.profileService.getProfile;
   navLinks=[
     {
       link: ['/'],
@@ -29,7 +31,9 @@ export class SidebarComponent implements OnInit {
       icon: 'checklist',
     }
   ]
-  constructor() { }
+  constructor(
+    private profileService: ProfileService,
+  ) { }
 
   ngOnInit(): void {
   }

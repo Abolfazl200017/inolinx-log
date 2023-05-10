@@ -10,9 +10,9 @@
         </li>
     </ul>
     <div class="w-full px-3 flex items-center pb-5">
-        <div class="w-12 h-12 ml-3 rounded-full flex items-center justify-center overflow-hidden">
-            <img src="assets/img/profile.jpg" alt="profile" class="min-w-full min-h-full object-cover">
+        <div class="w-12 h-12 ml-3 rounded-full flex items-center justify-center overflow-hidden border border-lightBorder dark:border-darkBorder">
+            <img [src]="profile().image?profile().image:'assets/img/default_profile.jpg'" src="assets/img/profile.jpg" alt="profile" class="min-w-full min-h-full object-cover">
         </div>
-        استاد سید عباس موسوی اصل بزرگ
+        {{profile().first_name+' '+profile().last_name}}
     </div>
 </div>
