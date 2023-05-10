@@ -35,8 +35,8 @@ export class ProfileService {
   getProfile=():IProfile=>{
     return this.profile;
   }
-  getProfileLink = ()=>{
+  getProfileLink = (arr:any=[])=>{
     // console.log(this.profile)
-    return ['/profile', `${this.profile.first_name}_${this.profile.last_name}`, { id:this.profile.id }];
+    return ['/profile', `${this.profile.first_name}_${this.profile.last_name}`, { id:this.profile.id }, ...arr];
   }
 }
