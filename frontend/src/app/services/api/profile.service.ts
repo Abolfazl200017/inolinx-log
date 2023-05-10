@@ -6,11 +6,8 @@ import { JwtHelperService } from '@auth0/angular-jwt';
   providedIn: 'root'
 })
 export class ProfileService {
-  id:number=0;
-  private jwtHelper:JwtHelperService = new JwtHelperService();
-  constructor(
-    private userService: UserService,
-  ) { }
+  profileId!:number;
+  constructor() { }
   isOwner = ()=>{
     
   }

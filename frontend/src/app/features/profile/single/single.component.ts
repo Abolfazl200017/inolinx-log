@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { UserService } from 'src/app/services/auth/user.service';
 import { ISideToolbar } from 'src/app/shared/interface';
 
 @Component({
@@ -47,10 +48,16 @@ export class SingleComponent implements OnInit {
   }
   constructor(
     private route: ActivatedRoute,
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
-    console.log(this.route.snapshot.params)
+    // console.log(this.route.snapshot.params)
+    this.userService.getUserId().subscribe(
+      (user:any) => {
+        console.log(user)
+      }
+    )
   }
 
 }
