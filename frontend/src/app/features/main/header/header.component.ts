@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
   @Output() darkModeChange: EventEmitter<boolean> = new EventEmitter();
   @Output() menu:EventEmitter<null> = new EventEmitter();
   @Output() closeNav:EventEmitter<null> = new EventEmitter();
-  profile:IProfile = this.profileService.getProfile();
+  profile = this.profileService.getProfile;
   constructor(
     private local:StorageService,
     private profileService: ProfileService,

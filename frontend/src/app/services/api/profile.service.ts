@@ -32,7 +32,10 @@ export class ProfileService {
     let id = (this.jwtHelper.decodeToken(localStorage.getItem("access_token") as string)).user_id
     this.setProfile(id)
   }
-  getProfile():IProfile{
+  // getProfile():IProfile{
+  //   return this.profile;
+  // }
+  getProfile=()=>{
     return this.profile;
   }
   getProfileLink():string[]{

@@ -28,7 +28,7 @@
       </div>
       <div class="relative flex items-center justify-center">
         <a (click)="isShowProfile = !isShowProfile;route()" class="rounded-full w-10 h-10 bg-white overflow-hidden cursor-pointer z-20">
-          <img src="assets/img/profile.jpg" alt="" class="w-full h-full object-cover">
+          <img [src]="profile().image?profile().image:'assets/img/default_profile.jpg'" alt="" class="w-full h-full object-cover">
         </a>
         <div *ngIf="isShowProfile" class="mat-app-background absolute top-11 left-0 z-20 border border-inputBg rounded-md transition-all ease-in-out duration-300">
           <app-profile-dropdown (closeProfile)="isShowProfile = false"></app-profile-dropdown>
