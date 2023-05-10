@@ -1,5 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { StorageService } from '../../../services/storage/storage.service';
+import { ProfileService } from 'src/app/services/api/profile.service';
+import { of } from 'rxjs';
+import { IProfile } from 'src/app/shared/interface';
 
 @Component({
   selector: 'app-header',
@@ -14,16 +17,17 @@ export class HeaderComponent implements OnInit {
   @Output() darkModeChange: EventEmitter<boolean> = new EventEmitter();
   @Output() menu:EventEmitter<null> = new EventEmitter();
   @Output() closeNav:EventEmitter<null> = new EventEmitter();
-  constructor(private local:StorageService){}
+  profile:IProfile = this.profileService.getProfile();
+  constructor(
+    private local:StorageService,
+    private profileService: ProfileService,
+  ){}
   ngOnInit():void {
   }
   ngAfterViewInit():void {
     setTimeout(() => {
       this.initMode();
     });
-  }
-  doIt(){
-    console.log('submit search')
   }
   initMode(){
     if(!this.local.getItem('darkMode')){

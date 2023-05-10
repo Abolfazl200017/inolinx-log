@@ -30,7 +30,7 @@ export class JwtService {
   setTokenInLocal(token:{access:string;refresh:string}){
     // console.log(this.jwtHelper.decodeToken(token.access))
     this.setAccessToken(token.access)
-    localStorage.setItem('refresh_token', JSON.stringify(token.refresh))
+    localStorage.setItem('refresh_token', JSON.stringify(token.refresh) as string)
     let updateToken = timer(0,200000).subscribe(
       (event)=>{
         // console.log('access_token: ', this.isAccessTokenExpired(), '\nrefresh_token: ', this.isRefreshTokenExpired())
@@ -57,7 +57,7 @@ export class JwtService {
   }
   setAccessToken(token:string){
     this.accessToken = JSON.stringify(token);
-    localStorage.setItem('access_token', this.accessToken)
+    localStorage.setItem('access_token', this.accessToken as string)
   }
   getAccessTokenInLocal():string{
     return localStorage.getItem('access_token') as string;

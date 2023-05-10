@@ -21,7 +21,7 @@ export class AuthGuard implements CanActivate {
         this.router.navigate(['/register'])
         return false
       }else{
-        this.profile.setProfile(this.jwt.getId())
+        this.profile.setProfileFromStorage()
         return true;
       }
   }
