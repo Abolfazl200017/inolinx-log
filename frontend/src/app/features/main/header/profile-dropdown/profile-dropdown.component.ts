@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ProfileService } from 'src/app/services/api/profile.service';
 import { JwtService } from 'src/app/services/auth/jwt.service';
 import { IProfile } from 'src/app/shared/interface';
@@ -10,20 +10,14 @@ import { IProfile } from 'src/app/shared/interface';
 })
 export class ProfileDropdownComponent implements OnInit {
   @Output() closeProfile = new EventEmitter<null>();
-  profileLink:string[]=[]
-  imageLogo:string|undefined;
-  name:string|undefined;
+  profileLink = this.profileService.getProfileLink;
+  profile = this.profileService.getProfile;
   constructor(
     private jwt: JwtService,
     private profileService: ProfileService,
   ) { }
 
-  ngOnInit(): void {
-    this.profileLink = this.profileService.getProfileLink();
-    let profile = this.profileService.getProfile()
-    this.imageLogo = profile.image?profile.image:'assets/img/default_profile.jpg';
-    this.name = `${profile.first_name} ${profile.last_name}`
-  }
+  ngOnInit(): void {}
   profileLinkClicked(){
     this.closeProfile.emit()
   }
