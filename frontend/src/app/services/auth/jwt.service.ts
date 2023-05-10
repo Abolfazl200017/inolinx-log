@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { timer } from 'rxjs'
 import { environment } from 'src/environments/environment';
-import { ProfileService } from '../api/profile.service';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,7 @@ export class JwtService {
     private http: HttpClient,
     private router: Router,
     private snack: MatSnackBar,
-    private profile: ProfileService,
+    private userService: UserService,
   ) { }
   getId(){
     if(localStorage.getItem('access_token'))
@@ -34,7 +34,7 @@ export class JwtService {
     let updateToken = timer(0,200000).subscribe(
       (event)=>{
         // console.log('access_token: ', this.isAccessTokenExpired(), '\nrefresh_token: ', this.isRefreshTokenExpired())
-        this.profile.setProfile(this.jwtHelper.decodeToken(token.access).user_id)
+        this.userService.setProfile(this.jwtHelper.decodeToken(token.access).user_id)
         this.userId = this.jwtHelper.decodeToken(token.access).user_id;
         if(!this.isRefreshTokenExpired()){
           if(this.isAccessTokenExpired()){

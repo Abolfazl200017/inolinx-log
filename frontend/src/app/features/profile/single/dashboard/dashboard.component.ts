@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfileService } from 'src/app/services/api/profile.service';
 import { IPersonCard } from 'src/app/shared/interface';
 
 @Component({

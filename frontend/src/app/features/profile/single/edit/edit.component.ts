@@ -24,8 +24,7 @@ export class EditComponent implements OnInit {
     private imageCompress: NgxImageCompressService,
   ) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
   formGroup = this.formBuilder.group({
     name: new UntypedFormControl('ابوالفضل', [Validators.required]),
     lastName: new UntypedFormControl('زراعتکار', [Validators.required]),

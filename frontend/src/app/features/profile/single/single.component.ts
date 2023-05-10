@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ISideToolbar } from 'src/app/shared/interface';
 
 @Component({
@@ -44,9 +45,12 @@ export class SingleComponent implements OnInit {
       },
     ]
   }
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+  ) { }
 
   ngOnInit(): void {
+    console.log(this.route.snapshot.params)
   }
 
 }

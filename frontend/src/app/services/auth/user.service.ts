@@ -3,13 +3,13 @@ import { Injectable } from '@angular/core';
 import { from, fromEvent, map, of, tap } from 'rxjs';
 import { IProfile } from 'src/app/shared/interface';
 import { environment } from 'src/environments/environment';
-import { JwtService } from '../auth/jwt.service';
+import { JwtService } from './jwt.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProfileService {
+export class UserService {
   private jwtHelper:JwtHelperService = new JwtHelperService();
   private profile: IProfile = <IProfile>{}
   constructor(
@@ -37,6 +37,6 @@ export class ProfileService {
   }
   getProfileLink = (arr:any=[])=>{
     // console.log(this.profile)
-    return ['/profile', `${this.profile.first_name}_${this.profile.last_name}`, { id:this.profile.id }, ...arr];
+    return ['/profile', this.profile.id , ...arr];
   }
 }

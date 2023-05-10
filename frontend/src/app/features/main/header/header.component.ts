@@ -1,8 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { StorageService } from '../../../services/storage/storage.service';
-import { ProfileService } from 'src/app/services/api/profile.service';
-import { of } from 'rxjs';
-import { IProfile } from 'src/app/shared/interface';
+import { UserService } from 'src/app/services/auth/user.service';
 
 @Component({
   selector: 'app-header',
@@ -17,10 +15,10 @@ export class HeaderComponent implements OnInit {
   @Output() darkModeChange: EventEmitter<boolean> = new EventEmitter();
   @Output() menu:EventEmitter<null> = new EventEmitter();
   @Output() closeNav:EventEmitter<null> = new EventEmitter();
-  profile = this.profileService.getProfile;
+  profile = this.userService.getProfile;
   constructor(
     private local:StorageService,
-    private profileService: ProfileService,
+    private userService: UserService,
   ){}
   ngOnInit():void {
   }
