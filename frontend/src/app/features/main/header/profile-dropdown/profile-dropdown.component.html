@@ -22,7 +22,7 @@
         </a>
     </li>
     <li>
-        <a [routerLink]="['/profile', 'x', 'edit']" class="min-w-full flex items-center py-3 cursor-pointer hover:opacity-80" (click)="profileLinkClicked()">
+        <a [routerLink]="profileLink()" class="min-w-full flex items-center py-3 cursor-pointer hover:opacity-80" (click)="profileLinkClicked()">
             <mat-icon class="mat-center ml-2">
                 edit
             </mat-icon>
