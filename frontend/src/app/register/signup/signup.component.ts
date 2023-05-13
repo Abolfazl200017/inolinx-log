@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { SignupService } from 'src/app/services/auth/signup.service';
 import { passwordValidator } from './password-validator';
 import { GlobalService } from 'src/app/services/global/global.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -21,6 +22,7 @@ export class SignupComponent implements OnInit {
     private signup: SignupService,
     private snack: MatSnackBar,
     private global: GlobalService,
+    private router: Router,
   ) { }
   formGroup = this.formBuilder.group({
     first_name: new UntypedFormControl('', [Validators.required]),
@@ -33,24 +35,27 @@ export class SignupComponent implements OnInit {
   onSubmitSignup(){
     if(this.formGroup.valid){
       this.global.setLoading(true)
-      this.sign_up = this.signup.signup(this.formGroup.value).subscribe(
+      let data = this.formGroup.value
+      data.image = null;
+      this.sign_up = this.signup.signup(data).subscribe(
         (data)=>{
           this.global.setLoading(false)
-          this.snack.open('ثبت نام شما با موفقیت انجام شد', 'بستن')
+          this.snack.open('ثبت نام شما با موفقیت انجام شد', 'بستن', {duration: 2000})
           this.formGroup.reset()
+          this.router.navigate(['/register'])
         },
         (err)=>{
           this.global.setLoading(false)
           console.log(err)
           if(err.status==0){
-            this.snack.open('اتصال شما برقرار نیست','بستن')
+            this.snack.open('اتصال شما برقرار نیست','بستن', {duration: 2000})
           }else{
             if(err.status<500){
-              this.snack.open('ارور چهارصدی داریم','بستن')
+              this.snack.open('ارور چهارصدی داریم','بستن', {duration: 2000})
             }
           }
           if(err.status>=500){
-            this.snack.open('مشکلی از سمت سرور پیش آمده','بستن')
+            this.snack.open('مشکلی از سمت سرور پیش آمده','بستن', {duration: 2000})
           }
         }
       )

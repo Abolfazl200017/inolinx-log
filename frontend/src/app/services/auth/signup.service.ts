@@ -13,9 +13,6 @@ export class SignupService {
   ) { }
 
   signup(data:ISignupForm):Observable<any>{
-    let headers = new HttpHeaders({
-      "Content-Type": "application/json",
-    })
-    return this.http.post(`${environment.SHARE_PATH}/users/create/`, JSON.stringify(data) , { headers: headers })
+    return this.http.post(`${environment.SHARE_PATH}/users/create/`, data)
   }
 }
