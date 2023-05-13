@@ -11,7 +11,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class UserService {
   private jwtHelper:JwtHelperService = new JwtHelperService();
-  private profile: IProfile = <IProfile>{}
+  public profile: IProfile = <IProfile>{}
   // private userId:Observable<IProfile> = of(this.jwtHelper.decodeToken(localStorage.getItem('access_token') as string).user_id)
   constructor(
     private http: HttpClient,

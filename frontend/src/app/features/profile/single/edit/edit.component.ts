@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
 import { NgxImageCompressService } from 'ngx-image-compress';
+import { of } from 'rxjs';
 import { ProfileService } from 'src/app/services/api/profile.service';
+import { UserService } from 'src/app/services/auth/user.service';
 import { GlobalService } from 'src/app/services/global/global.service';
 import { IProfile } from 'src/app/shared/interface';
 
@@ -22,31 +24,24 @@ export class EditComponent implements OnInit {
     'SEO',
     'ProductOwner'
   ]
-  profile:IProfile= <IProfile>{}
+  profile:IProfile = <IProfile>{};
   constructor(
     private formBuilder: UntypedFormBuilder,
     private imageCompress: NgxImageCompressService,
     private global: GlobalService,
     private profileService: ProfileService,
+    private user: UserService,
   ) { }
 
   ngOnInit(): void {
     // this.global.setLoading(true);
-    let profileId:number = this.profileService.profileId;
-    let getProfile = this.profileService.getProfile().subscribe(
-      (value)=>{
-        // this.profile = value;
-        // console.log(this.profile);
-      },
-      (err)=>{
-        console.log(err)
-      })
+    this.updateForm(5)
   }
   formGroup = this.formBuilder.group({
-    name: new UntypedFormControl('ابوالفضل', [Validators.required]),
-    lastName: new UntypedFormControl('زراعتکار', [Validators.required]),
-    email: new UntypedFormControl('abolfazl@inolinx.com', [Validators.required, Validators.pattern((/^(\d{10}|\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3}))$/))]),
-    password: new UntypedFormControl('password', [Validators.required, Validators.minLength(8)]),
+    name: new UntypedFormControl(this.profile.first_name, [Validators.required]),
+    lastName: new UntypedFormControl(this.profile.last_name, [Validators.required]),
+    email: new UntypedFormControl(this.profile.email, [Validators.required, Validators.email]),
+    password: new UntypedFormControl('', [Validators.required, Validators.minLength(8)]),
   })
   compressImage(img: any) {
     img = img.replace('image/jpeg' , 'image/webp')
@@ -80,5 +75,20 @@ export class EditComponent implements OnInit {
     }else{
       // this.errorObject = <{text:string,type:string}>{type:'image',text:'نوع فایل انتخابی قابل قبول نیست'}
     }
+  }
+  updateForm(tryCount:number){
+    if(tryCount < 1)
+      return 
+    if(JSON.stringify(this.user.getProfile()) == '{}'){
+      setTimeout(() => {
+        return this.updateForm(tryCount-1)
+      }, 200);
+    }else{
+      this.profile = this.user.getProfile();
+      this.formGroup.get('name')?.setValue(this.profile.first_name)
+      this.formGroup.get('lastName')?.setValue(this.profile.last_name)
+      this.formGroup.get('email')?.setValue(this.profile.email)
+      return
+    }      
   }
 }
