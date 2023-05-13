@@ -1,6 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ISideToolbar } from '../../interface';
 
+interface ILink{
+  link:string[]|string;
+  name:string;
+  icon:string;
+  needRoot: boolean;
+  needOwner: boolean;
+}
+
 @Component({
   selector: 'app-side-toolbar',
   templateUrl: './side-toolbar.component.html',
@@ -23,5 +31,11 @@ export class SideToolbarComponent implements OnInit {
   setIsFullFalse(){
     this.onHover=false;
     this.isFull=false;
+  }
+  canShowLink(link:ILink):boolean{
+    if(!link.needRoot){
+      return !(link.needOwner && !this.config.isOwner)
+    }else
+      return true
   }
 }

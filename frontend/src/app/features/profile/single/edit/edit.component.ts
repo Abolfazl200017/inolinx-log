@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
 import { NgxImageCompressService } from 'ngx-image-compress';
+import { ProfileService } from 'src/app/services/api/profile.service';
+import { GlobalService } from 'src/app/services/global/global.service';
+import { IProfile } from 'src/app/shared/interface';
 
 @Component({
   selector: 'app-edit',
@@ -19,12 +22,26 @@ export class EditComponent implements OnInit {
     'SEO',
     'ProductOwner'
   ]
+  profile:IProfile= <IProfile>{}
   constructor(
     private formBuilder: UntypedFormBuilder,
     private imageCompress: NgxImageCompressService,
+    private global: GlobalService,
+    private profileService: ProfileService,
   ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // this.global.setLoading(true);
+    let profileId:number = this.profileService.profileId;
+    let getProfile = this.profileService.getProfile().subscribe(
+      (value)=>{
+        // this.profile = value;
+        // console.log(this.profile);
+      },
+      (err)=>{
+        console.log(err)
+      })
+  }
   formGroup = this.formBuilder.group({
     name: new UntypedFormControl('ابوالفضل', [Validators.required]),
     lastName: new UntypedFormControl('زراعتکار', [Validators.required]),

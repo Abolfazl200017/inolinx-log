@@ -38,10 +38,7 @@ export class JwtService {
         this.userId = this.jwtHelper.decodeToken(token.access).user_id;
         if(!this.isRefreshTokenExpired()){
           if(this.isAccessTokenExpired()){
-            let headers = new HttpHeaders({
-              'Content-Type': 'application/json',
-            })
-            this.http.post( `${environment.SHARE_PATH}/users/token/refresh/` , {refresh:JSON.stringify(this.getRefreshTokenInLocal())}, { headers: headers }).subscribe(
+            this.http.post( `${environment.SHARE_PATH}/users/token/refresh/` , {refresh:JSON.stringify(this.getRefreshTokenInLocal())}).subscribe(
               (response:{access:string}|any)=>{
                 this.setAccessToken(response?.access)
               },
@@ -78,5 +75,11 @@ export class JwtService {
     localStorage.removeItem("access_token")
     localStorage.removeItem("refresh_token")
     this.router.navigate(["/register"])
+  }
+  getHeaders = ()=>{
+    let headers = new HttpHeaders(); 
+    headers = headers.append('Authorization' , `Bearer ${JSON.parse(this.getAccessTokenInLocal())}`)
+    // headers = headers.append('Accept-Language' , 'fa')
+    return headers;
   }
 }
