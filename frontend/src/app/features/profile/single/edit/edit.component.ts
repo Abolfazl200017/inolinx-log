@@ -34,7 +34,6 @@ export class EditComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // this.global.setLoading(true);
     this.updateForm(5)
   }
   formGroup = this.formBuilder.group({
@@ -77,9 +76,12 @@ export class EditComponent implements OnInit {
     }
   }
   updateForm(tryCount:number){
-    if(tryCount < 1)
+    if(tryCount < 1){
+      // this.global.setLoading(false);
       return 
+    }
     if(JSON.stringify(this.user.getProfile()) == '{}'){
+      // this.global.setLoading(true);
       setTimeout(() => {
         return this.updateForm(tryCount-1)
       }, 200);
@@ -88,6 +90,7 @@ export class EditComponent implements OnInit {
       this.formGroup.get('name')?.setValue(this.profile.first_name)
       this.formGroup.get('lastName')?.setValue(this.profile.last_name)
       this.formGroup.get('email')?.setValue(this.profile.email)
+      // this.global.setLoading(false);
       return
     }      
   }
