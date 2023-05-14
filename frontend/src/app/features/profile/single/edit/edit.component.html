@@ -18,8 +18,8 @@
                 </div>
             </div>
             <div class="w-full md:w-4/5 md:pr-3">
-                <input formControlName="name" type="text" placeholder="نام" class="w-full rounded-3xl items-center justify-center focus:outline-none py-2 px-3 bg-inputBg">
-                <input formControlName="lastName" type="text" placeholder="نام خانوادگی" class="w-full rounded-3xl items-center justify-center focus:outline-none mt-5 py-2 px-3 bg-inputBg">    
+                <input formControlName="first_name" type="text" placeholder="نام" class="w-full rounded-3xl items-center justify-center focus:outline-none py-2 px-3 bg-inputBg">
+                <input formControlName="last_name" type="text" placeholder="نام خانوادگی" class="w-full rounded-3xl items-center justify-center focus:outline-none mt-5 py-2 px-3 bg-inputBg">    
                 <mat-form-field appearance="fill" class="w-full mt-5">
                     <mat-label>
                         تخصص‌ها
@@ -38,7 +38,7 @@
         </div>
         <input formControlName="email" type="email" placeholder="ایمیل" class="w-[90%] rounded-3xl items-center justify-center focus:outline-none mt-5 py-2 px-3 bg-inputBg">
         <div class="w-[90%] mt-8 relative">
-            <input formControlName="password" [type]="passwordVisibility?'text':'password'" placeholder="رمز عبور" class="w-full rounded-3xl items-center justify-center focus:outline-none py-2 px-3 bg-inputBg">
+            <input formControlName="password" [type]="passwordVisibility?'text':'password'" placeholder="رمز عبور جدید" class="w-full rounded-3xl items-center justify-center focus:outline-none py-2 px-3 bg-inputBg">
             <mat-icon class="mat-center absolute left-2 top-2 cursor-pointer" (click)="passwordVisibility = !passwordVisibility">
                 {{passwordVisibility?'visibility':'visibility_off'}}
             </mat-icon>

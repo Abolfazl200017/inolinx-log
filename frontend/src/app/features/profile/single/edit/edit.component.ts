@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgxImageCompressService } from 'ngx-image-compress';
 import { ProfileService } from 'src/app/services/api/profile.service';
 import { UserService } from 'src/app/services/auth/user.service';
@@ -30,14 +31,15 @@ export class EditComponent implements OnInit {
     private global: GlobalService,
     private profileService: ProfileService,
     private user: UserService,
+    private snack: MatSnackBar,
   ) { }
 
   ngOnInit(): void {
     this.updateForm(5)
   }
   formGroup = this.formBuilder.group({
-    name: new UntypedFormControl(this.profile.first_name, [Validators.required]),
-    lastName: new UntypedFormControl(this.profile.last_name, [Validators.required]),
+    first_name: new UntypedFormControl(this.profile.first_name, [Validators.required]),
+    last_name: new UntypedFormControl(this.profile.last_name, [Validators.required]),
     email: new UntypedFormControl(this.profile.email, [Validators.required, Validators.email]),
     password: new UntypedFormControl('', [Validators.required, Validators.minLength(8)]),
   })
@@ -86,8 +88,8 @@ export class EditComponent implements OnInit {
       }, 200);
     }else{
       this.profile = this.user.getProfile();
-      this.formGroup.get('name')?.setValue(this.profile.first_name)
-      this.formGroup.get('lastName')?.setValue(this.profile.last_name)
+      this.formGroup.get('first_name')?.setValue(this.profile.first_name)
+      this.formGroup.get('last_name')?.setValue(this.profile.last_name)
       this.formGroup.get('email')?.setValue(this.profile.email)
       // this.global.setLoading(false);
       return
@@ -96,10 +98,28 @@ export class EditComponent implements OnInit {
   edit(){
     if(this.formGroup.get("first_name")?.valid && this.formGroup.get("last_name")?.valid && this.formGroup.get("email")?.valid && (this.formGroup.get("password")?.valid || this.formGroup.get("password")?.value=='')){
       let form = this.formGroup.value
-      if(this.formGroup.get('password')?.value=='')
-        delete form.password
+      if(form.first_name==this.profile.first_name)
+        delete form.first_name
+      if(form.last_name==this.profile.last_name)
+        delete form.last_name
+      if(form.email==this.profile.email)
+        delete form.email
+      if(form.password=='')
+      delete form.password
       if(this.logoImage!=null)
-        form.image = this.logoImage;
+      form.image = this.logoImage;
+      if(Object.keys(form).length==0)
+        this.snack.open('تغییری اعمال نشده است', 'بستن', {duration: 1000})
+      else{
+        this.profileService.edit(form).subscribe(
+          (data)=>{
+            console.log(data)
+          },
+          (err)=>{
+            console.log(err)
+          }
+        )
+      }
     }
   }
 }
