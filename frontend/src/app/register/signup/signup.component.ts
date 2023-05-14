@@ -37,6 +37,8 @@ export class SignupComponent implements OnInit {
       this.global.setLoading(true)
       let data = this.formGroup.value
       data.image = null;
+      data.is_superuser = false;
+      data.specialty = [''];
       this.sign_up = this.signup.signup(data).subscribe(
         (data)=>{
           this.global.setLoading(false)

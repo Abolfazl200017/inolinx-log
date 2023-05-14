@@ -38,7 +38,7 @@ export class JwtService {
         this.userId = this.jwtHelper.decodeToken(token.access).user_id;
         if(!this.isRefreshTokenExpired()){
           if(this.isAccessTokenExpired()){
-            this.http.post( `${environment.SHARE_PATH}/users/token/refresh/` , {refresh:JSON.stringify(this.getRefreshTokenInLocal())}).subscribe(
+            this.http.post( `${environment.SHARE_PATH}/users/token/refresh/` , {refresh:JSON.parse(this.getRefreshTokenInLocal())}).subscribe(
               (response:{access:string}|any)=>{
                 this.setAccessToken(response?.access)
               },
