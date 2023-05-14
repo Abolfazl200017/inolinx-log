@@ -16,4 +16,7 @@ export class ProfileService {
     // console.log(headers)
     return this.http.get(`${environment.SHARE_PATH}/users/user/list/${this.profileId}`)
   }
+  edit(form:any){
+    
+  }
 }

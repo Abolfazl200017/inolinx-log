@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ISideToolbar } from '../../interface';
+import { ThemePalette } from '@angular/material/core';
 
 interface ILink{
   link:string[]|string;
@@ -17,10 +18,14 @@ interface ILink{
 export class SideToolbarComponent implements OnInit {
   isFull:boolean=false;
   onHover:boolean=true;
+  // tabItems = [{link:'first', icon:'done'},{link:'first', icon:'error'},{link:'first', icon:'dashboard'},{link:'first', icon:'edit'}]
+  background: ThemePalette = undefined;
   @Input() config: ISideToolbar=<ISideToolbar>{};
+  activeLink:any;
   constructor() { }
 
   ngOnInit(): void {
+    this.activeLink = this.config.links[0]
   }
   setIsFullTrue(){
     this.onHover=true;

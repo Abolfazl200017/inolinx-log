@@ -2,7 +2,7 @@
     ویرایش
 </div>
 <div>
-    <form [formGroup]="formGroup" action="" class="w-full flex flex-col justify-center items-center mt-3">
+    <form [formGroup]="formGroup" (ngSubmit)="edit()" class="w-full flex flex-col justify-center items-center mt-3">
         <div class="flex flex-wrap w-[90%] items-center">
             <div class="w-full md:w-1/5">
                 <div class="w-full h-full max-h-full max-w-full aspect-square">

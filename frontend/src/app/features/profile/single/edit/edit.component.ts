@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
 import { NgxImageCompressService } from 'ngx-image-compress';
-import { of } from 'rxjs';
 import { ProfileService } from 'src/app/services/api/profile.service';
 import { UserService } from 'src/app/services/auth/user.service';
 import { GlobalService } from 'src/app/services/global/global.service';
@@ -14,7 +13,7 @@ import { IProfile } from 'src/app/shared/interface';
 })
 export class EditComponent implements OnInit {
   passwordVisibility:boolean=false;
-  logoImage:any;
+  logoImage:any = null;
   skils:string[]=[
     'Front-End',
     'Back-End',
@@ -93,5 +92,14 @@ export class EditComponent implements OnInit {
       // this.global.setLoading(false);
       return
     }      
+  }
+  edit(){
+    if(this.formGroup.get("first_name")?.valid && this.formGroup.get("last_name")?.valid && this.formGroup.get("email")?.valid && (this.formGroup.get("password")?.valid || this.formGroup.get("password")?.value=='')){
+      let form = this.formGroup.value
+      if(this.formGroup.get('password')?.value=='')
+        delete form.password
+      if(this.logoImage!=null)
+        form.image = this.logoImage;
+    }
   }
 }
