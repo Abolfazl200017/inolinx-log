@@ -6,4 +6,5 @@ export interface IProfile {
     url: string;
     password: string;
     id: number|string;
+    specialty: string[]
 }

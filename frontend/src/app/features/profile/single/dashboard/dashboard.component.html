@@ -9,14 +9,14 @@
                     نام و نام‌خانوادگی :
                 </span>
                 <span>
-                    {{person.name}} {{person.lastName}}
+                    {{profile().first_name}} {{profile().last_name}}
                 </span>
             </p>
             <p class="">
                 <span class="font-semibold ml-1">
                     تخصص‌ها :
                 </span>
-                <span *ngFor="let skill of person.skills;let i = index;">
+                <span *ngFor="let skill of profile().specialty;let i = index;">
                     <span *ngIf="i!=0"> ، </span>
                     {{skill}}
                 </span>
@@ -26,12 +26,12 @@
                     تاریخ عضویت :
                 </span>
                 <span>
-                    {{person.registeryDate}}
+                    {{'1/2/03'}}
                 </span>
             </p>
         </div>
-        <div class="w-full md:w-1/5 flex items-center justify-centerp-3 aspect-square rounded-full oveflow-hidden ">
-            <img [src]="person.imageUrl" [alt]="person.name+' '+person.lastName" class="min-w-full min-h-full object-cover rounded-md">
+        <div class="w-full md:w-1/5 flex items-center justify-centerp-3 aspect-square rounded-full border border-lightBorder dark:border-darkBorder overflow-hidden">
+            <img [src]="profile().image?profile().image:'assets/img/default_profile.jpg'" [alt]="profile().first_name+' '+profile().last_name" class="min-w-full min-h-full object-cover rounded-md">
         </div>
     </div>
 </mat-card>

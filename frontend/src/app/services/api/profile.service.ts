@@ -18,6 +18,6 @@ export class ProfileService {
   }
   edit(form:any){
     let headers = this.jwt.getHeaders()
-    return this.http.patch(`${environment.SHARE_PATH}/users/user/list/${this.profileId}`, form, {headers})
+    return this.http.patch(`${environment.BASE_API_URL}users/${this.profileId}/`, form, {headers})
   }
 }

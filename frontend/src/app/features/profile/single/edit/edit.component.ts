@@ -44,6 +44,7 @@ export class EditComponent implements OnInit {
     password: new UntypedFormControl('', [Validators.required, Validators.minLength(8)]),
   })
   compressImage(img: any) {
+    // console.log(im g)
     img = img.replace('image/jpeg' , 'image/webp')
     img = img.replace('image/jpg' , 'image/webp')
     img = img.replace('image/JPEG' , 'image/webp')
@@ -57,8 +58,20 @@ export class EditComponent implements OnInit {
         // do something with the compressed image
         // this.getData.img = result;
         this.logoImage = result;
+        // console.log(result)
       });
-  }  
+  }
+  base64ToFile(base64Image: string): Blob {
+    const split = base64Image.split(',');
+    const type = split[0].replace('data:', '').replace(';base64', '');
+    const byteString = atob(split[1]);
+    const ab = new ArrayBuffer(byteString.length);
+    const ia = new Uint8Array(ab);
+    for (let i = 0; i < byteString.length; i += 1) {
+        ia[i] = byteString.charCodeAt(i);
+    }
+    return new Blob([ab], {type});
+  }
   uploadLogo($event:any) {
     let file = $event.target.files[0]; // <--- File Object for future use.
     let fileType = file!.name.split('.').at(-1)
@@ -107,7 +120,7 @@ export class EditComponent implements OnInit {
       if(form.password=='')
       delete form.password
       if(this.logoImage!=null)
-      form.image = this.logoImage;
+        form.image = this.base64ToFile(this.logoImage);
       if(Object.keys(form).length==0)
         this.snack.open('تغییری اعمال نشده است', 'بستن', {duration: 1000})
       else{

@@ -6,8 +6,8 @@
         <div class="flex flex-wrap w-[90%] items-center">
             <div class="w-full md:w-1/5">
                 <div class="w-full h-full max-h-full max-w-full aspect-square">
-                    <label for="project-logo" class="rounded-md w-full h-full overflow-hidden flex items-center justify-center">
-                        <img *ngIf="logoImage" [src]="logoImage" alt="" class="min-w-full min-h-full object-cover cursor-pointer rounded-full">
+                    <label for="project-logo" class="w-full h-full overflow-hidden flex items-center justify-center rounded-full">
+                        <img *ngIf="logoImage" [src]="logoImage" alt="" class="min-w-full min-h-full object-cover cursor-pointer">
                         <mat-icon *ngIf="!logoImage" matRipple class="w-full h-full text-[14rem] md:text-[8rem] mat-full-center cursor-pointer text-lightPrimary hover:opacity-80">
                             add_photo_alternate
                         </mat-icon>
