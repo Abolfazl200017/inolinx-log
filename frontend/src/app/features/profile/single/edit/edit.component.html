@@ -24,7 +24,7 @@
                     <mat-label>
                         تخصص‌ها
                     </mat-label>
-                    <mat-select [multiple]="true">
+                    <mat-select [multiple]="true" formControlName="specialty">
                         <mat-option *ngFor="let skil of skils" [value]="skil">
                             <div class="flex items-center">
                                 {{skil}}

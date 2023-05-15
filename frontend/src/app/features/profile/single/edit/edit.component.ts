@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
+import { UntypedFormArray, UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgxImageCompressService } from 'ngx-image-compress';
 import { ProfileService } from 'src/app/services/api/profile.service';
@@ -42,6 +42,7 @@ export class EditComponent implements OnInit {
     last_name: new UntypedFormControl(this.profile.last_name, [Validators.required]),
     email: new UntypedFormControl(this.profile.email, [Validators.required, Validators.email]),
     password: new UntypedFormControl('', [Validators.required, Validators.minLength(8)]),
+    specialty: new UntypedFormControl(this.profile.specialty)
   })
   compressImage(img: any) {
     // console.log(im g)
