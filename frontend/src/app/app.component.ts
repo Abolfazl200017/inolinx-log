@@ -10,9 +10,6 @@ export class AppComponent{
   constructor(
     private global: GlobalService,
   ){}
-  doIt(){
-    console.log('submit search')
-  }
   isShowLoading(){
     return this.global.loading
   }

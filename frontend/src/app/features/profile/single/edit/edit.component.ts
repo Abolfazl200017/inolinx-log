@@ -132,7 +132,6 @@ export class EditComponent implements OnInit {
       if(Object.keys(form).length==0)
         this.snack.open('تغییری اعمال نشده است', 'بستن', {duration: 1000})
       else{
-        console.log(formValue)
         this.profileService.edit(formValue)
       }
     }
