@@ -12,9 +12,9 @@
     min-height: calc(100% - 12px);
 }
 .content-width{
-    // width: calc(100% - 56px);
     width: 100%;
+    // width: calc(100% - 56px);
     @media(min-width: 768px){
-        width: calc(100% - 75px);
+        width: calc(100% - 72px);
     }
 }
