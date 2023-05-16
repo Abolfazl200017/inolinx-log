@@ -24,6 +24,7 @@ export class EditComponent implements OnInit {
     'SEO',
     'ProductOwner'
   ]
+  image!:File;
   profile:IProfile = <IProfile>{};
   constructor(
     private formBuilder: UntypedFormBuilder,
@@ -36,9 +37,6 @@ export class EditComponent implements OnInit {
 
   ngOnInit(): void {
     this.updateForm(5)
-    setTimeout(() => {
-      console.log(this.profile.specialty)
-    }, 5000);
   }
   formGroup = this.formBuilder.group({
     first_name: new UntypedFormControl(this.profile.first_name, [Validators.required]),
@@ -62,19 +60,18 @@ export class EditComponent implements OnInit {
         // do something with the compressed image
         // this.getData.img = result;
         this.logoImage = result;
-        // console.log(result)
+        this.image = this.convertToFile(result);
       });
   }
-  base64ToFile(base64Image: string): Blob {
-    const split = base64Image.split(',');
-    const type = split[0].replace('data:', '').replace(';base64', '');
-    const byteString = atob(split[1]);
-    const ab = new ArrayBuffer(byteString.length);
-    const ia = new Uint8Array(ab);
-    for (let i = 0; i < byteString.length; i += 1) {
-        ia[i] = byteString.charCodeAt(i);
+  convertToFile(base64Image:string){
+    const byteCharacters = atob(base64Image.split(',')[1]);
+    const byteNumbers = new Array(byteCharacters.length);
+    for (let i = 0; i < byteCharacters.length; i++) {
+      byteNumbers[i] = byteCharacters.charCodeAt(i);
     }
-    return new Blob([ab], {type});
+    const byteArray = new Uint8Array(byteNumbers);
+    const file = new File([byteArray], 'image.png', { type: 'image/png' });
+    return file;
   }
   uploadLogo($event:any) {
     let file = $event.target.files[0]; // <--- File Object for future use.
@@ -115,25 +112,28 @@ export class EditComponent implements OnInit {
   }
   edit(){
     if(this.formGroup.get("first_name")?.valid && this.formGroup.get("last_name")?.valid && this.formGroup.get("email")?.valid && (this.formGroup.get("password")?.valid || this.formGroup.get("password")?.value=='')){
+      let formValue = new FormData()
       let form = this.formGroup.value
       if(form.specialty == null)
         form.specialty = ['']
-      if(form.first_name==this.profile.first_name)
-        delete form.first_name
-      if(form.last_name==this.profile.last_name)
-        delete form.last_name
-      if(form.email==this.profile.email)
-        delete form.email
-      if(form.specialty == this.profile.specialty)
-        delete form.specialty
-      if(form.password=='')
-        delete form.password
-      if(this.logoImage!=null)
-        form.image = this.base64ToFile(this.logoImage);
+      if(form.first_name!=this.profile.first_name)
+        formValue.append("first_name", form.first_name)
+      if(form.last_name!=this.profile.last_name)
+        formValue.append('last_name', form.last_name)
+      if(form.email!=this.profile.email)
+        formValue.append('email', form.email)
+      if(form.specialty != this.profile.specialty)
+        formValue.append('specialty', form.specialty)
+      if(form.password!='')
+        formValue.append('password', this.profile.password)
+      if(this.logoImage!=null){
+        formValue.append("image",this.image)
+      }
       if(Object.keys(form).length==0)
         this.snack.open('تغییری اعمال نشده است', 'بستن', {duration: 1000})
       else{
-        this.profileService.edit(form)
+        console.log(formValue)
+        this.profileService.edit(formValue)
       }
     }
   }
