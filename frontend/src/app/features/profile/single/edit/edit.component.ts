@@ -36,6 +36,9 @@ export class EditComponent implements OnInit {
 
   ngOnInit(): void {
     this.updateForm(5)
+    setTimeout(() => {
+      console.log(this.profile.specialty)
+    }, 5000);
   }
   formGroup = this.formBuilder.group({
     first_name: new UntypedFormControl(this.profile.first_name, [Validators.required]),
@@ -105,6 +108,7 @@ export class EditComponent implements OnInit {
       this.formGroup.get('first_name')?.setValue(this.profile.first_name)
       this.formGroup.get('last_name')?.setValue(this.profile.last_name)
       this.formGroup.get('email')?.setValue(this.profile.email)
+      this.formGroup.get("specialty")?.setValue(this.profile.specialty)
       // this.global.setLoading(false);
       return
     }      
@@ -112,27 +116,24 @@ export class EditComponent implements OnInit {
   edit(){
     if(this.formGroup.get("first_name")?.valid && this.formGroup.get("last_name")?.valid && this.formGroup.get("email")?.valid && (this.formGroup.get("password")?.valid || this.formGroup.get("password")?.value=='')){
       let form = this.formGroup.value
+      if(form.specialty == null)
+        form.specialty = ['']
       if(form.first_name==this.profile.first_name)
         delete form.first_name
       if(form.last_name==this.profile.last_name)
         delete form.last_name
       if(form.email==this.profile.email)
         delete form.email
+      if(form.specialty == this.profile.specialty)
+        delete form.specialty
       if(form.password=='')
-      delete form.password
+        delete form.password
       if(this.logoImage!=null)
         form.image = this.base64ToFile(this.logoImage);
       if(Object.keys(form).length==0)
         this.snack.open('تغییری اعمال نشده است', 'بستن', {duration: 1000})
       else{
-        this.profileService.edit(form).subscribe(
-          (data)=>{
-            console.log(data)
-          },
-          (err)=>{
-            console.log(err)
-          }
-        )
+        this.profileService.edit(form)
       }
     }
   }

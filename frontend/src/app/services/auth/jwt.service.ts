@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { timer } from 'rxjs'
+import { Observable, timer } from 'rxjs'
 import { environment } from 'src/environments/environment';
 import { UserService } from './user.service';
 
@@ -13,7 +13,7 @@ import { UserService } from './user.service';
 export class JwtService {
   private jwtHelper:JwtHelperService = new JwtHelperService();
   private accessToken:string|undefined;
-  private userId:number = 15;
+  private userId:number = 0;
   constructor(
     private http: HttpClient,
     private router: Router,
@@ -76,10 +76,41 @@ export class JwtService {
     localStorage.removeItem("refresh_token")
     this.router.navigate(["/register"])
   }
-  getHeaders = ()=>{
-    let headers = new HttpHeaders(); 
-    headers = headers.append('Authorization' , `Bearer ${JSON.parse(this.getAccessTokenInLocal())}`)
-    // headers = headers.append('Accept-Language' , 'fa')
-    return headers;
+  // getHeaders = ()=>{
+  //   if(this.isAccessTokenExpired()){
+
+  //   }else{
+  //     let headers = new HttpHeaders();
+  //     headers = headers.append('Authorization' , `Bearer ${JSON.parse(this.getAccessTokenInLocal())}`)
+  //     // headers = headers.append('Accept-Language' , 'fa')
+  //     console.log(headers)
+  //     return headers;
+  //   }
+  // }
+  getHeaders = ():Observable<HttpHeaders>=>{
+    let headersObs: Observable<HttpHeaders> = new Observable<HttpHeaders>((observer)=>{
+        if(this.isAccessTokenExpired()){
+          if(!this.isRefreshTokenExpired()){
+            if(this.isAccessTokenExpired()){
+              this.http.post( `${environment.SHARE_PATH}/users/token/refresh/` , {refresh:JSON.parse(this.getRefreshTokenInLocal())}).subscribe(
+                (response:{access:string}|any)=>{
+                  this.setAccessToken(response?.access)
+                  observer.next(response.access)
+                },
+                (err)=>{
+                  console.log(err)
+                }
+              )
+            }
+          }else{
+          }
+        }else{
+          let headers = new HttpHeaders();
+          headers = headers.append('Authorization' , `Bearer ${JSON.parse(this.getAccessTokenInLocal())}`)
+          observer.next(headers)
+        }
+      }
+    )
+    return headersObs
   }
 }

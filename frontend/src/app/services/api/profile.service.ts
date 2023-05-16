@@ -17,7 +17,17 @@ export class ProfileService {
     return this.http.get(`${environment.SHARE_PATH}/users/user/list/${this.profileId}`)
   }
   edit(form:any){
-    let headers = this.jwt.getHeaders()
-    return this.http.patch(`${environment.BASE_API_URL}users/${this.profileId}/`, form, {headers})
+    let editProgress = this.jwt.getHeaders().subscribe(
+      (headers)=>{
+        this.http.patch(`${environment.SHARE_PATH}/users/update/${this.profileId}`, form, {headers}).subscribe(
+          (data)=>{
+            console.log(data)
+          },
+          (err)=>{
+            console.log(err)
+          }
+        )
+      }
+    )
   }
 }
