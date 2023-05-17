@@ -1,9 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, from, fromEvent, map, of, tap } from 'rxjs';
+import { Observable } from 'rxjs';
 import { IProfile } from 'src/app/shared/interface';
 import { environment } from 'src/environments/environment';
-import { JwtService } from './jwt.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
@@ -17,7 +16,7 @@ export class UserService {
     private http: HttpClient,
   ){}
   getUserId():Observable<IProfile>{
-    return of(this.jwtHelper.decodeToken(localStorage.getItem('access_token') as string).user_id)
+    return this.jwtHelper.decodeToken(localStorage.getItem('access_token') as string).user_id
   }
   setProfile(id:number){
     // console.log('id: ', id);

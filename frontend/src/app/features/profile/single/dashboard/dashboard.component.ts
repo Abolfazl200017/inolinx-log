@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/auth/user.service';
-import { IPersonCard } from 'src/app/shared/interface';
 
 @Component({
   selector: 'app-dashboard',

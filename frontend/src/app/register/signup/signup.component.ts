@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Subscription } from 'rxjs';
+import { Observable, Observer, Subscription } from 'rxjs';
 import { SignupService } from 'src/app/services/auth/signup.service';
 import { passwordValidator } from './password-validator';
 import { GlobalService } from 'src/app/services/global/global.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { ImageService } from 'src/app/services/global/image.service';
 
 @Component({
   selector: 'app-signup',

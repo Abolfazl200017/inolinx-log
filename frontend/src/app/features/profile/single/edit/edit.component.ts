@@ -5,6 +5,7 @@ import { NgxImageCompressService } from 'ngx-image-compress';
 import { ProfileService } from 'src/app/services/api/profile.service';
 import { UserService } from 'src/app/services/auth/user.service';
 import { GlobalService } from 'src/app/services/global/global.service';
+import { ImageService } from 'src/app/services/global/image.service';
 import { IProfile } from 'src/app/shared/interface';
 
 @Component({
@@ -33,6 +34,7 @@ export class EditComponent implements OnInit {
     private profileService: ProfileService,
     private user: UserService,
     private snack: MatSnackBar,
+    private imageService: ImageService,
   ) { }
 
   ngOnInit(): void {
