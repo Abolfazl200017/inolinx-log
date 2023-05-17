@@ -19,12 +19,14 @@ export class SignupComponent implements OnInit {
   passwordVisibility:boolean=false;
   errs:string[]=[]
   sign_up:Subscription | undefined;
+  image:File|undefined;
   constructor(
     private formBuilder: UntypedFormBuilder,
     private signup: SignupService,
     private snack: MatSnackBar,
     private global: GlobalService,
     private router: Router,
+    private imageService: ImageService,
   ) { }
   formGroup = this.formBuilder.group({
     first_name: new UntypedFormControl('', [Validators.required]),
@@ -33,15 +35,26 @@ export class SignupComponent implements OnInit {
     password: new UntypedFormControl('', [Validators.required, passwordValidator()]),
   })
   ngOnInit(): void {
+    this.imageService.getBase64ImageFromURL(`assets/img/avatars/avatar-${Math.floor(Math.random() * 9) + 1}.webp`).subscribe(
+      (Response)=>{
+        this.image = this.imageService.convertToFile(Response)
+      }
+    )
   }
   onSubmitSignup(){
     if(this.formGroup.valid){
       this.global.setLoading(true)
       let data = this.formGroup.value
-      data.image = null;
-      data.is_superuser = false;
-      data.specialty = [''];
-      this.sign_up = this.signup.signup(data).subscribe(
+      while(!this.image){}
+      let formData = new FormData()
+      formData.append("first_name", data.first_name)
+      formData.append("last_name", data.last_name)
+      formData.append("image", this.image)
+      formData.append("password", data.password)
+      formData.append("email", data.email)
+      formData.append("is_superuser", 'false')
+      formData.append("specialty", '[]')
+      this.sign_up = this.signup.signup(formData).subscribe(
         (data)=>{
           this.global.setLoading(false)
           this.snack.open('ثبت نام شما با موفقیت انجام شد', 'بستن', {duration: 2000})

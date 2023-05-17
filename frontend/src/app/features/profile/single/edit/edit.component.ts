@@ -124,9 +124,8 @@ export class EditComponent implements OnInit {
         formValue.append('last_name', form.last_name)
       if(form.email!=this.profile.email)
         formValue.append('email', form.email)
-      if(form.specialty != this.profile.specialty){
+      if(form.specialty != this.profile.specialty)
         formValue.append('specialty', JSON.stringify(form.specialty))
-      }
       if(form.password!='')
         formValue.append('password', this.profile.password)
       if(this.logoImage!=null){

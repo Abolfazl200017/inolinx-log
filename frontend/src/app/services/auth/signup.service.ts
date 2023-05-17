@@ -12,7 +12,7 @@ export class SignupService {
     private http: HttpClient,
   ) { }
 
-  signup(data:ISignupForm):Observable<any>{
+  signup(data:FormData):Observable<any>{
     return this.http.post(`${environment.SHARE_PATH}/users/create/`, data)
   }
 }
