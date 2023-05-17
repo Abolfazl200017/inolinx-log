@@ -9,6 +9,7 @@ import { ISideToolbar } from 'src/app/shared/interface';
 export class SingleComponent implements OnInit {
   config:ISideToolbar={
     type:'project',
+    profile:null,
     logoIcon:'settings_applications',
     title:'ربومک',
     isOwner: false,

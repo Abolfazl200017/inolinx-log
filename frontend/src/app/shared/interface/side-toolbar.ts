@@ -1,3 +1,5 @@
+import { IProfile } from "./profile";
+
 interface ILink{
     link:string[]|string;
     name:string;
@@ -11,4 +13,5 @@ export interface ISideToolbar {
     title:string;
     links:ILink[];
     isOwner:boolean;
+    profile:null|undefined|(()=>IProfile)
 }

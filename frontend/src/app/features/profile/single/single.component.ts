@@ -11,8 +11,9 @@ import { ISideToolbar } from 'src/app/shared/interface';
 })
 export class SingleComponent implements OnInit {
   config:ISideToolbar={
+    profile:this.user.getProfile,
     type:'profile',
-    logoIcon: null,
+    logoIcon: '',
     title: '',
     isOwner:false,
     links:[

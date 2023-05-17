@@ -14,15 +14,17 @@
     <mat-card class="z-10 transition-side" [style]="isFull?'':'transition: none;'" [class]="isFull?'md:w-60':'w-full md:w-[4.5rem]'" (mouseenter)="setIsFullTrue()" (mouseleave)="setIsFullFalse()">
         <div class="hidden md:flex items-center md:pt-0">
             <div class="w-full flex items-center justify-center" [class]="isFull?'md:ml-2 md:w-auto':''">
-                <mat-icon *ngIf="config.logoIcon==null" class="mat-full-center text-[2rem] md:text-[3.5rem]">
+                <mat-icon *ngIf="!config.profile" class="mat-full-center text-[2rem] md:text-[3.5rem]">
                     account_circle
                 </mat-icon>
-                <div *ngIf="config.logoIcon!=null" class="w-12 h-12 rounded-full overflow-hidden">
-                    <img [src]="config.logoIcon" alt="" class="min-w-full min-h-full object-cover">
+                <div *ngIf="config.profile" class="w-12 h-12 rounded-full overflow-hidden border border-lightBorder dark:border-darkBorder">
+                    <img [src]="config.profile?config.profile().image:config.logoIcon" alt="" class="min-w-full min-h-full object-cover">
                 </div>
             </div>
             <div class="xl:text-[1.05rem] hidden h-10 overflow-hidden items-center whitespace-nowrap" [class]="isFull?'md:flex':''">
-                {{config.title}}
+                <span *ngIf="config.profile">
+                    {{config.profile().first_name+' '+config.profile().last_name}}
+                </span>
             </div>
         </div>
         <div class="hidden md:block my-3 w-full border border-t border-[#f1f2f4] dark:border-zinc-600 mat-app-background"></div>

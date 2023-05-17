@@ -110,6 +110,11 @@ export class EditComponent implements OnInit {
       this.formGroup.get('email')?.setValue(this.profile.email)
       this.formGroup.get("specialty")?.setValue(JSON.parse(this.profile.specialty.toString()))
       this.logoImage = this.profile.image
+      this.imageService.getBase64ImageFromURL(this.logoImage).subscribe(
+        (image: string) => {
+          this.image = this.convertToFile(image)
+        }
+      )
       // this.global.setLoading(false);
       return
     }      
@@ -130,12 +135,11 @@ export class EditComponent implements OnInit {
         formValue.append('specialty', JSON.stringify(form.specialty))
       if(form.password!='')
         formValue.append('password', this.profile.password)
-      if(this.logoImage!=null){
-        formValue.append("image",this.image)
-      }
-      if(Object.keys(form).length==0)
+      if(Object.keys(form).length==0 && this.logoImage == this.profile.image)
         this.snack.open('تغییری اعمال نشده است', 'بستن', {duration: 1000})
       else{
+        while(!this.image){}
+        formValue.append("image", this.image)
         this.profileService.edit(formValue)
       }
     }
