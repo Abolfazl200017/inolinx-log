@@ -4,7 +4,7 @@
     </div>
 </div>
 <div class="mt-3 flex justify-end">
-    <button mat-raised-button color="primary">
+    <button [disabled]="activeNum==0" mat-raised-button color="primary" [mat-dialog-close]="getImageSource(activeNum)">
         ثبت
     </button>
 </div>

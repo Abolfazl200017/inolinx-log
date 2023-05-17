@@ -7,6 +7,7 @@ import { ProfileService } from 'src/app/services/api/profile.service';
 import { UserService } from 'src/app/services/auth/user.service';
 import { IProfile } from 'src/app/shared/interface';
 import { AvatarsComponent } from './avatars/avatars.component';
+import { ImageService } from 'src/app/services/global/image.service';
 
 @Component({
   selector: 'app-edit',
@@ -34,6 +35,7 @@ export class EditComponent implements OnInit {
     private user: UserService,
     private snack: MatSnackBar,
     private dialog: MatDialog,
+    private imageService: ImageService,
   ) { }
 
   ngOnInit(): void {
@@ -142,6 +144,17 @@ export class EditComponent implements OnInit {
     const dialogRef = this.dialog.open(AvatarsComponent, {
       maxWidth: 400,
     })
-
+    dialogRef.afterClosed().subscribe(
+      result=>{
+        if(result){
+          this.imageService.getBase64ImageFromURL(result).subscribe(
+            (response)=>{
+              this.logoImage = response
+              this.image = this.convertToFile(response);
+            }
+          )
+        }
+      }
+    )
   }
 }
