@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormArray, UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgxImageCompressService } from 'ngx-image-compress';
 import { ProfileService } from 'src/app/services/api/profile.service';
 import { UserService } from 'src/app/services/auth/user.service';
-import { GlobalService } from 'src/app/services/global/global.service';
-import { ImageService } from 'src/app/services/global/image.service';
 import { IProfile } from 'src/app/shared/interface';
+import { AvatarsComponent } from './avatars/avatars.component';
 
 @Component({
   selector: 'app-edit',
@@ -30,11 +30,10 @@ export class EditComponent implements OnInit {
   constructor(
     private formBuilder: UntypedFormBuilder,
     private imageCompress: NgxImageCompressService,
-    private global: GlobalService,
     private profileService: ProfileService,
     private user: UserService,
     private snack: MatSnackBar,
-    private imageService: ImageService,
+    private dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -108,6 +107,7 @@ export class EditComponent implements OnInit {
       this.formGroup.get('last_name')?.setValue(this.profile.last_name)
       this.formGroup.get('email')?.setValue(this.profile.email)
       this.formGroup.get("specialty")?.setValue(JSON.parse(this.profile.specialty.toString()))
+      this.logoImage = this.profile.image
       // this.global.setLoading(false);
       return
     }      
@@ -137,5 +137,11 @@ export class EditComponent implements OnInit {
         this.profileService.edit(formValue)
       }
     }
+  }
+  getAvatar():void{
+    const dialogRef = this.dialog.open(AvatarsComponent, {
+      maxWidth: 400,
+    })
+
   }
 }

@@ -11,6 +11,7 @@ import { IssuesComponent } from './issues/issues.component';
 import { EditComponent } from './edit/edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { AvatarsComponent } from './edit/avatars/avatars.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     RequestsComponent,
     IssuesComponent,
     RequestsComponent,
-    EditComponent
+    EditComponent,
+    AvatarsComponent
   ],
   imports: [
     CommonModule,
