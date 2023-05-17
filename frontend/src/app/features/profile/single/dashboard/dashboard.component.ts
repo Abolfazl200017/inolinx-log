@@ -14,5 +14,8 @@ export class DashboardComponent implements OnInit {
   ) {}
   
   ngOnInit(): void {}
-
+  getArray(arr:any){
+    if(arr!=undefined)
+      return JSON.parse(arr.toString());
+  }
 }

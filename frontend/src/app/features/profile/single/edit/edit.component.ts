@@ -105,7 +105,7 @@ export class EditComponent implements OnInit {
       this.formGroup.get('first_name')?.setValue(this.profile.first_name)
       this.formGroup.get('last_name')?.setValue(this.profile.last_name)
       this.formGroup.get('email')?.setValue(this.profile.email)
-      this.formGroup.get("specialty")?.setValue(this.profile.specialty)
+      this.formGroup.get("specialty")?.setValue(JSON.parse(this.profile.specialty.toString()))
       // this.global.setLoading(false);
       return
     }      
@@ -122,8 +122,9 @@ export class EditComponent implements OnInit {
         formValue.append('last_name', form.last_name)
       if(form.email!=this.profile.email)
         formValue.append('email', form.email)
-      if(form.specialty != this.profile.specialty)
-        formValue.append('specialty', form.specialty)
+      if(form.specialty != this.profile.specialty){
+        formValue.append('specialty', JSON.stringify(form.specialty))
+      }
       if(form.password!='')
         formValue.append('password', this.profile.password)
       if(this.logoImage!=null){

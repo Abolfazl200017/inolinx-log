@@ -16,7 +16,7 @@
                 <span class="font-semibold ml-1">
                     تخصص‌ها :
                 </span>
-                <span *ngFor="let skill of profile().specialty;let i = index;">
+                <span *ngFor="let skill of getArray(profile().specialty);let i = index;">
                     <span *ngIf="i!=0"> ، </span>
                     {{skill}}
                 </span>
