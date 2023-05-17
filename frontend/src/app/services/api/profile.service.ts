@@ -5,6 +5,19 @@ import { JwtService } from '../auth/jwt.service';
 import { GlobalService } from '../global/global.service';
 import { UserService } from '../auth/user.service';
 
+interface IProfile{
+  "first_name": "string",
+  "last_name": "string",
+  "image": "string",
+  "email": "user@example.com",
+  "url": "string",
+  "password": "string",
+  "id": 0,
+  "specialty": [
+    "string"
+  ]
+}
+
 @Injectable({
   providedIn: 'root'
 })
